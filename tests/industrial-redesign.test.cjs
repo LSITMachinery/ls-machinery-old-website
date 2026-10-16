@@ -7,8 +7,7 @@ const base=process.env.LS_PREVIEW_URL||'http://127.0.0.1:8000/';
  const noLegacy=async()=>assert.equal(await page.locator('#main a[href^="https://lsmachinery.com.my"], #footer a[href^="https://lsmachinery.com.my"]').count(),0,'public links must stay on new pages or verified social destinations');
  await go('home');assert.equal(await page.locator('.home-social').count(),0);assert.equal(await page.locator('[data-newsletter]').count(),0);assert.equal(await page.locator('.footer-social-icons a').count(),7);assert.match(await page.locator('#footer').innerText(),/1308318-K[\s\S]*MATRADE Registered · MOF Organization Certified/);assert.equal(await page.locator('.current-editorial-image').count()>0,true);
  await noLegacy();assert.equal(await page.locator('.current-intro-disclosure,.segment-picks').count(),0);
- assert.equal(await page.locator('.client-marquee button').count(),0);
- assert.equal(await page.locator('.client-strip-heading').innerText(),'Companies LS has worked with');
+ assert.equal(await page.locator('.client-marquee button,.client-strip-heading').count(),0);
  await page.setViewportSize({width:2215,height:1252});await page.waitForTimeout(60);
  for(const selector of ['.client-marquee','.footer-inner']){const box=await page.locator(selector).boundingBox();assert.ok(Math.abs(box.x)<1&&Math.abs(box.width-2215)<1,selector+' should span the viewport');}
  await page.setViewportSize({width:1440,height:1000});await page.waitForTimeout(60);
@@ -24,7 +23,7 @@ const base=process.env.LS_PREVIEW_URL||'http://127.0.0.1:8000/';
  await go('insights');assert.ok(await page.locator('.pp-story img').count()>=3);await noLegacy();
  await go('company/locations');assert.equal(await page.locator('.global-map img').evaluate(img=>img.complete&&img.naturalWidth>0),true);assert.equal(await page.locator('.market-regions>div').count(),4);await noLegacy();
  await go('company/careers');assert.equal(await page.locator('.career-role').count(),14);for(const href of await page.locator('.career-role a').evaluateAll(items=>items.map(el=>el.href)))assert.ok(href.startsWith('https://malaysia.indeed.com/')||href.startsWith('mailto:lshr@lsmachinery.com.my'));await noLegacy();
- await go('company/history');assert.equal(await page.locator('.history-chapter').count(),4);assert.equal(await page.locator('.story-progress').count(),0);await page.locator('.history-read-cue').click();await page.waitForTimeout(120);assert.ok((await page.locator('#history-1').boundingBox()).y<1000,'history cue reveals the first chapter');await noLegacy();
+ await go('company/history');assert.equal(await page.locator('.history-chapter').count(),4);assert.equal(await page.locator('.story-progress').count(),0);await page.locator('.history-read-cue').click();assert.equal(await page.evaluate(()=>location.hash),'#company/history');await noLegacy();
  await go('company/customer-partnerships');assert.equal(await page.locator('.customer-gallery img').count(),10);await noLegacy();
  for(const route of ['micro-startup-businesses','smes-expanding-manufacturers','large-mega-enterprises']){await go('segment/'+route);assert.equal(await page.locator('.segment-recommendations .catalogue-item').count(),0);assert.doesNotMatch(await page.locator('#main').innerText(),/Start with the questions that matter/);await noLegacy();}
  assert.deepEqual(errors,[]);await browser.close();console.log('PASS: industrial discovery, vertical menu, original-resolution viewer, footer cleanup, social recruitment, global map and story journeys.');

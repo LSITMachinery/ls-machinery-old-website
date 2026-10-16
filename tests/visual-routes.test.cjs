@@ -78,7 +78,7 @@ const routes = [
     assert.equal(await page.locator('#lead-form').count(), route === 'inquiry' || route === 'services/spare-parts' || route === 'service/spare-parts-request' ? 1 : 0, `full inquiry form should appear only on Contact and Spare Parts (${route})`);
     assert.ok(route === "company/history" || state.hero.editorial || (Math.abs(state.hero.left)<1 && Math.abs(state.hero.right-state.hero.width)<1), `hero does not span the page on ${route}`);
     const titleColor=state.hero.color.match(/\d+/g).map(Number);
-    assert.ok(route==='home'||route==='company/history'||state.hero.editorial?Math.max(...titleColor)<100:Math.min(...titleColor)>225,`hero title should remain readable on ${route}`);
+    assert.ok(route==='company/history'||state.hero.editorial?Math.max(...titleColor)<100:Math.min(...titleColor)>225,`hero title should remain readable on ${route}`);
   }
 
   await navigate('machine/lsf-502-mcd');

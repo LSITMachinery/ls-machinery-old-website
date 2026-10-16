@@ -1,9 +1,0 @@
-{
-  "context": "Single unthrottled localhost sample after the final redesign build; diagnostic only, not field performance data.",
-  "url": "http://127.0.0.1:8011/",
-  "samples": [
-    { "width": 375, "lcpMs": 432, "cls": 0.00007767232510288066, "transferBytes": 1059643, "pageHeight": 8289, "headerHeight": 72, "consoleErrors": 0, "failedLocalRequests": 0 },
-    { "width": 768, "lcpMs": 260, "cls": 0.000545877754414441, "transferBytes": 1059751, "pageHeight": 6257, "headerHeight": 72, "consoleErrors": 0, "failedLocalRequests": 0 },
-    { "width": 1440, "lcpMs": 528, "cls": 0.0004431312198625218, "transferBytes": 1087323, "pageHeight": 5610, "headerHeight": 80, "consoleErrors": 0, "failedLocalRequests": 0 }
-  ]
-}
