@@ -19,4 +19,13 @@
   --visual-orange: #f2673b;
   --visual-ink: #171715;
   --visual-paper: #f3f1eb;
+  --home-ink: var(--ink);
+  --home-paper: #f5f4ef;
+  --home-accent: var(--orange);
+  --home-accent-ink: #a33a16;
+  --home-muted: #585b57;
+  --home-rule: #d6d8d0;
+  --home-stage: #e8e9e3;
+  --home-section-space: clamp(64px, 6.5vw, 96px);
+  --home-ease: cubic-bezier(.23, 1, .32, 1);
 }

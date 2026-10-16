@@ -1,0 +1,2 @@
+PASS: 101 desktop routes render sourced images without broken assets, empty media or horizontal overflow; gallery, inquiry context, motion toggle and three languages work.
+PASS: all 101 route layouts fit desktop and mobile, including the distinct history cover; screenshots were written to the system temporary folder.

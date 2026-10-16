@@ -48,7 +48,10 @@
     return (c.socialLinks || []).map(({name,href,icon})=>`<a href="${esc(href)}" target="_blank" rel="noopener noreferrer" aria-label="LS Smart Machinery on ${esc(name)}"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">${icon}</svg></a>`).join('');
   }
   function newsSection(c) { return window.LSProductionPages.newsSection(c); }
-  function home(c) {
+  const homeArrow = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+  const homeLink = (href, label, className = '') => `<a class="home-link ${className}" href="${esc(href)}"><span>${esc(label)}</span>${homeArrow}</a>`;
+
+  function homeHero(c) {
     const heroChoices = [
       {model:'LSF 502 MCD',catalogueName:'Mini Cookie Depositor (MCD)'},
       {model:'LSF 502 MCWC',catalogueName:'Mini Cookie Wire Cut (MCWC)'},
@@ -56,17 +59,42 @@
     ];
     const heroMachine = heroChoices.find(item=>item.model===c.content.homeHeroModel)||heroChoices[0];
     const heroImage = c.assets.catalogue[heroMachine.catalogueName]?.image;
-    const capabilities = c.homeText('why').slice(0,4);
-    return `<div class="home-page reference-home">
-      <section class="reference-hero home-hero" aria-labelledby="home-title"><figure class="home-industry-backdrop" aria-hidden="true">${c.assetImage(c.sectionAsset('currentProduction'),'home-industry-photo',{alt:'',loading:'eager',sizes:'100vw'})}</figure><div class="reference-hero-panel"><span class="eyebrow">${esc(c.t('heroEyebrow'))}</span><h1 id="home-title" class="display-title">${esc(c.content.heroTitleA)}<br><span class="hero-accent">${esc(c.content.heroTitleB)}</span></h1><p class="lede">${esc(c.content.heroLead)}</p><div class="hero-actions"><a class="button-link home-food-action" href="#food" data-scroll-to="food">${esc(c.t('allFood'))} <span class="button-arrow" aria-hidden="true">↗</span></a>${c.arrowLink('#machines',c.t('exploreMachines'))}${c.arrowLink('#inquiry?intent=quote',c.t('askForQuote'))}</div></div><div class="home-machinery-media"><figure class="home-machine-static">${c.assetImage(heroImage,'hero-machine-image',{priority:true,loading:'eager',alt:heroMachine.model,sizes:'(max-width:800px) 80vw, 50vw'})}</figure></div></section>
-      <section class="section-wrap section-pad home-food-section" id="food" aria-labelledby="home-food-title"><h2 id="home-food-title" class="section-title compact-heading">${esc(text(c,'What would you like to produce?','您希望生产哪类食品？','Apakah yang ingin anda hasilkan?'))}</h2>${foodLinks(c)}</section>
-      ${currentEditorial(c)}
-      <section class="section-wrap section-pad home-capabilities" id="why-ls" aria-labelledby="home-capabilities-title"><div class="home-capabilities-intro"><h2 id="home-capabilities-title" class="section-title">${esc(text(c,'From product planning to ongoing support','从产品规划到持续支持','Daripada perancangan produk hingga sokongan berterusan'))}</h2></div><ol class="home-capability-list">${capabilities.map(([title,body])=>`<li><div><h3>${esc(title)}</h3><p>${esc(body)}</p></div></li>`).join('')}</ol></section>
-      <section class="section-wrap section-pad home-segments" id="segments"><h2 class="section-title">${esc(text(c,'Customer segments','客户群体','Segmen pelanggan'))}</h2>${segmentPicker(c)}</section>
-      ${newsSection(c)}
-      <section class="section-wrap section-pad home-experiences" id="customer-experiences"><div class="section-heading-row"><div><span class="eyebrow">${esc(text(c,'CUSTOMER PARTNERSHIPS','客户合作','KERJASAMA PELANGGAN'))}</span><h2 class="section-title">${esc(text(c,'Built around the people who produce.','围绕每一位食品生产者。','Bersama mereka yang menghasilkan.'))}</h2></div><a href="#company/customer-partnerships">${esc(text(c,'Explore our partnerships','了解客户合作','Terokai kerjasama kami'))} ↗</a></div><p class="customer-partnership-intro">${esc(text(c,'People and machinery in LS’s published production gallery.','LS 已发布生产图库中的团队与机器。','Orang dan mesin dalam galeri pengeluaran LS.'))}</p><div class="customer-experience-grid">${experienceCards(c,3)}</div></section>
-      ${inquiryBand(c)}
-    </div>`;
+    return `<section class="reference-hero home-hero" aria-labelledby="home-title">
+      <div class="reference-hero-panel"><h1 id="home-title" class="display-title">${esc(c.content.heroTitleA)} <span class="hero-accent">${esc(c.content.heroTitleB)}</span></h1><p class="lede">${esc(c.content.heroLead)}</p>
+        <div class="hero-actions"><a class="button-link home-food-action" href="#food" data-scroll-to="food">${esc(text(c,'Explore equipment by food','按食品探索设备','Terokai mesin mengikut makanan'))}${homeArrow}</a>${homeLink('#inquiry?intent=consult',text(c,'Discuss your production','讨论生产需求','Bincangkan pengeluaran anda'),'home-secondary-action')}</div>
+        ${homeLink('#machines',c.t('exploreMachines'),'home-catalogue-link')}
+      </div>
+      <div class="home-machinery-media"><figure class="home-machine-static">${c.assetImage(heroImage,'hero-machine-image',{priority:true,loading:'eager',alt:c.localName(heroMachine.catalogueName),sizes:'(max-width:600px) 85vw, (max-width:1000px) 52vw, 36vw'})}<figcaption>${homeLink(c.productUrl(heroMachine.catalogueName),`${c.localName(heroMachine.catalogueName)} · ${heroMachine.model}`,'home-machine-link')}</figcaption></figure></div>
+    </section>`;
+  }
+
+  function homeFood(c) {
+    return `<section class="section-wrap section-pad home-food-section" id="food" aria-labelledby="home-food-title"><div class="home-section-heading"><h2 id="home-food-title" class="section-title">${esc(text(c,'Start with what you make.','从您制作的食品开始。','Bermula dengan produk anda.'))}</h2><p class="body-copy">${esc(text(c,'Explore food applications, then the equipment and production stages behind them.','先了解食品应用，再探索相关设备与生产工序。','Terokai aplikasi makanan, kemudian mesin dan peringkat pengeluarannya.'))}</p></div>${foodLinks(c)}</section>`;
+  }
+
+  function homeEquipment(c) {
+    const descriptions = [
+      text(c,'Mixing, forming, depositing and baking.','搅拌、成型、注料与烘焙。','Mengadun, membentuk, mendeposit dan membakar.'),
+      text(c,'Preparation, cooking and food processing.','备料、烹饪与食品加工。','Penyediaan, memasak dan pemprosesan makanan.'),
+      text(c,'Packaging equipment for the next stage.','衔接下一工序的包装设备。','Mesin pembungkusan untuk peringkat seterusnya.'),
+      text(c,'Chilling and freezing in your process.','生产流程中的冷藏与冷冻。','Penyejukan dan pembekuan dalam proses anda.'),
+      text(c,'Bring the production stages together.','衔接各个生产工序。','Satukan peringkat pengeluaran anda.')
+    ];
+    return `<section class="section-wrap section-pad home-equipment" id="equipment" aria-labelledby="home-equipment-title"><div class="home-equipment-intro"><h2 id="home-equipment-title" class="section-title">${esc(text(c,'The right place in your process.','找到流程中合适的一步。','Langkah yang sesuai dalam proses anda.'))}</h2><p class="body-copy">${esc(text(c,'Know the equipment you need? Browse the range or search by machine name and model.','已了解所需设备？浏览设备类别，或按设备名称与型号查找。','Sudah tahu mesin yang diperlukan? Semak rangkaian atau cari mengikut nama dan model.'))}</p><form class="home-machine-search" role="search" action="/search/" method="get"><label for="home-machine-query">${esc(text(c,'Machine name or model','设备名称或型号','Nama atau model mesin'))}</label><div><input id="home-machine-query" type="search" name="q" placeholder="${esc(text(c,'e.g. MCD, mixer, freezer','例如 MCD、搅拌机、冷冻柜','cth. MCD, mixer, freezer'))}" autocomplete="off"><button type="submit" aria-label="${esc(text(c,'Search machinery','查找设备','Cari mesin'))}">${homeArrow}</button></div></form></div><ul class="home-equipment-list">${c.categories.slice(0,5).map((category,index)=>`<li><a href="#machines/${slug(category.name)}"><span><strong>${esc(c.localName(category.name))}</strong><span>${esc(descriptions[index])}</span></span>${homeArrow}</a></li>`).join('')}</ul></section>`;
+  }
+
+  function homeServices(c) {
+    const routes = ['#solution/factory-line-planning','#solution/machinery-automation','#service/installation-training','#service/support-repairs'];
+    return `<section class="home-capabilities" id="why-ls" aria-labelledby="home-capabilities-title"><div class="section-wrap section-pad"><div class="home-section-heading"><h2 id="home-capabilities-title" class="section-title">${esc(text(c,'From planning to production. And beyond.','从规划到生产，持续同行。','Dari perancangan ke pengeluaran. Dan seterusnya.'))}</h2><div><p class="body-copy">${esc(text(c,'Equipment is one part of the conversation. Plan the space, prepare the team and keep your operation supported.','设备只是其中一环。规划空间、培训团队，并为运营提供持续支持。','Mesin ialah sebahagian daripada perbincangan. Rancang ruang, sediakan pasukan dan sokong operasi anda.'))}</p>${homeLink('#services',c.t('allServices'))}</div></div><ol class="home-capability-list">${c.homeText('why').slice(0,4).map(([title,body],index)=>`<li><a href="${routes[index]}"><h3>${esc(title)}</h3>${homeArrow}<p>${esc(body)}</p></a></li>`).join('')}</ol></div></section>`;
+  }
+
+  function homeCompany(c) {
+    const currentImage=c.sectionAsset('history','early-phases')||c.sectionAsset('currentProduction');
+    return `<section class="section-wrap section-pad home-current editorial-current" id="current"><div class="current-editorial-layout"><figure class="current-editorial-media">${c.assetImage(currentImage,'current-editorial-image',{sizes:'(max-width:700px) 92vw, 48vw'})}</figure><div class="current-editorial-panel"><h2 class="current-editorial-title">${esc(c.content.currentTitle)}</h2><p class="body-copy">${esc(c.content.currentText)}</p><div class="current-editorial-actions">${homeLink('#company',text(c,'Meet LS Smart Machinery','认识 LS Smart Machinery','Kenali LS Smart Machinery'))}${homeLink('#company/history',text(c,'Our story','我们的故事','Kisah kami'))}</div></div></div><div class="home-experiences" id="customer-experiences"><div class="home-gallery-heading"><p>${esc(text(c,'People and equipment from LS’s production gallery.','来自 LS 生产图库的团队与设备。','Orang dan mesin daripada galeri pengeluaran LS.'))}</p>${homeLink('#company/customer-partnerships',text(c,'Customer partnerships','客户合作','Kerjasama pelanggan'))}</div><div class="customer-experience-grid">${experienceCards(c,3)}</div></div></section>`;
+  }
+
+  function home(c) {
+    return `<div class="home-page reference-home">${homeHero(c)}<div class="home-trust">${clientStrip(c)}</div>${homeFood(c)}${homeEquipment(c)}${homeServices(c)}<section class="section-wrap section-pad home-segments" id="segments"><div class="home-section-heading"><h2 class="section-title">${esc(text(c,'Your next stage starts here.','从这里迈向下一阶段。','Peringkat seterusnya bermula di sini.'))}</h2><p class="body-copy">${esc(text(c,'Explore a production path for where your business is today.','根据企业当前阶段，探索生产路径。','Terokai laluan pengeluaran mengikut tahap perniagaan anda.'))}</p></div>${segmentPicker(c)}</section>${homeCompany(c)}${inquiryBand(c)}</div>`;
   }
   function process(c, context) {
     const stages = [

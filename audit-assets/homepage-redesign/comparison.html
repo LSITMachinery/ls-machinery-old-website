@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LS homepage baseline comparison</title>
+  <style>
+    :root{color-scheme:light;font-family:Arial,sans-serif;background:#ecebe5;color:#20211f}
+    *{box-sizing:border-box}body{margin:0;padding:32px}header{max-width:1440px;margin:0 auto 24px;display:flex;gap:18px;align-items:end;justify-content:space-between;flex-wrap:wrap}h1{font-size:clamp(28px,4vw,54px);line-height:1;margin:0;letter-spacing:-.04em}p{margin:10px 0 0;color:#5b5c57}nav{display:flex;gap:8px;flex-wrap:wrap}button,a{font:inherit}button{min-height:44px;padding:0 18px;border:1px solid #b8b7b0;background:#fff;cursor:pointer}button[aria-pressed="true"]{background:#20211f;color:#fff;border-color:#20211f}.grid{max-width:1440px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:18px}.panel{background:#fff;border:1px solid #d5d3cc}.panel h2{font-size:14px;margin:0;padding:14px 16px;border-bottom:1px solid #e5e3dd}.panel img{display:block;width:100%;height:auto}.links{max-width:1440px;margin:18px auto 0;display:flex;gap:18px;flex-wrap:wrap}.links a{color:#a33a16;text-underline-offset:4px}@media(max-width:760px){body{padding:18px}.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header>
+    <div><h1>Homepage comparison</h1><p>Original audit baseline beside the approved redesign, at the same viewport width.</p></div>
+    <nav aria-label="Select viewport">
+      <button type="button" data-width="375" aria-pressed="false">375px</button>
+      <button type="button" data-width="768" aria-pressed="false">768px</button>
+      <button type="button" data-width="1440" aria-pressed="true">1440px</button>
+    </nav>
+  </header>
+  <main class="grid">
+    <section class="panel"><h2>Original baseline</h2><img id="before" alt="Original LS homepage screenshot at 1440 pixels"></section>
+    <section class="panel"><h2>Approved redesign</h2><img id="after" alt="Redesigned LS homepage screenshot at 1440 pixels"></section>
+  </main>
+  <div class="links"><a id="before-full" href="#">Open full original screenshot</a><a id="after-full" href="#">Open full redesigned screenshot</a></div>
+  <script>
+    const before=document.querySelector('#before');
+    const after=document.querySelector('#after');
+    const beforeFull=document.querySelector('#before-full');
+    const afterFull=document.querySelector('#after-full');
+    const setWidth=width=>{
+      const original=`../ui-ux-audit-2026-10-16/screenshots/homepage-${width}`;
+      const redesigned=`screenshots/pass-2/homepage-${width}`;
+      before.src=`${original}-viewport.png`;after.src=`${redesigned}-viewport.png`;
+      before.alt=`Original LS homepage screenshot at ${width} pixels`;
+      after.alt=`Redesigned LS homepage screenshot at ${width} pixels`;
+      beforeFull.href=`${original}-full.png`;afterFull.href=`${redesigned}-full.png`;
+      document.querySelectorAll('button[data-width]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.width===width)));
+    };
+    document.querySelectorAll('button[data-width]').forEach(button=>button.addEventListener('click',()=>setWidth(button.dataset.width)));
+    setWidth('1440');
+  </script>
+</body>
+</html>
