@@ -1,0 +1,22 @@
+/* LS design tokens. All shared colors, typography and page dimensions live here. */
+:root {
+  --ink: #20211f;
+  --paper: #fff;
+  --white: #fff;
+  --orange: #f26732;
+  --orange-light: #ff7445;
+  --muted: #62635f;
+  --line: #ddd;
+  --sand: #e9e5dc;
+  --olive: #666b4f;
+  --sans: 'DM Sans', Arial, sans-serif;
+  --display: 'DM Sans', Arial, sans-serif;
+  --serif: var(--display);
+  --mono: 'DM Mono', monospace;
+  --max: 1920px;
+  --gutter: clamp(22px, 4vw, 88px);
+  --ease: cubic-bezier(.3, .4, .3, 1);
+  --visual-orange: #f2673b;
+  --visual-ink: #171715;
+  --visual-paper: #f3f1eb;
+}

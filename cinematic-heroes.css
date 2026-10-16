@@ -1,0 +1,121 @@
+/* Shared full-width dark heroes, restored from the approved visual reference. */
+.reference-hero {
+  position:relative; isolation:isolate; display:grid; align-items:center;
+  max-width:none; width:100%; min-height:clamp(540px,43vw,680px);
+  margin:0; padding:0; overflow:hidden; background:#121212; color:#fff;
+}
+.reference-hero-media,.home-machinery-media {
+  position:absolute; inset:0; width:100%; height:100%; margin:0;
+  border-radius:0; overflow:hidden; background:#242424;
+}
+.reference-hero-media::after,.home-machinery-media::after {
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(90deg,#121212 0%,#121212f5 29%,#121212cc 44%,#12121238 68%,#1212120a 100%);
+}
+.reference-hero-image { width:100%; height:100%; object-fit:cover; object-position:70% center; }
+.reference-hero-media.is-equipment-reference .reference-hero-image {
+  position:absolute; right:2%; top:6%; width:56%; height:82%; padding:24px;
+  object-fit:contain;
+}
+.reference-hero-media figcaption {
+  z-index:1; top:auto; bottom:24px; right:var(--gutter); max-width:48%;
+  font-size:11px; line-height:1.5; background:#121212d9; padding:8px 12px;
+}
+.reference-hero-panel,.reference-home .reference-hero-panel {
+  z-index:2; width:100%; max-width:var(--max); margin:0 auto;
+  padding:80px var(--gutter) 92px; background:transparent; border-radius:0;
+}
+.reference-hero-panel .display-title,.reference-home .reference-hero-panel .display-title {
+  max-width:590px; margin:20px 0 26px; color:#fff;
+  font-size:clamp(40px,3.7vw,54px); line-height:1.07; letter-spacing:-.045em;
+  overflow-wrap:break-word; text-wrap:balance;
+}
+.reference-hero-panel .lede {
+  max-width:440px; margin:0 0 28px; font-size:17px; line-height:1.7; color:#ddd;
+}
+.reference-hero-panel .eyebrow,.reference-product-hero .eyebrow {
+  display:flex; align-items:center; gap:12px; color:#ddd;
+  font:700 10px/1.5 var(--sans); letter-spacing:.12em; text-transform:uppercase;
+}
+.reference-hero-panel .eyebrow::before,.reference-product-hero .eyebrow::before {
+  content:""; display:block; flex:none; width:24px; height:2px; background:#ff8617;
+}
+.hero-accent { color:#ff8617; }
+.reference-hero .button-link,.reference-product-hero .button-link {
+  min-height:48px; background:#ff8617; color:#151515; padding:12px 22px;
+}
+.reference-hero .button-link:hover,.reference-product-hero .button-link:hover { background:#ffa14b; }
+.reference-hero .arrow-link { color:#fff; border-color:#ffffff80; }
+.reference-hero .arrow-link:hover { color:#ffad63; }
+.reference-hero :focus-visible,.reference-product-hero :focus-visible { outline-color:#ffad63; }
+.home-machine-frame .hero-machine-image {
+  top:5%; right:3%; width:54%; height:82%; object-fit:contain; padding:24px;
+}
+.home-machine-frame figcaption { z-index:1; top:auto; bottom:70px; right:var(--gutter); }
+.hero-product-link { padding:8px 0; min-height:44px; color:#fff; }
+.hero-media-controls { z-index:3; top:auto; bottom:24px; right:var(--gutter); }
+.hero-media-controls button { width:44px; height:44px; }
+.hero-count { display:inline; }
+.hero-media-label { display:none; }
+
+/* Product photos remain interactive and contained to preserve full geometry. */
+.reference-product-hero {
+  width:100%; max-width:none; margin:0; padding:40px var(--gutter) 60px;
+  background:linear-gradient(110deg,#121212 25%,#242424); color:#fff;
+}
+.reference-product-hero .breadcrumbs { max-width:1112px; margin:0 auto 38px; }
+.reference-product-hero .machine-hero-grid {
+  display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);
+  align-items:center; gap:48px; max-width:1112px;
+}
+.reference-product-hero .machine-hero-copy { max-width:none; min-width:0; }
+.reference-product-hero .machine-hero-copy .display-title {
+  font-size:clamp(36px,4.2vw,62px); line-height:1.09; overflow-wrap:anywhere;
+}
+.reference-product-hero .lede { font-size:17px; line-height:1.7; max-width:440px; color:#ddd; }
+.reference-product-hero .small-note { color:#bdbdbd; }
+.reference-product-hero .machine-stage {
+  background:transparent; border:0; min-height:420px; padding:28px 18px 68px 50px;
+  margin:0; order:initial;
+}
+.reference-product-hero .machine-image-well { min-height:340px; }
+.reference-product-hero .machine-photo { max-height:420px; }
+.reference-product-hero .machine-photo-note { background:#121212d9; color:#ddd; }
+
+@media(max-width:1000px) {
+  .reference-hero-panel,.reference-home .reference-hero-panel { padding-block:68px 92px; }
+  .reference-hero-panel .display-title,.reference-home .reference-hero-panel .display-title { max-width:52%; font-size:clamp(38px,5.2vw,52px); }
+  .reference-hero-panel .lede { max-width:46%; font-size:16px; }
+  .reference-product-hero .machine-hero-grid { gap:24px; }
+}
+@media(max-width:800px) {
+  .reference-hero { min-height:0; display:flex; flex-direction:column; padding:0; margin:0; }
+  .reference-hero-media,.home-machinery-media { position:relative; inset:auto; height:300px; flex:none; }
+  .reference-hero-media::after,.home-machinery-media::after { background:linear-gradient(0deg,#121212,transparent 48%); }
+  .reference-hero-image { object-position:center; }
+  .reference-hero-media.is-equipment-reference .reference-hero-image,.home-machine-frame .hero-machine-image {
+    top:0; right:0; width:100%; height:100%; padding:20px 28px 50px;
+  }
+  .reference-hero-panel,.reference-home .reference-hero-panel { padding:26px var(--gutter) 48px; margin:0; width:100%; }
+  .reference-hero-panel .display-title,.reference-home .reference-hero-panel .display-title { font-size:clamp(36px,6vw,48px); max-width:620px; margin:18px 0 22px; }
+  .reference-hero-panel .lede { max-width:560px; font-size:16px; }
+  .reference-hero-media figcaption { right:var(--gutter); bottom:12px; max-width:calc(100% - var(--gutter)*2); }
+  .home-machine-frame figcaption { right:auto; left:var(--gutter); bottom:8px; }
+  .hero-product-link { font-size:13px; }
+  .hero-media-controls { bottom:10px; right:var(--gutter); gap:10px; }
+  .hero-count { font-size:10px; }
+  .hero-media-controls button { width:44px; height:44px; }
+  .hero-actions { gap:20px; }
+  .reference-product-hero { padding:28px var(--gutter) 44px; }
+  .reference-product-hero .machine-hero-grid { grid-template-columns:1fr; gap:24px; }
+  .reference-product-hero .breadcrumbs { margin-bottom:24px; }
+  .reference-product-hero .machine-hero-copy .display-title { font-size:clamp(36px,6vw,48px); }
+  .reference-product-hero .machine-stage { min-height:330px; padding:16px 20px 60px 48px; }
+  .reference-product-hero .machine-image-well { min-height:260px; }
+  .reference-product-hero .machine-photo { max-height:320px; }
+}
+@media(max-width:520px) {
+  .reference-hero-media,.home-machinery-media { height:250px; border-radius:0; }
+  .reference-hero-panel,.reference-home .reference-hero-panel { padding-bottom:40px; }
+  .reference-hero-panel .display-title,.reference-home .reference-hero-panel .display-title { font-size:36px; }
+}

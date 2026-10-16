@@ -1,0 +1,33 @@
+/* Shared layout and type. Component files own their own variants and breakpoints. */
+.section-wrap {
+  width: 100%;
+  min-width: 0;
+  max-width: var(--max);
+  padding-inline: var(--gutter);
+  margin-inline: auto;
+}
+.section-title {
+  font: 700 clamp(32px, 3.8vw, 66px)/1.06 var(--display);
+  letter-spacing: -.045em;
+  margin: 0 0 28px;
+  text-wrap: balance;
+}
+.section-pad { padding-block: clamp(65px, 7vw, 124px); }
+.body-copy { font-size: 17px; line-height: 1.8; color: #555; }
+.ls-header-main, .ls-header-utility { max-width: none !important; }
+.ls-menu-inner { max-width: var(--max); padding: 28px var(--gutter) 42px; margin: 0 auto; }
+.footer-brand .company-legal-suffix { white-space: nowrap; }
+.footer-links a:focus-visible, .footer-bottom a:focus-visible { outline-offset: 4px; }
+.footer-links a:hover, .footer-bottom a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.form-actions [hidden] { display: none !important; }
+.inquiry-production-details { border-block: 1px solid var(--line); padding-block: 16px; }
+.inquiry-production-details summary { cursor: pointer; font-size: 14px; font-weight: 600; padding-block: 6px; }
+.inquiry-production-details[open] > .field { margin-top: 16px; }
+.inquiry-form .small-note a { text-decoration: underline; text-underline-offset: 3px; }
+.catalogue-global-search { display: flex; align-items: end; flex-wrap: wrap; gap: 12px; max-width: 760px; }
+.catalogue-global-search label { display: flex; flex-direction: column; flex: 1 1 260px; gap: 7px; font-size: 13px; }
+.catalogue-global-search input { width: 100%; min-height: 46px; border: 1px solid #bbb; border-radius: 0; background: #fff; padding: 10px 14px; }
+.catalogue-global-search button { min-height: 46px; }
+@media (max-width: 520px) {
+  .section-pad { padding-block: 60px; }
+}
