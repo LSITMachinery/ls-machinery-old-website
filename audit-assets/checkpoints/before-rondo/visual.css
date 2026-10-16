@@ -1,0 +1,647 @@
+:root {
+  --visual-orange: #f2673b;
+  --visual-ink: #171715;
+  --visual-paper: #f3f1eb;
+}
+
+.brand-logo {
+  display: block;
+  width: clamp(92px, 11vw, 148px);
+  height: auto;
+  object-fit: contain;
+}
+
+.motion-control {
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid #17171532;
+  padding: 6px 9px;
+  background: transparent;
+  cursor: pointer;
+  font: 9px var(--mono);
+  white-space: nowrap;
+}
+
+.motion-control:hover,
+.motion-control[aria-pressed="true"] {
+  background: var(--visual-ink);
+  color: white;
+}
+
+.hero-art {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at 50% 45%, #fff 0, #ece9e1 63%, #dedbd2 100%);
+}
+
+.hero-machine-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  padding: clamp(16px, 3vw, 42px);
+  animation: machine-arrive .85s cubic-bezier(.2,.7,.2,1) both;
+}
+
+.hero-image-caption {
+  position: absolute;
+  right: 18px;
+  bottom: 17px;
+  max-width: 70%;
+  padding: 8px 10px;
+  background: #f8f7f1ed;
+  color: var(--visual-ink);
+  font: 9px/1.4 var(--mono);
+  letter-spacing: .04em;
+}
+
+.current-visual {
+  margin: 0;
+  min-height: 405px;
+  aspect-ratio: 1.18 / 1;
+  background: #242421;
+}
+
+.current-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.current-visual::after {
+  position: absolute;
+  inset: 45% 0 0;
+  content: "";
+  background: linear-gradient(transparent, #1119);
+  pointer-events: none;
+}
+
+.current-stamp,
+.current-caption {
+  z-index: 1;
+}
+
+.current-caption {
+  position: absolute;
+  right: 18px;
+  bottom: 17px;
+  color: white;
+  font: 9px var(--mono);
+  letter-spacing: .06em;
+}
+
+.food-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 8px;
+  min-height: 220px;
+  padding: 18px;
+  overflow: hidden;
+  isolation: isolate;
+  background: #252420;
+  color: white;
+}
+
+.food-card::before {
+  position: absolute;
+  z-index: -1;
+  inset: 35% 0 0;
+  content: "";
+  background: linear-gradient(transparent, #131311ed);
+}
+
+.food-card-image {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .55s cubic-bezier(.2,.7,.2,1);
+}
+
+.food-card:hover .food-card-image,
+.food-card:focus-visible .food-card-image {
+  transform: scale(1.035);
+}
+
+.food-card .food-num,
+.food-card .food-name,
+.food-card .card-arrow {
+  position: relative;
+  z-index: 1;
+}
+
+.food-card .food-num {
+  align-self: flex-start;
+  margin-bottom: auto;
+  padding: 6px 8px;
+  background: #171715bb;
+  color: white;
+}
+
+.food-card .food-name {
+  max-width: 85%;
+  font: 500 clamp(16px, 2vw, 23px)/1.12 var(--display);
+  letter-spacing: -.04em;
+}
+
+.food-card .card-arrow {
+  right: 17px;
+  bottom: 17px;
+  color: white;
+}
+
+.segment-card {
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #17171518;
+  padding: 0 0 23px;
+}
+
+.segment-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.5 / 1;
+  object-fit: cover;
+  margin-bottom: 21px;
+}
+
+.segment-card > :not(.segment-image) {
+  margin-left: 21px;
+  margin-right: 21px;
+}
+
+.segment-card .segment-no {
+  display: block;
+}
+
+.segment-card h3 {
+  margin-top: 13px;
+}
+
+.segment-card .small-note {
+  display: block;
+  min-height: 36px;
+  margin-top: 13px;
+}
+
+.news-feature {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.news-building-image {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: .72;
+}
+
+.news-feature::after {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  content: "";
+  background: linear-gradient(90deg, #171715e8 0%, #1717157a 70%, #17171550 100%);
+}
+
+.catalogue-item {
+  min-height: 0;
+  padding: 0 0 16px;
+  justify-content: flex-start;
+  gap: 9px;
+  overflow: hidden;
+}
+
+.catalogue-item > small,
+.catalogue-item > strong,
+.catalogue-item > .small-note {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.catalogue-item > small {
+  margin-top: 4px;
+}
+
+.catalogue-media {
+  position: relative;
+  width: 100%;
+  margin: 0 0 3px;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 45%, #fff 0, #f3f1eb 74%, #e9e6de 100%);
+}
+
+.catalogue-photo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.55 / 1;
+  object-fit: contain;
+  padding: 8px;
+  transition: transform .45s cubic-bezier(.2,.7,.2,1);
+}
+
+.catalogue-item:hover .catalogue-photo,
+.catalogue-item:focus-visible .catalogue-photo {
+  transform: scale(1.025);
+}
+
+.asset-match-note {
+  display: block;
+  padding: 7px 11px;
+  background: #f0eee8;
+  color: #5d5b55;
+  font: 9px/1.45 var(--mono);
+}
+
+.is-category-reference .catalogue-photo {
+  background: repeating-linear-gradient(135deg, #f6f4ef 0 18px, #efede7 18px 36px);
+}
+
+.category-index-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.category-index-card {
+  padding: 0 0 20px;
+  overflow: hidden;
+}
+
+.category-index-card > small,
+.category-index-card > h3 {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.category-index-card > small {
+  margin-top: 14px;
+}
+
+.machine-stage {
+  position: relative;
+  min-height: 480px;
+  display: grid;
+  place-items: center;
+  padding: 36px 52px 58px;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 51% 44%, #fff 0, #f2f0e9 64%, #dedbd2 100%);
+}
+
+.machine-image-well {
+  width: 100%;
+  height: 100%;
+  min-height: 350px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.machine-photo {
+  display: block;
+  max-width: 100%;
+  max-height: 430px;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform-origin: center;
+  transition: transform .3s ease;
+  will-change: transform;
+}
+
+.stage-controls {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.stage-button {
+  width: 39px;
+  height: 39px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #17171548;
+  background: #fffdf4ed;
+  cursor: pointer;
+  font: 18px var(--sans);
+  box-shadow: 0 2px 8px #17171512;
+}
+
+.stage-button:hover {
+  border-color: var(--visual-orange);
+  background: var(--visual-orange);
+}
+
+.machine-photo-note {
+  position: absolute;
+  inset: auto 0 0;
+  width: 100%;
+  padding: 11px 15px;
+  background: #f9f8f2ee;
+  color: #57554e;
+  font: 9px/1.5 var(--mono);
+}
+
+.machine-photo-note.is-category-reference {
+  color: #3d3a32;
+}
+
+.machine-tabs {
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.food-application-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 9px;
+  margin-top: 22px;
+}
+
+.food-application-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.food-application-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.25 / 1;
+  object-fit: cover;
+}
+
+.machine-application-note {
+  margin-top: 16px;
+}
+
+.viewer-dialog {
+  max-width: min(94vw, 1280px);
+  width: 94vw;
+  max-height: 92vh;
+}
+
+.viewer-content {
+  min-height: min(80vh, 830px);
+  padding: 56px 24px 24px;
+  background: #f3f1eb;
+}
+
+.viewer-image {
+  width: auto;
+  max-width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+}
+
+.intro-film {
+  display: grid;
+  grid-template-columns: minmax(220px, .5fr) minmax(0, 1.5fr);
+  align-items: center;
+  gap: 14px 5vw;
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+.intro-film-copy .section-title {
+  font-size: clamp(31px, 4vw, 52px);
+}
+
+.intro-film-frame {
+  min-width: 0;
+  overflow: hidden;
+  background: #171715;
+}
+
+.intro-video,
+.video-poster-card {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #171715;
+}
+
+.intro-video {
+  object-fit: contain;
+}
+
+.intro-video[hidden] {
+  display: none !important;
+}
+
+.video-poster-card {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+}
+
+.video-poster,
+.video-static-fallback .video-poster {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-poster-card figcaption,
+.video-static-fallback figcaption {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  padding: 7px 9px;
+  background: #171715ca;
+  color: white;
+  font: 9px var(--mono);
+}
+
+.video-static-fallback {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin: 0;
+}
+
+.intro-film > .small-note {
+  grid-column: 2;
+}
+
+.photo-figure,
+.route-photo,
+.tile-photo {
+  width: 100%;
+  margin: 0 0 15px;
+  overflow: hidden;
+  background: #ece9e1;
+}
+
+.photo-image {
+  display: block;
+  width: 100%;
+  max-height: 300px;
+  aspect-ratio: 1.55 / 1;
+  object-fit: cover;
+}
+
+.photo-figure figcaption,
+.route-photo figcaption,
+.tile-photo figcaption {
+  padding: 8px 10px;
+  background: #f0eee8;
+  color: #625f57;
+  font: 9px/1.45 var(--mono);
+}
+
+.tile-photo .photo-image {
+  max-height: 205px;
+}
+
+.food-hero-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.65 / 1;
+  object-fit: cover;
+  margin-bottom: 13px;
+}
+
+.segment-machine {
+  padding: 0 0 20px;
+  overflow: hidden;
+}
+
+.segment-machine > small,
+.segment-machine > h3,
+.segment-machine > p {
+  display: block;
+  margin-left: 19px;
+  margin-right: 19px;
+}
+
+.segment-machine > small {
+  margin-top: 16px;
+}
+
+.segment-machine-media {
+  margin: 0;
+  border: 0;
+}
+
+.segment-machine .catalogue-photo {
+  aspect-ratio: 1.6 / 1;
+}
+
+.content-info-card .route-photo {
+  margin: -24px -24px 20px;
+  width: calc(100% + 48px);
+}
+
+.content-info-card .route-photo figcaption {
+  padding: 8px 13px;
+}
+
+.motion-paused *,
+.motion-paused *::before,
+.motion-paused *::after {
+  animation-play-state: paused !important;
+  scroll-behavior: auto !important;
+}
+
+.motion-paused .fade-in {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+.motion-paused .hero-machine-image {
+  animation: none;
+}
+
+.motion-paused .food-card-image,
+.motion-paused .catalogue-photo,
+.motion-paused .machine-photo {
+  transition: none;
+}
+
+.motion-paused .food-card:hover .food-card-image,
+.motion-paused .catalogue-item:hover .catalogue-photo {
+  transform: none;
+}
+
+.fade-in:nth-child(2) { transition-delay: 70ms; }
+.fade-in:nth-child(3) { transition-delay: 140ms; }
+.fade-in:nth-child(4) { transition-delay: 210ms; }
+
+@keyframes machine-arrive {
+  from { opacity: .35; transform: translateY(12px) scale(.985); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (max-width: 800px) {
+  .brand-logo { width: 96px; }
+  .motion-control { min-height: 33px; padding: 5px 6px; font-size: 8px; }
+  .hero-art { min-height: 340px; }
+  .current-visual { width: 100%; height: 350px; min-height: 0; aspect-ratio: auto; }
+  .intro-film { grid-template-columns: 1fr; gap: 18px; }
+  .intro-film > .small-note { grid-column: 1; }
+  .category-index-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .machine-stage { min-height: 390px; padding: 36px 42px 58px; }
+  .machine-image-well { min-height: 290px; }
+  .machine-photo { max-height: 340px; }
+  .food-application-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 520px) {
+  .brand-logo { width: 64px; }
+  .brand { gap: 6px; }
+  .brand-name { max-width: 42px; font-size: 6px; }
+  .motion-control { gap: 3px; min-height: 32px; max-width: 67px; padding: 4px 5px; font-size: 7px; white-space: normal; line-height: 1.1; }
+  .header-actions { gap: 6px; }
+  .portal-button { padding: 0 7px; gap: 5px; font-size: 9px; }
+  .portal-arrow { width: 19px; height: 19px; }
+  .category-index-grid { grid-template-columns: 1fr; }
+  .catalogue-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .catalogue-item { padding-bottom: 13px; }
+  .catalogue-item > small,
+  .catalogue-item > strong,
+  .catalogue-item > .small-note { margin-left: 10px; margin-right: 10px; }
+  .catalogue-photo { aspect-ratio: 1 / 1; padding: 5px; }
+  .asset-match-note { padding: 6px 8px; font-size: 8px; }
+  .food-card { min-height: 175px; }
+  .segment-card { padding-bottom: 18px; }
+  .segment-card > :not(.segment-image) { margin-left: 16px; margin-right: 16px; }
+  .machine-stage { min-height: 310px; padding: 33px 25px 61px; }
+  .machine-image-well { min-height: 220px; }
+  .machine-photo { max-height: 240px; }
+  .stage-controls { top: 9px; left: 9px; gap: 5px; }
+  .stage-button { width: 34px; height: 34px; }
+  .food-application-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .viewer-content { min-height: 65vh; padding: 56px 12px 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:not(.motion-opted-in) .hero-machine-image { animation: none; }
+  html:not(.motion-opted-in) .fade-in { opacity: 1; transform: none; }
+  html:not(.motion-opted-in) .food-card-image,
+  html:not(.motion-opted-in) .catalogue-photo,
+  html:not(.motion-opted-in) .machine-photo { transition: none; }
+}

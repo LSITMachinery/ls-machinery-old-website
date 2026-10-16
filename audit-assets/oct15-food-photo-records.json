@@ -1,0 +1,184 @@
+[
+  {
+    "key": "butter-cookies",
+    "title": "Danish-butter-cookies-1032894.jpg",
+    "src": "assets/images/food-real/butter-cookies-w1280.webp",
+    "width": 6000,
+    "height": 3376,
+    "sizes": {
+      "480": "assets/images/food-real/butter-cookies-w480.webp",
+      "800": "assets/images/food-real/butter-cookies-w800.webp",
+      "1280": "assets/images/food-real/butter-cookies-w1280.webp"
+    },
+    "original": "assets/images/food-real/butter-cookies-source.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Danish-butter-cookies-1032894.jpg",
+    "author": "sdnet01",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "sha256": "f06e0626ce8c76b54b6abb9f405116f766a50cf42e9cecd93fab38eb1e0c5923",
+    "description": "Danish butter cookies"
+  },
+  {
+    "key": "croissants",
+    "title": "APileOfCroissants.jpg",
+    "src": "assets/images/food-real/croissants-w1280.webp",
+    "width": 4928,
+    "height": 3264,
+    "sizes": {
+      "480": "assets/images/food-real/croissants-w480.webp",
+      "800": "assets/images/food-real/croissants-w800.webp",
+      "1280": "assets/images/food-real/croissants-w1280.webp"
+    },
+    "original": "assets/images/food-real/croissants-source.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:APileOfCroissants.jpg",
+    "author": "Raysonho @ Open Grid Scheduler / Grid Engine",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "sha256": "a00688e601a70f5302969e843dd8796d1548e792068409750523137e57d1ef0c",
+    "description": "A pile of croissants."
+  },
+  {
+    "key": "ang-ku-kueh",
+    "title": "Ang Ku Kueh in Imbi Pasar.jpg",
+    "src": "assets/images/food-real/ang-ku-kueh-w1280.webp",
+    "width": 3648,
+    "height": 2736,
+    "sizes": {
+      "480": "assets/images/food-real/ang-ku-kueh-w480.webp",
+      "800": "assets/images/food-real/ang-ku-kueh-w800.webp",
+      "1280": "assets/images/food-real/ang-ku-kueh-w1280.webp"
+    },
+    "original": "assets/images/food-real/ang-ku-kueh-source.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Ang_Ku_Kueh_in_Imbi_Pasar.jpg",
+    "author": "Yun Huang Yong",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "sha256": "ec7895d0d5487a91c8dd5ccc1118108917afc22b100562624a14e9f8bbb3ae45"
+  },
+  {
+    "key": "bread-loaf",
+    "title": "Simple Bread.jpg",
+    "src": "assets/images/food-real/bread-loaf-w1280.webp",
+    "width": 3984,
+    "height": 2988,
+    "sizes": {
+      "480": "assets/images/food-real/bread-loaf-w480.webp",
+      "800": "assets/images/food-real/bread-loaf-w800.webp",
+      "1280": "assets/images/food-real/bread-loaf-w1280.webp"
+    },
+    "original": "assets/images/food-real/bread-loaf-source.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Simple_Bread.jpg",
+    "author": "Oliver Tacke",
+    "license": "CC0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sha256": "141e57d7a308a2361ac55a6d9dea3e5fc8f6100ef6fb52caae4d77744ed821e2"
+  },
+  {
+    "key": "dim-sum",
+    "title": "Dim sum.jpg",
+    "src": "assets/images/food-real/dim-sum-w1280.webp",
+    "width": 1280,
+    "height": 720,
+    "sizes": {
+      "480": "assets/images/food-real/dim-sum-w480.webp",
+      "800": "assets/images/food-real/dim-sum-w800.webp",
+      "1280": "assets/images/food-real/dim-sum-w1280.webp"
+    },
+    "original": "assets/images/food-real/dim-sum-source.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Dim_sum.jpg",
+    "author": "ProjectManhattan",
+    "license": "Public domain",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:Dim_sum.jpg",
+    "sha256": "dc648024883b3108af7a62b8f5fca224545e2a9e8cf34e1d90f61ae09b5b99f6"
+  },
+  {
+    "key": "sponge-cake",
+    "title": "Sponge cake (bizcochuelo o bizcocho) ← eggs, sugar and wheat flour.jpg",
+    "src": "assets/images/food-real/sponge-cake-w1280.webp",
+    "width": 1280,
+    "height": 960,
+    "sizes": {
+      "480": "assets/images/food-real/sponge-cake-w480.webp",
+      "800": "assets/images/food-real/sponge-cake-w800.webp",
+      "1280": "assets/images/food-real/sponge-cake-w1280.webp"
+    },
+    "original": "assets/images/food-real/sponge-cake-source.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Sponge_cake_%28bizcochuelo_o_bizcocho%29_%E2%86%90_eggs%2C_sugar_and_wheat_flour.jpg",
+    "author": "Jkasutoro",
+    "license": "CC0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sha256": "5e030bd343aba0b879a3060131b1b2675be4ed2eef57e70a43ef147c9ffa74e8"
+  },
+  {
+    "key": "ondeh-ondeh",
+    "title": "Ondeh ondeh kueh.jpg",
+    "src": "assets/images/food-real/ondeh-ondeh-w1280.webp",
+    "width": 960,
+    "height": 540,
+    "sizes": {
+      "480": "assets/images/food-real/ondeh-ondeh-w480.webp",
+      "800": "assets/images/food-real/ondeh-ondeh-w800.webp",
+      "1280": "assets/images/food-real/ondeh-ondeh-w1280.webp"
+    },
+    "original": "assets/images/food-real/ondeh-ondeh-source.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Ondeh_ondeh_kueh.jpg",
+    "author": "ProjectManhattan",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "sha256": "78b4a2c78308485c21fcdbe887ac60b5fb3e5d91f306d6ba0b25304162f94442"
+  },
+  {
+    "key": "mantou",
+    "title": "Handmade mantou.jpg",
+    "src": "assets/images/food-real/mantou-w1280.webp",
+    "width": 960,
+    "height": 643,
+    "sizes": {
+      "480": "assets/images/food-real/mantou-w480.webp",
+      "800": "assets/images/food-real/mantou-w800.webp",
+      "1280": "assets/images/food-real/mantou-w1280.webp"
+    },
+    "original": "assets/images/food-real/mantou-source.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Handmade_mantou.jpg",
+    "author": "SoHome Jacaranda Lilau",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "sha256": "0485a4b075b329f601d8fa75b06e6d460d5f93dac8e0bce5f6984ee374ef73f9"
+  },
+  {
+    "key": "bread-rolls",
+    "title": "Japanese bread rolls Rollpan.jpg",
+    "src": "assets/images/food-real/bread-rolls-w1280.webp",
+    "width": 960,
+    "height": 1052,
+    "sizes": {
+      "480": "assets/images/food-real/bread-rolls-w480.webp",
+      "800": "assets/images/food-real/bread-rolls-w800.webp",
+      "1280": "assets/images/food-real/bread-rolls-w1280.webp"
+    },
+    "original": "assets/images/food-real/bread-rolls-source.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Japanese_bread_rolls_Rollpan.jpg",
+    "author": "Yæba",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "sha256": "d63428930ac06d8bd6d0e75ec494d6f5c18523e00799dfd52ed5b17fc4484dbf"
+  },
+  {
+    "key": "chocolate-cake",
+    "title": "Brown and white cake on white table",
+    "src": "assets/images/food-real/chocolate-cake-w1280.webp",
+    "width": 1600,
+    "height": 1080,
+    "sizes": {
+      "480": "assets/images/food-real/chocolate-cake-w480.webp",
+      "800": "assets/images/food-real/chocolate-cake-w800.webp",
+      "1280": "assets/images/food-real/chocolate-cake-w1280.webp"
+    },
+    "original": "assets/images/food-real/chocolate-cake-source.jpg",
+    "source": "https://unsplash.com/photos/brown-and-white-cake-on-white-table-4nwmShss9Rw",
+    "author": "David Holifield",
+    "license": "Unsplash License",
+    "licenseUrl": "https://unsplash.com/license",
+    "sha256": "0d98d272aa18d786a9eb082985a8e960558add460fb60ab05854117b42d6294f"
+  }
+]

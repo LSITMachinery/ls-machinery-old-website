@@ -6,7 +6,7 @@ const base = process.env.LS_PREVIEW_URL || "http://127.0.0.1:8000/";
 (async () => {
   const browser = await chromium.launch({ headless: true });
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, reducedMotion: "reduce" });
-  await page.goto(`${base}#home`, { waitUntil: "networkidle" });
+  await page.goto(`${base}#home`, { waitUntil: "domcontentloaded" });
   const homeText = await page.locator("#main").innerText();
   assert.doesNotMatch(homeText, /Equipment and food images are visual references|00:08\s*\/\s*LS SMART MACHINERY|LS premises & machinery · 8-second introduction/i);
   assert.equal(await page.locator(".catalogue-item .small-note, .catalogue-item .catalogue-cue").count(), 0, "catalogue cards should not show editorial asset notes");

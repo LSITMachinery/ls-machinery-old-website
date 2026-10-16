@@ -1,5 +1,11 @@
 {
-  "builtAt": "2026-10-15T13:41:38.473Z",
+  "builtAt": "2026-10-16T17:08:03.947Z",
   "domain": "https://lsmachinery.com.my",
-  "pages": 99
+  "languages": [
+    "en",
+    "zh",
+    "ms"
+  ],
+  "pages": 294,
+  "routeCount": 98
 }

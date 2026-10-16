@@ -1,0 +1,3 @@
+.cms-preview-banner{position:relative;z-index:10000;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;padding:9px 18px;background:#25292c;color:#fff;font:600 12px/1.4 Inter,Arial,sans-serif;box-shadow:0 3px 12px #15191c22}
+.cms-preview-banner strong{color:#ff8a58}.cms-preview-banner span{color:#e0e3e4}.cms-preview-banner a{color:#fff;text-underline-offset:3px}.cms-preview-banner a:hover{color:#ffad87}
+@media(max-width:600px){.cms-preview-banner{justify-content:flex-start;gap:5px 12px;padding:8px 12px;font-size:11px}.cms-preview-banner span{flex:1 0 100%;order:3}}

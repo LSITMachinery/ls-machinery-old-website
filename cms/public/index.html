@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="referrer" content="same-origin">
+  <title>LS CMS · Staff workspace</title>
+  <link rel="stylesheet" href="/cms/cms.css">
+  <script src="/cms/cms.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/cms/" aria-label="LS Smart Machinery CMS home"><span class="brand-mark">LS</span><span>SMART MACHINERY<small>CONTENT WORKSPACE</small></span></a>
+    <div class="topbar-controls">
+      <label class="locale-switch"><span class="sr-only">Interface language</span><select id="ui-language" aria-label="Interface language"><option value="en">English</option><option value="zh">简体中文</option><option value="ms">Bahasa Melayu</option></select></label>
+      <div id="signed-in" class="signed-in" hidden><span id="identity"></span><button id="sign-out" class="button quiet" type="button">Sign out</button></div>
+    </div>
+  </header>
+  <main>
+    <section id="login-panel" class="login-panel" aria-labelledby="login-title">
+      <div class="login-copy"><p class="eyebrow">LS SMART MACHINERY · STAFF</p><h1 id="login-title">A clearer way to manage LS content.</h1><p>Prepare page updates, review technical claims and publish approved revisions from one private workspace.</p><div class="login-trust"><span>Private staff access</span><span>English · 简体中文 · Bahasa Melayu</span></div></div>
+      <form id="login-form" class="panel form-stack">
+        <p class="eyebrow">STAFF ACCESS</p><h2>Sign in</h2>
+        <label>Work email<input name="email" type="email" autocomplete="username" required></label>
+        <label>Passphrase<input name="password" type="password" autocomplete="current-password" required></label>
+        <button class="button primary" type="submit">Continue <span aria-hidden="true">↗</span></button>
+        <p id="login-message" class="message" role="status" aria-live="polite"></p>
+      </form>
+      <aside id="bootstrap-note" class="bootstrap-note" hidden><strong>Set up the first administrator locally.</strong><span>There is no public registration or default password. From the local CMS folder, use <code>npm run bootstrap-admin</code>. In Docker, use <code>docker compose exec cms npm run bootstrap-admin</code>.</span></aside>
+    </section>
+
+    <section id="workspace" class="workspace" hidden>
+      <div class="workspace-heading"><div><p class="eyebrow">LS SMART MACHINERY · CONTENT WORKSPACE</p><h1 id="workspace-title">Dashboard</h1><p id="role-description" class="muted"></p></div><div class="workspace-heading-actions"><span class="environment-badge"><i></i> Local workspace</span><button id="new-record" class="button primary" type="button">New page <span aria-hidden="true">＋</span></button></div></div>
+      <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
+      <div class="workspace-layout">
+        <nav class="workspace-nav panel" aria-label="CMS sections">
+          <p class="nav-heading">WORKSPACE</p>
+          <button class="nav-item is-active" type="button" data-view="dashboard"><span class="nav-icon" aria-hidden="true">⌂</span>Dashboard</button>
+          <button class="nav-item" type="button" data-view="pages"><span class="nav-icon" aria-hidden="true">▤</span>Pages<span id="nav-pages-count" class="nav-count">—</span></button>
+          <button class="nav-item" type="button" data-view="media"><span class="nav-icon" aria-hidden="true">▧</span>Media<span id="nav-media-count" class="nav-count">—</span></button>
+          <button class="nav-item" type="button" data-view="reviews"><span class="nav-icon" aria-hidden="true">◷</span>Reviews</button>
+          <button class="nav-item" type="button" data-view="history"><span class="nav-icon" aria-hidden="true">↺</span>History</button>
+          <p class="nav-heading nav-heading-spaced">MANAGE</p>
+          <button class="nav-item" type="button" data-view="settings"><span class="nav-icon" aria-hidden="true">⚙</span>Settings</button>
+          <div class="nav-footer"><span class="nav-avatar" id="avatar-initials">LS</span><span><strong id="nav-user-name">Staff account</strong><small id="nav-user-role">Signed in</small></span></div>
+        </nav>
+
+        <div class="view-stack">
+          <section id="view-dashboard" class="view-section" aria-labelledby="dashboard-heading">
+            <div class="section-title-row"><div><p class="eyebrow">OVERVIEW</p><h2 id="dashboard-heading">Your workspace at a glance</h2><p class="muted">Live counts from saved CMS records and stored media.</p></div><button class="button quiet" type="button" data-refresh>Refresh</button></div>
+            <div class="metric-grid">
+              <article class="metric-card"><span>Page records</span><strong id="metric-pages">—</strong><small>Saved in this CMS</small></article>
+              <article class="metric-card"><span>Drafts</span><strong id="metric-drafts">—</strong><small>Waiting for your next step</small></article>
+              <article class="metric-card"><span>Needs review</span><strong id="metric-reviews">—</strong><small>Current revision only</small></article>
+              <article class="metric-card"><span>Media stored</span><strong id="metric-media">—</strong><small id="metric-storage">Storage total unavailable</small></article>
+            </div>
+            <div class="dashboard-grid">
+              <section class="panel dashboard-panel"><div class="panel-heading"><div><p class="eyebrow">RECENT WORK</p><h3>Recent activity</h3></div><button class="text-button" type="button" data-open-view="pages">View pages ↗</button></div><div id="dashboard-recent" class="recent-list" data-cms-content></div></section>
+              <section class="panel dashboard-panel"><div class="panel-heading"><div><p class="eyebrow">PUBLISHING</p><h3>Release status</h3></div></div><div id="release-status" class="unavailable-state"><span class="state-icon">i</span><p>Publication progress is not connected to the workspace yet.</p><small>No release status is being reported.</small></div></section>
+            </div>
+            <div id="coverage-note" class="inline-note"><span aria-hidden="true">i</span><p>Page counts include CMS records only. The full website route registry is not connected yet.</p></div>
+          </section>
+
+          <section id="view-pages" class="view-section" aria-labelledby="pages-heading" hidden>
+            <div class="section-title-row"><div><p class="eyebrow">CONTENT</p><h2 id="pages-heading">Pages</h2><p class="muted">Browse website paths, language coverage and saved content.</p></div><button id="pages-new-record" class="button primary" type="button">New page <span aria-hidden="true">＋</span></button></div>
+            <div id="registry-status" class="inline-note" role="status"><span aria-hidden="true">i</span><p>The full website path list is not connected yet. Saved CMS pages are shown below.</p></div>
+            <div class="page-browser panel">
+              <div class="page-browser-tools"><label class="search-label"><span class="sr-only">Filter pages by name or path</span><input id="record-filter" type="search" placeholder="Search pages or paths"></label><label class="type-filter-label"><span class="sr-only">Filter page type</span><select id="type-filter"><option value="">All page types</option></select></label><span id="pages-summary" class="muted"></span></div>
+              <div class="pages-grid">
+                <div class="page-tree-wrap"><div class="list-column-heading"><strong id="page-list-heading">WEBSITE PATHS</strong><span id="record-count"></span></div><div id="record-list" class="record-list" role="list" data-cms-content></div></div>
+                <section class="editor-panel" aria-labelledby="editor-title">
+                  <div class="panel-heading"><div><p id="record-status" class="eyebrow">SELECT A PAGE</p><h3 id="editor-title">Page editor</h3><p id="version-label" class="muted"></p></div><button id="editor-close" class="icon-button" type="button" aria-label="Close page editor" hidden>×</button></div>
+                  <div id="empty-editor" class="empty-state"><span class="empty-icon">▤</span><strong>Choose a page to begin</strong><p>Select a saved record, or create a new page draft.</p></div>
+                  <form id="record-form" class="record-form" hidden>
+                    <div class="form-row"><label>Page type<select id="content-type" name="type" required></select></label><label>Page name<input id="content-slug" name="slug" placeholder="mini-cookie-depositor" required></label></div>
+                    <label>English page path<input id="content-route" name="route" placeholder="/machine/mini-cookie-depositor/" required></label>
+                    <fieldset class="editor-group"><legend>Page content</legend><div class="locale-tabs" role="tablist" aria-label="Content language"><button type="button" role="tab" class="locale-tab is-active" data-locale="en" aria-selected="true">English</button><button type="button" role="tab" class="locale-tab" data-locale="zh" aria-selected="false">简体中文</button><button type="button" role="tab" class="locale-tab" data-locale="ms" aria-selected="false">Bahasa Melayu</button></div><div id="translation-editor" class="structured-fields"></div><div class="add-field-row"><input id="translation-field-name" aria-label="New translated field name" placeholder="Add a field, e.g. buttonLabel"><button class="button" type="button" id="add-translation-field">Add field</button></div></fieldset>
+                    <fieldset class="editor-group"><legend>Page details</legend><div id="schema-status" class="field-help">Named fields follow the selected page type’s content schema.</div><div id="data-editor" class="structured-fields"></div><div class="add-field-row"><select id="data-field-name" aria-label="Add a page detail"><option value="">Add a detail field…</option></select><button class="button" type="button" id="add-data-field">Add detail</button></div></fieldset>
+                    <fieldset class="editor-group"><legend>Media used on this page</legend><p class="field-help">Choose from the authenticated media library. Media ownership and subject checks still apply before publication.</p><div id="media-associations" class="media-associations" data-cms-content></div></fieldset>
+                    <details class="editor-group internal-group"><summary>Internal notes and source evidence</summary><label>Internal notes<textarea id="internal-notes" rows="3"></textarea></label><label>Source evidence (one item per line)<textarea id="source-evidence" rows="3"></textarea></label></details>
+                    <details class="advanced-fields"><summary>Advanced fields (JSON)</summary><p class="field-help">For rare complex content, review the structured values before saving.</p><textarea id="content-fields" name="fields" rows="12" spellcheck="false" aria-label="Advanced page fields JSON"></textarea></details>
+                    <div class="editor-actions"><button id="save-draft" class="button primary" type="submit">Save draft</button><button id="request-review" class="button" type="button" hidden>Request review</button><a id="preview-link" class="button quiet" href="#" target="_blank" rel="noopener" hidden>Private preview ↗</a></div>
+                    <p class="preview-limitation muted">The private preview uses the selected saved revision. Unsaved changes are not included.</p>
+                    <div id="review-actions" class="review-actions" hidden></div>
+                  </form>
+                  <section id="revision-history" class="revision-history" hidden><h4>Revision history</h4><ol id="revision-list" data-cms-content></ol></section>
+                </section>
+              </div>
+            </div>
+          </section>
+
+          <section id="view-media" class="view-section" aria-labelledby="media-heading" hidden>
+            <div class="section-title-row"><div><p class="eyebrow">ASSET LIBRARY</p><h2 id="media-heading">Media</h2><p class="muted">Store original images, video and documents with their source and usage details.</p></div></div>
+            <div id="media-workspace" class="media-layout">
+              <section class="panel media-upload-card"><div class="panel-heading"><div><p class="eyebrow">ADD MEDIA</p><h3>Upload a file</h3></div></div><form id="media-form" class="media-form"><label>Image, video or PDF<input name="file" type="file" accept="image/jpeg,image/png,image/webp,image/avif,video/mp4,video/webm,application/pdf" required></label><label>Source or asset note<input name="sourceUrl" maxlength="1000" placeholder="Source URL or internal asset reference" required></label><div class="form-row"><label>Permission<select name="permissionStatus"><option value="unknown">Not yet confirmed</option><option value="permission_pending">Permission pending</option><option value="ls_owned">LS owned</option><option value="licensed">Licensed</option></select></label><label>Subject match<select name="matchStatus"><option value="unverified">Unverified</option><option value="exact">Exact model / subject</option><option value="category">Category reference</option><option value="illustrative">Illustrative</option></select></label></div><label>English alternative text<input name="altEn" required></label><div class="form-row"><label>简体中文 alternative text<input name="altZh" required></label><label>Malay alternative text<input name="altMs" required></label></div><button class="button primary" type="submit">Upload media</button><p id="media-message" class="message" role="status" aria-live="polite"></p><div id="upload-progress" class="upload-progress" hidden><span></span></div></form><p id="media-upload-access-note" class="field-help"></p></section>
+              <section class="panel media-library-card"><div class="panel-heading"><div><p class="eyebrow">ALL ASSETS</p><h3>Library</h3></div><label class="search-label"><span class="sr-only">Search media</span><input id="media-filter" type="search" placeholder="Search media"></label></div><div class="media-library-summary"><strong id="media-library-count">— files</strong><span id="media-library-size" class="muted"></span></div><div id="media-list" class="media-grid" data-cms-content></div></section>
+            </div>
+            <section id="media-details-panel" class="panel media-details-panel" aria-labelledby="media-details-heading" hidden>
+              <div class="panel-heading"><div><p class="eyebrow">MEDIA RECORD</p><h3 id="media-details-heading" tabindex="-1" data-cms-content>Edit media details</h3><p id="media-details-id" class="muted" data-cms-content></p></div><button id="media-details-close" class="icon-button" type="button" aria-label="Close media details">×</button></div>
+              <form id="media-details-form" class="media-details-form">
+                <div class="form-row"><label>Source URL or asset reference<input name="sourceUrl" maxlength="1000" required></label><label>Permission<select name="permissionStatus"><option value="unknown">Not yet confirmed</option><option value="permission_pending">Permission pending</option><option value="ls_owned">LS owned</option><option value="licensed">Licensed</option></select></label></div>
+                <label>Subject match<select name="matchStatus"><option value="unverified">Unverified</option><option value="exact">Exact model / subject</option><option value="category">Category reference</option><option value="illustrative">Illustrative</option></select></label>
+                <div class="form-row"><label>English alternative text<input name="altEn"></label><label>简体中文 alternative text<input name="altZh"></label><label>Malay alternative text<input name="altMs"></label></div>
+                <div class="media-usage-block"><strong>Used on these pages</strong><ul id="media-detail-usage" data-cms-content></ul></div>
+                <div class="editor-actions"><button class="button primary" type="submit">Save media details</button><p id="media-details-message" class="message" role="status" aria-live="polite"></p></div>
+              </form>
+            </section>
+          </section>
+
+          <section id="view-reviews" class="view-section" aria-labelledby="reviews-heading" hidden>
+            <div class="section-title-row"><div><p class="eyebrow">CONTENT WORKFLOW</p><h2 id="reviews-heading">Reviews</h2><p class="muted">Requests are shown from the latest saved revision of each record.</p></div><button class="button quiet" type="button" data-refresh>Refresh</button></div>
+            <div id="review-queue" class="review-queue" data-cms-content></div>
+          </section>
+
+          <section id="view-history" class="view-section" aria-labelledby="history-heading" hidden>
+            <div class="section-title-row"><div><p class="eyebrow">ACCOUNTABILITY</p><h2 id="history-heading">History</h2><p class="muted">Saved revisions and staff activity available to your role.</p></div><button class="button quiet" type="button" data-refresh>Refresh</button></div>
+            <div class="panel"><div id="history-list" class="history-list" data-cms-content></div><p id="history-unavailable" class="unavailable-copy" hidden>Account activity is restricted to administrators. Revision history is still available for saved pages.</p></div>
+          </section>
+
+          <section id="view-settings" class="view-section" aria-labelledby="settings-heading" hidden>
+            <div class="section-title-row"><div><p class="eyebrow">WORKSPACE SETTINGS</p><h2 id="settings-heading">Settings</h2><p class="muted">Manage staff access and the shared website content settings.</p></div></div>
+            <section id="staff-workspace" class="panel staff-workspace" hidden><div class="panel-heading"><div><p class="eyebrow">STAFF ACCESS</p><h3>Staff accounts and roles</h3><p class="muted">Accounts are created by an administrator. There is no public sign-up.</p></div></div><form id="staff-form" class="staff-form"><div class="form-row"><label>Work email<input name="email" type="email" required></label><label>Display name<input name="displayName" required></label></div><div class="form-row"><label>Role<select name="role"><option value="editor">Editor</option><option value="technical_reviewer">Technical reviewer</option><option value="publisher">Publisher</option><option value="admin">Administrator</option></select></label><label>Temporary passphrase<input name="password" type="password" autocomplete="new-password" minlength="14" required></label></div><button class="button" type="submit">Create staff account</button><p class="field-help">Use a unique passphrase with at least 14 characters, including upper and lowercase letters and a number.</p></form><ul id="staff-list" class="staff-list"></ul></section>
+            <section class="panel settings-panel"><div class="panel-heading"><div><p class="eyebrow">SHARED WEBSITE SETTINGS</p><h3>Navigation, footer and contact details</h3><p class="muted">Edit the shared values used across the public website.</p></div><span id="settings-availability" class="availability-pill">Checking connection…</span></div><form id="settings-form" class="settings-form" hidden><div id="settings-fields" class="settings-fields"></div><div class="editor-actions"><button class="button primary" type="submit">Save shared settings</button><p id="settings-message" class="message" role="status" aria-live="polite"></p></div></form><p id="settings-unavailable" class="unavailable-copy">Shared settings are not connected yet. No values are being shown or changed.</p></section>
+            <section class="panel migration-panel"><div class="panel-heading"><div><p class="eyebrow">CONTENT MIGRATION</p><h3>Bring content from WordPress or cPanel</h3><p class="muted">Review source content and media before importing them as drafts.</p></div><span id="migration-availability" class="availability-pill">Checking connection…</span></div>
+              <div id="migration-unavailable" class="unavailable-copy">The migration workspace is not connected yet. No archive has been uploaded or inspected.</div>
+              <form id="migration-form" class="migration-form" hidden><label>WordPress XML or cPanel TAR/TAR.GZ<input name="archive" type="file" accept=".xml,.tar,.tar.gz" required><small>SQL-only, ZIP and RAR conversion is unavailable in this import workspace.</small></label><button class="button" type="submit">Preview archive</button><p id="migration-message" class="message" role="status" aria-live="polite"></p><div id="migration-progress" class="upload-progress" hidden><span></span></div><section id="migration-preview" class="migration-preview" hidden aria-live="polite"></section></form>
+            </section>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer><span>LS Smart Machinery · Private staff workspace</span><span>Drafts are private. Publishing follows role review.</span></footer>
+</body>
+</html>

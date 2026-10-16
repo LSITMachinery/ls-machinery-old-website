@@ -1,0 +1,163 @@
+{
+  "machines": 61,
+  "categories": [
+    {
+      "name": "Bakery",
+      "count": 32
+    },
+    {
+      "name": "Kitchen",
+      "count": 11
+    },
+    {
+      "name": "Package",
+      "count": 7
+    },
+    {
+      "name": "Refrigeration Series",
+      "count": 5
+    },
+    {
+      "name": "Production Line",
+      "count": 6
+    }
+  ],
+  "unresolved": [
+    {
+      "name": "Industri Cookies/Cakes Depositor",
+      "note": "Confirm the supplied spelling and product name."
+    },
+    {
+      "name": "Rotary Oven (Gas/Electric/Diser Heating)",
+      "note": "Confirm the supplied term 'Diser Heating'."
+    },
+    {
+      "name": "Mini Rotary Convention Oven (Gas/Electric Heating)",
+      "note": "Confirm the supplied oven name, including 'Convention'."
+    },
+    {
+      "name": "Ultrasound SoundCake Cutter",
+      "note": "Confirm the supplied product name."
+    },
+    {
+      "name": "Combi Oven (Laynox)",
+      "note": "Confirm the supplied brand spelling 'Laynox'."
+    },
+    {
+      "name": "Breadcrumbs",
+      "note": "Confirm whether this entry names a production line or a product."
+    }
+  ],
+  "imageMatches": {
+    "exact": 18,
+    "category": 43
+  },
+  "contentRecords": 21,
+  "specRecords": [
+    {
+      "name": "Mini Cookie Depositor (MCD)",
+      "fields": 5
+    }
+  ],
+  "routeManifest": [
+    "home",
+    "machines",
+    "food",
+    "solutions",
+    "services",
+    "company",
+    "company/history",
+    "company/customer-partnerships",
+    "company/project-process",
+    "company/locations",
+    "company/careers",
+    "insights",
+    "inquiry",
+    "privacy",
+    "search",
+    "food/cookies-biscuits",
+    "food/cakes",
+    "food/bread-buns",
+    "food/pastries-crusted-foods",
+    "food/kueh-asian-foods",
+    "food/dim-sum",
+    "segment/micro-startup-businesses",
+    "segment/smes-expanding-manufacturers",
+    "segment/large-mega-enterprises",
+    "solution/factory-line-planning",
+    "solution/machinery-automation",
+    "solution/facility-fit-out",
+    "solution/financing-support",
+    "service/support-repairs",
+    "service/installation-training",
+    "service/technical-documents",
+    "service/spare-parts-request",
+    "service/production-improvement",
+    "machines/bakery",
+    "machines/kitchen",
+    "machines/package",
+    "machines/refrigeration-series",
+    "machines/production-line",
+    "machine/planetary-mixer",
+    "machine/spiral-mixer",
+    "machine/horizontal-mixer",
+    "machine/mini-cookie-depositor-mcd",
+    "machine/mini-cookie-wire-cut-mcwc",
+    "machine/mini-cake-depositor-mcad",
+    "machine/industri-cookies-cakes-depositor",
+    "machine/dough-sheeter-freeway",
+    "machine/donuts-maker-krono",
+    "machine/dough-divider",
+    "machine/dough-rounder",
+    "machine/continuous-dough-divider-rounder",
+    "machine/molder",
+    "machine/dough-encrusting-machine",
+    "machine/sheet-forming-encrusting-molding-machine",
+    "machine/trays-arranger-machine",
+    "machine/rounding-machine",
+    "machine/proofer",
+    "machine/retarder-proofer",
+    "machine/roll-in-proofer",
+    "machine/proofer-room",
+    "machine/hybrid-tunnel-oven-lpg-npg-electric-heating-system",
+    "machine/deck-oven-gas-electric-heating",
+    "machine/convection-oven-gas-electric-heating",
+    "machine/rotary-oven-gas-electric-diser-heating",
+    "machine/mini-rotary-convention-oven-gas-electric-heating",
+    "machine/horizontal-cutter",
+    "machine/cake-cutter",
+    "machine/ultrasound-soundcake-cutter",
+    "machine/cakes-cream-coating",
+    "machine/cream-puffs-injector",
+    "machine/chocolate-coating",
+    "machine/combi-oven-laynox",
+    "machine/heavy-duty-robot-cooker-machine",
+    "machine/cooker-mixer",
+    "machine/steamer",
+    "machine/deep-fryer-system",
+    "machine/emulsifier",
+    "machine/vegetable-cutter-machine",
+    "machine/meat-cutter",
+    "machine/bowl-cutter",
+    "machine/fish-ball-cakes-maker",
+    "machine/dim-sum-maker",
+    "machine/horizontal-pillow-pack-packaging-machine",
+    "machine/horizontal-pillow-pack-box-motion-packaging-machine",
+    "machine/vertical-box-motion-packaging-machine",
+    "machine/powder-vertical-packaging-machine",
+    "machine/sauces-filling-package-machine",
+    "machine/computerized-multihead-weigher-of-packing-machine-with-plain-surface",
+    "machine/vacuum-packaging-machines",
+    "machine/blast-freezer",
+    "machine/tunnel-blast-freezer",
+    "machine/nitrogen-blast-freezer-system",
+    "machine/upright-freezer-chiller",
+    "machine/counter-freezer-chiller",
+    "machine/puff-pastry-make-up-line-freeway",
+    "machine/pizza-base-make-up-line-freeway",
+    "machine/toast-burger-buns-production-line",
+    "machine/cookies-cream-crackers-production-line",
+    "machine/cakes-production-line",
+    "machine/breadcrumbs"
+  ]
+}

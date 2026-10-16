@@ -1,6 +1,6 @@
 const crypto=require('node:crypto');
 const rates=new Map(),requests=new Map();
-const fields=['name','company','email','phone','country','inquiryType','machineNumber','partModel','partNumber','partDescription','quantity','deliveryAddress','remarks','message','product','dailyOutput','factoryLocation','timeline','kind','context','sourcePage','language','messageText','website'];
+const fields=['name','company','email','phone','country','inquiryType','intent','journeyStage','machineNumber','partModel','partNumber','partDescription','quantity','deliveryAddress','remarks','message','product','dailyOutput','factoryLocation','timeline','kind','context','sourcePage','sourceUrl','language','messageText','website'];
 const json=(res,status,data)=>{res.writeHead(status,{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store','X-Content-Type-Options':'nosniff'});res.end(JSON.stringify(data));};
 function deliveryConfigured(){try{const target=new URL(process.env.LS_INQUIRY_WEBHOOK_URL);return target.protocol==='https:'||target.protocol==='http:'&&['127.0.0.1','localhost','[::1]'].includes(target.hostname);}catch{return false;}}
 async function handle(req,res){

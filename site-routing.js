@@ -2,16 +2,31 @@
 (() => {
   'use strict';
   const roots=new Set(['home','machines','machine','food','segment','solutions','solution','services','service','company','insights','inquiry','privacy','search']);
+  const languages=new Set(['en','zh','ms']);
   const legacy=new URLSearchParams(location.search).get('legacy')==='1';
   if(legacy&&document.querySelector('base'))document.querySelector('base').href=location.pathname+location.search;
   let renderPage=()=>{};
-  const route=()=>legacy?location.hash.slice(1)||'home':location.pathname.replace(/^\/+|\/+$/g,'')+(location.search||'')||'home';
-  const url=value=>{
+  function pathState(pathname=location.pathname){
+    const parts=pathname.replace(/^\/+|\/+$/g,'').split('/').filter(Boolean);
+    const language=languages.has(parts[0])?parts.shift():'en';
+    return {language,route:parts.join('/')||'home'};
+  }
+  let activeLanguage=pathState().language;
+  const route=()=>legacy?location.hash.slice(1)||'home':(activeLanguage=pathState().language,pathState().route+(location.search||''));
+  const url=(value,language=activeLanguage)=>{
     if(legacy)return '#'+value;
     const [path,query]=String(value).replace(/^#/,'').split('?');
-    return (path==='home'?'/':'/'+path.replace(/^\/+|\/+$/g,'')+'/')+(query?'?'+query:'');
+    const parts=path.replace(/^\/+|\/+$/g,'').split('/').filter(Boolean);
+    if(languages.has(parts[0]))parts.shift();
+    const clean=parts.join('/');
+    const prefix=language==='en'?'':'/'+language;
+    return prefix+(clean?'/'+clean+'/':'/')+(query?'?'+query:'');
   };
   const isRoute=value=>roots.has(String(value).replace(/^#/,'').split(/[/?]/)[0]);
+  const isPublicPath=pathname=>{
+    const parsed=pathState(pathname);
+    return parsed.route==='home'||roots.has(parsed.route.split('/')[0]);
+  };
   function convertLinks(root=document){
     if(legacy)return;
     root.querySelectorAll('a[href^="#"]').forEach(a=>{
@@ -33,8 +48,9 @@
     const a=event.target.closest('a[href]');
     if(!a||a.target||a.hasAttribute('download')||a.matches('.portal-button,[data-scroll-to],.section-index-link'))return;
     const dest=new URL(a.href,location.href);
-    if(dest.origin!==location.origin||dest.hash||!isRoute(dest.pathname.slice(1))&&dest.pathname!=='/')return;
-    event.preventDefault();navigate(dest.pathname.replace(/^\/+|\/+$/g,'')+(dest.search||'')||'home');
+    if(dest.origin!==location.origin||dest.hash||!isPublicPath(dest.pathname))return;
+    const parsed=pathState(dest.pathname);
+    event.preventDefault();activeLanguage=parsed.language;navigate(parsed.route+(dest.search||''));
   });
   window.addEventListener('popstate',()=>{if(!legacy){window.dispatchEvent(new Event('ls:navigate'));renderPage();}});
   window.addEventListener('hashchange',()=>{
@@ -43,5 +59,13 @@
   });
   if(!legacy&&isRoute(location.hash))history.replaceState(null,'',url(location.hash));
   new MutationObserver(()=>convertLinks()).observe(document.documentElement,{childList:true,subtree:true});
-  window.LSRouter={route,url,navigate,convertLinks,legacy,start(callback){renderPage=callback;convertLinks();}};
+  function setLanguage(language){
+    if(!languages.has(language)||legacy)return;
+    const currentRoute=pathState().route+(location.search||'');
+    activeLanguage=language;
+    history.pushState(null,'',url(currentRoute,language));
+    window.dispatchEvent(new Event('ls:navigate'));
+    renderPage();
+  }
+  window.LSRouter={route,url,navigate,convertLinks,legacy,language:()=>activeLanguage,setLanguage,start(callback){renderPage=callback;convertLinks();}};
 })();

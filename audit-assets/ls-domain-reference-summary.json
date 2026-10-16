@@ -1,0 +1,48 @@
+{
+  "external_hosts_top": [
+    [
+      "lsmachinery.com.my",
+      247136
+    ],
+    [
+      "library.elementor.com",
+      823
+    ],
+    [
+      "xstore.8theme.com",
+      235
+    ],
+    [
+      "woocommerce.com",
+      120
+    ]
+  ],
+  "ls_unique_paths": 3319,
+  "ls_missing_paths": 191,
+  "published_page_post_product_unique_paths": 2061,
+  "published_page_post_product_missing_paths": [
+    "2025/06/LS-Website-Asset-2025-27.jpg",
+    "2026/01/elementor/thumbs/LS-Machine-Thumbnails-2025-Web-22-rhcoa9bndmyaxl05uq5vevgx2ctutci8hik7wj7udk.png",
+    "2026/01/elementor/thumbs/LS-Machine-Thumbnails-2025-Web-22-rhcoa9bptcj65lbmojw7n15n51944uxo93qk7c6afs.png"
+  ],
+  "missing_reference_posts": [
+    {
+      "id": "2394",
+      "status": "publish",
+      "type": "page",
+      "title": "\u00a0Food Machinery Solutions | LS Smart Malaysia"
+    },
+    {
+      "id": "7151",
+      "status": "publish",
+      "type": "page",
+      "title": "\u00a0Bakery & Pastry Machinery 2 | Full-Line Solutions - Machine Category"
+    },
+    {
+      "id": "7236",
+      "status": "publish",
+      "type": "page",
+      "title": "Luxury Deck Oven - Machine Profile"
+    }
+  ]
+}

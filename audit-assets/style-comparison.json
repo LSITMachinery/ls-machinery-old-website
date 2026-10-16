@@ -1,0 +1,99 @@
+[
+  {
+    "width": 2504,
+    "page": "home",
+    "url": "http://127.0.0.1:8000/?legacy=1#home",
+    "overflow": 0,
+    "delta": []
+  },
+  {
+    "width": 2504,
+    "page": "machine/mini-cookie-depositor-mcd",
+    "url": "http://127.0.0.1:8000/?legacy=1#machine/mini-cookie-depositor-mcd",
+    "overflow": 0,
+    "delta": []
+  },
+  {
+    "width": 2504,
+    "page": "solutions",
+    "url": "http://127.0.0.1:8000/?legacy=1#solutions",
+    "overflow": 0,
+    "delta": []
+  },
+  {
+    "width": 2504,
+    "page": "company",
+    "url": "http://127.0.0.1:8000/?legacy=1#company",
+    "overflow": 0,
+    "delta": []
+  },
+  {
+    "width": 1440,
+    "page": "home",
+    "url": "http://127.0.0.1:8000/?legacy=1#home",
+    "overflow": 0,
+    "delta": []
+  },
+  {
+    "width": 1440,
+    "page": "machine/mini-cookie-depositor-mcd",
+    "url": "http://127.0.0.1:8000/?legacy=1#machine/mini-cookie-depositor-mcd",
+    "overflow": 0,
+    "delta": []
+  },
+  {
+    "width": 1440,
+    "page": "solutions",
+    "url": "http://127.0.0.1:8000/?legacy=1#solutions",
+    "overflow": 0,
+    "delta": []
+  },
+  {
+    "width": 1440,
+    "page": "company",
+    "url": "http://127.0.0.1:8000/?legacy=1#company",
+    "overflow": 0,
+    "delta": []
+  },
+  {
+    "width": 390,
+    "page": "home",
+    "url": "http://127.0.0.1:8000/?legacy=1#home",
+    "overflow": 0,
+    "delta": [
+      {
+        "e": "section-wrap section-pad home-current editorial-current",
+        "w": 0,
+        "h": -60,
+        "font": "same"
+      },
+      {
+        "e": "section-wrap section-pad home-segments",
+        "w": 0,
+        "h": 30,
+        "font": "same"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "page": "machine/mini-cookie-depositor-mcd",
+    "url": "http://127.0.0.1:8000/?legacy=1#machine/mini-cookie-depositor-mcd",
+    "overflow": 0,
+    "delta": []
+  },
+  {
+    "width": 390,
+    "page": "solutions",
+    "url": "http://127.0.0.1:8000/?legacy=1#solutions",
+    "overflow": 0,
+    "delta": []
+  },
+  {
+    "width": 390,
+    "page": "company",
+    "url": "http://127.0.0.1:8000/?legacy=1#company",
+    "overflow": 0,
+    "delta": []
+  }
+]

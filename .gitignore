@@ -1,0 +1,13 @@
+# Local CMS credentials and exported backups
+/.env
+/cms/.env
+/cms/backups/
+/cms/data/
+/audit-assets/oct15-food-sql-excerpts.txt
+**/node_modules/
+/.playwright-mcp/
+*.log
+.env.*
+!.env.example
+*.pem
+*.key

@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-16",
+  "timezone": "Asia/Kuala_Lumpur",
+  "target": "http://127.0.0.1:8011/",
+  "engine": "Chromium via Playwright MCP",
+  "scope": "Local preview; viewport simulation; no enquiry or external message sent",
+  "viewports": [
+    {"width":375,"height":812},
+    {"width":768,"height":1024},
+    {"width":1440,"height":1000}
+  ],
+  "initialLoadSamples": [
+    {"width":375,"lcpMs":312,"cls":0.000049400953405539787,"longTasksMs":[182],"domContentLoadedMs":263.3,"resourceTransferBytes":1066648,"resourceCount":28,"horizontalOverflow":false},
+    {"width":768,"lcpMs":292,"cls":0.000017070042026312068,"longTasksMs":[185],"domContentLoadedMs":260.9,"resourceTransferBytes":1144714,"resourceCount":28,"horizontalOverflow":false},
+    {"width":1440,"lcpMs":288,"cls":0.00015585681748230224,"longTasksMs":[178,52],"domContentLoadedMs":258.7,"resourceTransferBytes":1360466,"resourceCount":28,"horizontalOverflow":false}
+  ],
+  "performanceLimit": "One fresh browser context per width; localhost; no network/CPU throttling; HTML excluded from resource transfer sum; cross-origin transfer accounting may be incomplete; no INP or field data",
+  "routeChecks": {"manifestRoutes":99,"manifestHttp200":99,"uniqueManifestAndLinkedPaths":101,"non200":[{"path":"/company/our-history/","status":404,"clientRendersHistory":true}]},
+  "search": {"query":"LSF 502 MCD","results":1,"expectedProduct":"Mini Cookie Depositor (MCD)"},
+  "bakeryFilter": {"process":"Depositor Series","results":4,"afterMcdSearch":1},
+  "quoteContext": {"machine":"LSF 502 MCD","intent":"quote","preserved":true},
+  "inquiryConfig": {"inquiryDelivery":false,"submitControlHidden":true,"emptyFormValid":false},
+  "handoffs": {"mailtoInspected":true,"whatsAppUrlInspected":true,"modelAndIntentEncoded":true,"externalAppsOpened":false,"deliveryVerified":false},
+  "mobileMenu": {"opened":true,"ariaExpanded":true,"escapeClosed":true,"returnedFocusLabel":"Open navigation"},
+  "routeFocus": {"trigger":"Keyboard Enter on Explore our machines","destination":"/machines/","activeElement":"BODY","dedicatedRouteAnnouncementFound":false,"screenReaderBehaviour":"not verified","nextTabText":"Discover our machinery ↓"},
+  "mobileMotionHitArea": {"width":30,"height":40,"interpretation":"Below project 44px comfort goal; not automatically a WCAG AA target-size failure"},
+  "layoutNotes": [
+    "No persistent homepage overflow after settling at the three requested widths.",
+    "One transient mobile overflow reading during scroll capture settled to scrollWidth 375 at innerWidth 375, with no out-of-bounds visible element.",
+    "An early full-page capture missed the middle partnership photo. All three were subsequently verified loaded; full-page baselines were replaced.",
+    "Final full-page captures temporarily requested images eagerly in the audit browser, scrolled content, waited for loads and settled animations. No source/CMS change; these show loaded composition. Initial viewports and performance samples used normal loading."
+  ],
+  "reducedMotionSample": {"headingsHidden":0,"activeAnimationObjects":0,"scope":"homepage sampled state"},
+  "contrastSample": {"surface":"machines overview","solidBackgroundCandidatesBelowMinimum":0,"fullWcagAudit":false},
+  "detector": {"rawDiagnostics":9,"warnings":7,"advisories":2,"verifiedLiveDefectsFromThoseDiagnostics":0,"note":"Historical/hidden/overridden styles and dynamic markup parser false positives; manually reconciled"},
+  "stylesheetCheck": "site.css matches all source styles",
+  "notVerified": ["physical touch gestures","Safari","Firefox","screen reader output","200 percent text enlargement","320px reflow","production performance","provider acceptance","inbox receipt","WhatsApp account ownership or delivery","staff response","shared CMS authentication or publishing"]
+}

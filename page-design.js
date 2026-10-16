@@ -3,7 +3,239 @@
   const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
   const slug = value => String(value).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
   const text = (c, en, zh, ms) => c.language === 'zh' ? zh : c.language === 'ms' ? ms : en;
-  const foodLinks = c => `<div class="food-shortcuts">${c.foods.slice(0,6).map(food => `<a class="food-shortcut fade-in" href="#food/${slug(food.name)}">${c.assetImage(c.sectionAsset('foods',slug(food.name)), 'food-shortcut-image', {alt:'',sizes:'(max-width:800px) 45vw, 30vw'})}<span class="food-name">${esc(c.localName(food.name))}</span><span aria-hidden="true">↗</span></a>`).join('')}</div>`;
+  const homeIntroVideoId = '4RA9dekfBEc';
+  let youtubeApiPromise = null;
+  let cleanupHomeVideo = () => {};
+
+  function loadYouTubeApi() {
+    if (window.YT?.Player) return Promise.resolve(window.YT);
+    if (!youtubeApiPromise) {
+      youtubeApiPromise = new Promise((resolve, reject) => {
+        let settled = false;
+        let timeout = 0;
+        let script = document.querySelector('script[data-ls-youtube-api]');
+        const previousReady = window.onYouTubeIframeAPIReady;
+        const restoreReady = () => {
+          if (window.onYouTubeIframeAPIReady === ready) window.onYouTubeIframeAPIReady = previousReady;
+        };
+        const fail = () => {
+          if (settled) return;
+          settled = true;
+          window.clearTimeout(timeout);
+          restoreReady();
+          script?.remove();
+          reject(new Error('YouTube player could not be loaded'));
+        };
+        const ready = () => {
+          if (typeof previousReady === 'function') {
+            try { previousReady(); } catch {}
+          }
+          if (settled) return;
+          if (!window.YT?.Player) { fail(); return; }
+          settled = true;
+          window.clearTimeout(timeout);
+          restoreReady();
+          resolve(window.YT);
+        };
+        window.onYouTubeIframeAPIReady = ready;
+        timeout = window.setTimeout(fail, 12000);
+        if (!script) {
+          script = document.createElement('script');
+          script.src = 'https://www.youtube.com/iframe_api';
+          script.async = true;
+          script.dataset.lsYoutubeApi = '';
+          script.addEventListener('error', fail, { once: true });
+          document.head.append(script);
+        } else {
+          script.addEventListener('error', fail, { once: true });
+        }
+      }).catch(error => {
+        youtubeApiPromise = null;
+        throw error;
+      });
+    }
+    return youtubeApiPromise;
+  }
+
+  function mountHomeVideo(main, c) {
+    const root = main.querySelector('[data-home-intro-video]');
+    const host = root?.querySelector('[data-home-video-player]');
+    const toggle = root?.querySelector('[data-home-video-toggle]');
+    const toggleIcon = toggle?.querySelector('[data-video-icon]');
+    const playButton = root?.querySelector('[data-home-video-play]');
+    if (!root || !host || !toggle || !playButton) return () => {};
+
+    const labels = {
+      play: text(c, 'Play intro video', '播放介绍视频', 'Mainkan video pengenalan'),
+      resume: text(c, 'Resume intro video', '继续播放介绍视频', 'Sambung video pengenalan'),
+      pause: text(c, 'Pause intro video', '暂停介绍视频', 'Jeda video pengenalan'),
+      region: text(c, 'LS Smart Machinery introduction video', 'LS Smart Machinery 介绍视频', 'Video pengenalan LS Smart Machinery')
+    };
+    const reducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches && !document.documentElement.classList.contains('motion-opted-in');
+    const reducedMotionQuery = window.matchMedia?.('(prefers-reduced-motion: reduce)');
+    let player = null;
+    let ready = false;
+    let disposed = false;
+    let request = null;
+    let autoplayWanted = !reducedMotion;
+    let explicitPlay = false;
+    let userPaused = false;
+    let resumeAfterGlobalPause = false;
+    let fallbackTimer = 0;
+    let observer = null;
+    let playerResizeObserver = null;
+
+    root.setAttribute('aria-label', labels.region);
+    root.dataset.videoState = reducedMotion ? 'poster' : 'loading';
+    const motionIsPaused = () => document.body.classList.contains('motion-paused') || (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches && !document.documentElement.classList.contains('motion-opted-in'));
+    const setState = state => {
+      if (disposed) return;
+      root.dataset.videoState = state;
+      const playing = state === 'playing';
+      toggle.setAttribute('aria-pressed', String(playing));
+      toggle.setAttribute('aria-label', playing ? labels.pause : labels.resume);
+      toggleIcon.textContent = playing ? 'Ⅱ' : '▶';
+      playButton.setAttribute('aria-label', playing ? labels.pause : (state === 'paused' ? labels.resume : labels.play));
+      playButton.querySelector('[data-play-label]').textContent = state === 'paused' ? labels.resume : labels.play;
+    };
+    const fitPlayer = () => {
+      if (!ready || !player) return;
+      const rect = root.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
+      const width = Math.ceil(Math.max(rect.width, rect.height * 16 / 9));
+      const height = Math.ceil(Math.max(rect.height, rect.width * 9 / 16));
+      try {
+        player.setSize(width, height);
+        Object.assign(player.getIframe().style, { position: 'absolute', top: '50%', left: '50%', maxWidth: 'none', transform: 'translate(-50%, -50%)', pointerEvents: 'none' });
+      } catch {}
+    };
+    const play = fromUser => {
+      if (disposed) return;
+      if (fromUser) {
+        autoplayWanted = true;
+        explicitPlay = true;
+        userPaused = false;
+        resumeAfterGlobalPause = false;
+      }
+      if (ready && player) {
+        try {
+          player.mute();
+          if (root.dataset.videoState === 'failed') player.loadVideoById({ videoId: homeIntroVideoId, startSeconds: 0 });
+          else player.playVideo();
+          setState('loading');
+        } catch { setState('failed'); }
+        return;
+      }
+      if (request) return;
+      setState('loading');
+      request = loadYouTubeApi().then(YT => {
+        request = null;
+        if (disposed || !host.isConnected) return;
+        player = new YT.Player(host, {
+          width: '100%',
+          height: '100%',
+          videoId: homeIntroVideoId,
+          playerVars: {
+            autoplay: 0,
+            controls: 0,
+            disablekb: 1,
+            enablejsapi: 1,
+            fs: 0,
+            loop: 1,
+            origin: location.origin,
+            playlist: homeIntroVideoId,
+            playsinline: 1,
+            rel: 0
+          },
+          events: {
+            onReady(event) {
+              if (disposed) { try { event.target.destroy(); } catch {} return; }
+              player = event.target;
+              ready = true;
+              player.mute();
+              fitPlayer();
+              if (typeof ResizeObserver === 'function') {
+                playerResizeObserver = new ResizeObserver(fitPlayer);
+                playerResizeObserver.observe(root);
+              } else window.addEventListener('resize', fitPlayer);
+              if ((explicitPlay || autoplayWanted) && !userPaused) {
+                if (motionIsPaused() && !explicitPlay) resumeAfterGlobalPause = true;
+                else player.playVideo();
+              } else setState('poster');
+            },
+            onStateChange(event) {
+              if (disposed || !window.YT?.PlayerState) return;
+              if (event.data === window.YT.PlayerState.PLAYING) {
+                window.clearTimeout(fallbackTimer);
+                setState('playing');
+              } else if (event.data === window.YT.PlayerState.ENDED) {
+                player.seekTo(0, true);
+                player.playVideo();
+              } else if (event.data === window.YT.PlayerState.PAUSED && root.dataset.videoState === 'playing') setState('paused');
+            },
+            onAutoplayBlocked() { if (!disposed) setState('blocked'); },
+            onError() { if (!disposed) setState('failed'); }
+          }
+        });
+        fallbackTimer = window.setTimeout(() => {
+          if (!disposed && root.dataset.videoState === 'loading') setState('blocked');
+        }, 11000);
+      }).catch(() => {
+        request = null;
+        if (!disposed) setState('failed');
+      });
+    };
+    const pauseByUser = () => {
+      userPaused = true;
+      autoplayWanted = false;
+      resumeAfterGlobalPause = false;
+      try { player?.pauseVideo(); } catch {}
+      setState('paused');
+    };
+    const togglePlayback = () => root.dataset.videoState === 'playing' ? pauseByUser() : play(true);
+    const handleMotionChange = () => {
+      if (motionIsPaused()) {
+        if (root.dataset.videoState === 'playing') {
+          resumeAfterGlobalPause = true;
+          try { player?.pauseVideo(); } catch {}
+          setState('paused');
+        } else if (autoplayWanted && !userPaused) resumeAfterGlobalPause = true;
+      } else if (resumeAfterGlobalPause && !userPaused) {
+        resumeAfterGlobalPause = false;
+        play(false);
+      }
+    };
+    const onToggle = () => togglePlayback();
+    toggle.addEventListener('click', onToggle);
+    playButton.addEventListener('click', onToggle);
+    window.addEventListener('ls:motion-change', handleMotionChange);
+    reducedMotionQuery?.addEventListener?.('change', handleMotionChange);
+    if (!reducedMotion) play(false);
+
+    if (typeof MutationObserver === 'function') {
+      observer = new MutationObserver(() => {
+        if (!root.isConnected) cleanup();
+      });
+      observer.observe(main, { childList: true, subtree: true });
+    }
+    function cleanup() {
+      if (disposed) return;
+      disposed = true;
+      observer?.disconnect();
+      playerResizeObserver?.disconnect();
+      window.removeEventListener('resize', fitPlayer);
+      window.clearTimeout(fallbackTimer);
+      window.removeEventListener('ls:motion-change', handleMotionChange);
+      reducedMotionQuery?.removeEventListener?.('change', handleMotionChange);
+      toggle.removeEventListener('click', onToggle);
+      playButton.removeEventListener('click', onToggle);
+      try { player?.destroy(); } catch {}
+      player = null;
+      ready = false;
+    }
+    return cleanup;
+  }
+  const foodLinks = c => `<div class="food-shortcuts">${c.foods.slice(0,6).map(food => `<a class="food-shortcut fade-in" href="#food/${slug(food.name)}">${c.assetImage(c.sectionAsset('foods',slug(food.name)), 'food-shortcut-image', {alt:'',sizes:'84px'})}<span class="food-name">${esc(c.localName(food.name))}</span><span aria-hidden="true">↗</span></a>`).join('')}</div>`;
   function segmentPicker(c) {
     return `<div class="segment-picker" data-segment-picker><figure class="segment-picker-visual">${c.segments.slice(0,3).map((segment,i) => c.assetImage(c.sectionAsset('segments',slug(segment.name)), `segment-picker-image ${i===0?'is-active':''}`, {sizes:'(max-width:800px) 90vw, 45vw'}).replace('<img ',`<img data-segment-image="${i}" `)).join('')}</figure><div class="segment-picker-items">${c.segments.slice(0,3).map((segment,i) => `<article class="segment-picker-item ${i===0?'is-active':''}"><h3><button type="button" data-segment-index="${i}" aria-expanded="${i===0}" aria-controls="segment-panel-${i}"><span class="circle-plus" aria-hidden="true">${i===0?'−':'+'}</span>${esc(c.localName(segment.name))}</button></h3><div class="segment-picker-panel" id="segment-panel-${i}" data-segment-panel="${i}" ${i===0?'':'hidden inert'}><p>${esc(c.pageText(`segment0${i+1}`))}</p>${c.buttonLink(`#segment/${slug(segment.name)}`,text(c,'Discover this segment','探索此企业类别','Terokai segmen ini'))}</div></article>`).join('')}</div></div>`;
   }
@@ -36,6 +268,15 @@
     const currentImage=c.sectionAsset('history','early-phases')||c.sectionAsset('currentProduction');
     return `<section class="section-wrap section-pad home-current editorial-current" id="current"><div class="current-editorial-layout"><figure class="current-editorial-media">${c.assetImage(currentImage,'current-editorial-image',{sizes:'(max-width:800px) 100vw, 76vw'})}</figure><div class="current-editorial-panel"><span class="eyebrow">${esc(c.t('latest'))}</span><h2 class="current-editorial-title">${esc(c.content.currentTitle)}</h2><p class="body-copy">${esc(c.content.currentText)}</p><div class="current-editorial-actions">${c.arrowLink('#company',text(c,'Meet LS Smart Machinery','认识 LS Smart Machinery','Kenali LS Smart Machinery'))}<a class="arrow-link" href="#company/history">${esc(text(c,'Our story','我们的故事','Kisah kami'))} ↗</a></div></div></div>${clientStrip(c)}</section>`;
   }
+  function capabilitiesExplorer(c, capabilities) {
+    const rows = [
+      { image:c.sectionAsset('solutions','factory-line-planning'), alt:text(c,'LS premises in Malaysia','马来西亚 LS 厂房','Premis LS di Malaysia'), href:'#solution/factory-line-planning', action:text(c,'Explore factory and line planning','了解工厂与生产线规划','Terokai perancangan kilang dan barisan') },
+      { image:c.sectionAsset('solutions','machinery-automation'), alt:text(c,'LS machinery collage; equipment examples only','LS 机械拼图；设备示例','Kolaj mesin LS; contoh peralatan sahaja'), caption:text(c,'Machinery examples from LS','LS 机械示例','Contoh mesin daripada LS'), href:'#machines', action:text(c,'Explore machines','浏览设备','Terokai mesin') },
+      { image:c.sectionAsset('services'), alt:text(c,'LS team inspecting food machinery','LS 团队检查食品机械','Pasukan LS memeriksa mesin makanan'), caption:text(c,'LS team inspecting food machinery','LS 团队检查食品机械','Pasukan LS memeriksa mesin makanan'), href:'#service/installation-training', action:text(c,'Discuss installation and training','讨论安装与培训','Bincangkan pemasangan dan latihan') },
+      { image:c.sectionAsset('customerExperiences','photo-1'), alt:text(c,'Food-production equipment at a customer site','客户现场的食品生产设备','Peralatan pengeluaran makanan di tapak pelanggan'), caption:text(c,'Food-production equipment at a customer site','客户现场的食品生产设备','Peralatan pengeluaran makanan di tapak pelanggan'), href:'#service/support-repairs', action:text(c,'Contact LS support','联系 LS 服务团队','Hubungi sokongan LS') }
+    ];
+    return `<div class="home-capability-explorer" data-capability-explorer><div class="home-capability-media" aria-label="${esc(text(c,'LS photographs','LS 实景照片','Foto LS'))}">${rows.map((row,i)=>`<figure class="home-capability-photo ${i===0?'is-active':''}" data-capability-photo="${i}" aria-hidden="${i!==0}" ${i===0?'':'inert'}>${c.assetImage(row.image,'home-capability-image',{alt:row.alt,sizes:'(max-width:800px) 100vw, 48vw',loading:i===0?'eager':'lazy'})}${row.caption?`<figcaption>${esc(row.caption)}</figcaption>`:''}</figure>`).join('')}</div><div class="home-capability-copy"><div class="home-capability-tabs" role="tablist" aria-label="${esc(text(c,'Ways LS can help','LS 可提供的协助','Cara LS boleh membantu'))}">${capabilities.map(([title],i)=>`<button type="button" role="tab" class="home-capability-tab ${i===0?'is-active':''}" id="home-capability-tab-${i}" aria-controls="home-capability-panel-${i}" aria-selected="${i===0}" tabindex="${i===0?0:-1}" data-capability-tab="${i}">${esc(title)}<span aria-hidden="true">↗</span></button>`).join('')}</div>${capabilities.map(([title,body],i)=>`<section class="home-capability-panel" role="tabpanel" id="home-capability-panel-${i}" aria-labelledby="home-capability-tab-${i}" data-capability-panel="${i}" ${i===0?'':'hidden inert'}><h3>${esc(title)}</h3><p>${esc(body)}</p><a class="arrow-link" href="${esc(rows[i].href)}">${esc(rows[i].action)} <span aria-hidden="true">↗</span></a></section>`).join('')}</div></div>`;
+  }
   function experienceCards(c, limit = 3) {
     const source = c.stories?.experiences || [
       { title: text(c,'Equipment in a food-production setting','食品生产场景中的设备','Peralatan dalam persekitaran pengeluaran makanan'), body: text(c,'A view from LS’s published gallery of machinery and production environments.','来自 LS 已发布图库的设备与生产环境画面。','Paparan mesin dan persekitaran pengeluaran daripada galeri terbitan LS.'), image: 'photo-1' },
@@ -58,10 +299,11 @@
     const heroImage = c.assets.catalogue[heroMachine.catalogueName]?.image;
     const capabilities = c.homeText('why').slice(0,4);
     return `<div class="home-page reference-home">
-      <section class="reference-hero home-hero" aria-labelledby="home-title"><figure class="home-industry-backdrop" aria-hidden="true">${c.assetImage(c.sectionAsset('currentProduction'),'home-industry-photo',{alt:'',loading:'eager',sizes:'100vw'})}</figure><div class="reference-hero-panel"><span class="eyebrow">${esc(c.t('heroEyebrow'))}</span><h1 id="home-title" class="display-title">${esc(c.content.heroTitleA)}<br><span class="hero-accent">${esc(c.content.heroTitleB)}</span></h1><p class="lede">${esc(c.content.heroLead)}</p><div class="hero-actions"><a class="button-link home-food-action" href="#food" data-scroll-to="food">${esc(c.t('allFood'))} <span class="button-arrow" aria-hidden="true">↗</span></a>${c.arrowLink('#machines',c.t('exploreMachines'))}${c.arrowLink('#inquiry?intent=quote',c.t('askForQuote'))}</div></div><div class="home-machinery-media"><figure class="home-machine-static">${c.assetImage(heroImage,'hero-machine-image',{priority:true,loading:'eager',alt:heroMachine.model,sizes:'(max-width:800px) 80vw, 50vw'})}</figure></div></section>
+      <section class="reference-hero home-hero home-video-hero" aria-labelledby="home-title"><div class="home-intro-video" data-home-intro-video data-video-state="loading" role="group"><div class="home-intro-poster" aria-hidden="true">${c.assetImage(c.sectionAsset('currentProduction'),'home-intro-poster-image',{alt:'',loading:'eager',sizes:'100vw'})}</div><div class="home-intro-player" id="ls-home-intro-player" data-home-video-player aria-hidden="true"></div><div class="home-intro-video-shade" aria-hidden="true"></div><div class="reference-hero-panel"><span class="eyebrow">${esc(c.t('heroEyebrow'))}</span><h1 id="home-title" class="display-title">${esc(c.content.heroTitleA)}<br><span class="hero-accent">${esc(c.content.heroTitleB)}</span></h1><p class="lede">${esc(c.content.heroLead)}</p><div class="hero-actions"><a class="button-link home-food-action" href="#food" data-scroll-to="food">${esc(c.t('allFood'))} <span class="button-arrow" aria-hidden="true">↗</span></a>${c.arrowLink('#machines',c.t('exploreMachines'))}${c.arrowLink('#inquiry?intent=quote',c.t('askForQuote'))}<button type="button" class="home-video-play" data-home-video-play><span data-play-label>${esc(text(c,'Play intro video','播放介绍视频','Mainkan video pengenalan'))}</span><span aria-hidden="true">▶</span></button></div></div><button type="button" class="home-video-toggle" data-home-video-toggle aria-pressed="false" aria-label="${esc(text(c,'Resume intro video','继续播放介绍视频','Sambung video pengenalan'))}"><span data-video-icon aria-hidden="true">▶</span></button></div></section>
+      <section class="section-wrap home-featured-machine" aria-label="${esc(text(c,'Featured machine','精选设备','Mesin pilihan'))}"><div class="home-featured-machine-copy"><span class="eyebrow">${esc(text(c,'FEATURED MACHINE','精选设备','MESIN PILIHAN'))}</span><h2>${esc(heroMachine.model)}</h2><p>${esc(c.localName(heroMachine.catalogueName))}</p><a class="arrow-link" href="${esc(c.productUrl(heroMachine.catalogueName))}">${esc(text(c,'Explore this machine','了解这台设备','Terokai mesin ini'))} <span aria-hidden="true">↗</span></a></div><figure class="home-featured-machine-visual">${c.assetImage(heroImage,'home-featured-machine-image',{priority:true,loading:'eager',alt:heroMachine.model,sizes:'(max-width:800px) 45vw, 25vw'})}</figure></section>
       <section class="section-wrap section-pad home-food-section" id="food" aria-labelledby="home-food-title"><h2 id="home-food-title" class="section-title compact-heading">${esc(text(c,'What would you like to produce?','您希望生产哪类食品？','Apakah yang ingin anda hasilkan?'))}</h2>${foodLinks(c)}</section>
       ${currentEditorial(c)}
-      <section class="section-wrap section-pad home-capabilities" id="why-ls" aria-labelledby="home-capabilities-title"><div class="home-capabilities-intro"><h2 id="home-capabilities-title" class="section-title">${esc(text(c,'From product planning to ongoing support','从产品规划到持续支持','Daripada perancangan produk hingga sokongan berterusan'))}</h2></div><ol class="home-capability-list">${capabilities.map(([title,body])=>`<li><div><h3>${esc(title)}</h3><p>${esc(body)}</p></div></li>`).join('')}</ol></section>
+      <section class="section-wrap section-pad home-capabilities" id="why-ls" aria-labelledby="home-capabilities-title"><div class="home-capabilities-intro"><h2 id="home-capabilities-title" class="section-title">${esc(text(c,'From product planning to ongoing support','从产品规划到持续支持','Daripada perancangan produk hingga sokongan berterusan'))}</h2><p>${esc(text(c,'Bring your product, space and production goals. LS can help you work through the next step.','带上您的产品、空间与生产目标，与 LS 一起讨论下一步。','Kongsikan produk, ruang dan matlamat pengeluaran anda. LS boleh membantu merancang langkah seterusnya.'))}</p></div>${capabilitiesExplorer(c,capabilities)}</section>
       <section class="section-wrap section-pad home-segments" id="segments"><h2 class="section-title">${esc(text(c,'Customer segments','客户群体','Segmen pelanggan'))}</h2>${segmentPicker(c)}</section>
       ${newsSection(c)}
       <section class="section-wrap section-pad home-experiences" id="customer-experiences"><div class="section-heading-row"><div><span class="eyebrow">${esc(text(c,'CUSTOMER PARTNERSHIPS','客户合作','KERJASAMA PELANGGAN'))}</span><h2 class="section-title">${esc(text(c,'Built around the people who produce.','围绕每一位食品生产者。','Bersama mereka yang menghasilkan.'))}</h2></div><a href="#company/customer-partnerships">${esc(text(c,'Explore our partnerships','了解客户合作','Terokai kerjasama kami'))} ↗</a></div><p class="customer-partnership-intro">${esc(text(c,'People and machinery in LS’s published production gallery.','LS 已发布生产图库中的团队与机器。','Orang dan mesin dalam galeri pengeluaran LS.'))}</p><div class="customer-experience-grid">${experienceCards(c,3)}</div></section>
@@ -93,7 +335,12 @@
     const lead=text(c,'Explore equipment and planning around the food you make. Confirm the right configuration with LS for your ingredients, process and production goals.','围绕您的食品探索设备与生产规划。根据原料、流程及生产目标，与 LS 确认合适的配置。','Terokai mesin dan perancangan mengikut makanan anda. Sahkan konfigurasi dengan LS berdasarkan ramuan, proses dan matlamat pengeluaran.');
     return `${photoHero(c,title,lead,c.sectionAsset('foods',slug(food.name)),c.t('navFood'))}${window.LSIndustrial.foodGallery(c,food.name)}${process(c,food.name)}<section class="section-wrap section-pad" id="equipment"><h2 class="section-title">${esc(text(c,'Explore equipment for your next step','探索下一步所需的设备','Terokai peralatan untuk langkah seterusnya'))}</h2><div class="tiles-grid category-index-grid">${categories.map(category=>{return `<a class="info-tile category-index-card fade-in" href="#machines/${slug(category.name)}">${c.categoryImage(category)}<h3>${esc(c.localName(category.name))}<span aria-hidden="true"> ↗</span></h3></a>`}).join('')}</div></section>${inquiryBand(c,food.name)}${faq(c,food.name)}`;
   }
+  function cleanup() {
+    cleanupHomeVideo();
+    cleanupHomeVideo = () => {};
+  }
   function enhance(c) {
+    cleanup();
     const {main,route}=c;
     document.body.dataset.pageFamily=route.split('/')[0];
     if(route.startsWith('machine/')) {
@@ -147,6 +394,7 @@
     }
     if(route.startsWith('machines/')&&!main.querySelector('#faq')) main.querySelector('.production-invitation')?.insertAdjacentHTML('beforebegin',faq(c));
         main.querySelectorAll('.section-title,.content-columns,.info-tile,.catalogue-item,.reference-hero-panel').forEach(el=>el.classList.add('fade-in'));
+    if (route === 'home') cleanupHomeVideo = mountHomeVideo(main, c);
   }
   function company(c) {
     const record = id => c.assets.images[id];
@@ -271,5 +519,5 @@
     const lead=selected?copy[selected]:c.content.solutionIntro;
     return `${photoHero(c,title,lead,image,c.t('navSolutions'),selected==='factory-line-planning'?false:'capability')}${editorial(c,text(c,'Begin with your production requirements','从生产需求开始','Mulakan dengan keperluan pengeluaran'),text(c,'Bring your product, current process and planned changes into the conversation. LS can help you review layout, equipment and support together.','分享您的产品、现有流程与计划中的调整。LS 可协助您一起讨论布局、设备及支持。','Kongsikan produk, proses semasa dan perubahan yang dirancang. LS boleh membantu menyemak susun atur, mesin dan sokongan bersama.'),c.sectionAsset('building'),false,'requirements')}<section class="section-wrap section-pad" id="capabilities"><h2 class="section-title">${esc(c.t('capabilities'))}</h2><div class="tiles-grid">${capabilities.map(item=>`<a class="info-tile capability-card fade-in" href="#solution/${slug(item)}">${c.assetImage(c.sectionAsset('solutions',slug(item)),'capability-image',{sizes:'(max-width:800px) 90vw, 45vw'})}<h3>${esc(c.localName(item))}<span aria-hidden="true"> ↗</span></h3><p>${esc(copy[item])}</p></a>`).join('')}</div><div class="coming-soon"><span>${esc(c.t('aiComing'))}</span><p>${esc(text(c,'AI technology implementation','AI 技术实施','Pelaksanaan teknologi AI'))}</p></div></section>${inquiryBand(c,selected||'Solutions')}<section class="section-wrap section-pad" id="food"><h2 class="section-title">${esc(text(c,'What is your product?','您的产品是什么？','Apakah produk anda?'))}</h2>${foodLinks(c)}</section>`;
   }
-  window.LSDesign={home,food,segment,solutions,company,history,customerExperiences,newsSection,inquiryBand,enhance};
+  window.LSDesign={home,food,segment,solutions,company,history,customerExperiences,newsSection,inquiryBand,enhance,cleanup};
 })();

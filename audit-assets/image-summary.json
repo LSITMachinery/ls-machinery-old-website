@@ -1,0 +1,42 @@
+{
+  "total_files": 35168,
+  "total_bytes": 7903766697,
+  "images_total": 20007,
+  "image_locations": {
+    "uploads": 16508,
+    "maintenance": 5,
+    "plugins": 3155,
+    "themes": 339
+  },
+  "uploads_images": 16508,
+  "uploads_image_bytes": 4689096873,
+  "uploads_formats": {
+    ".png": 10389,
+    ".jpg": 5024,
+    ".svg": 66,
+    ".jpeg": 918,
+    ".webp": 96,
+    ".avif": 15
+  },
+  "uploads_resized_variants": 14257,
+  "uploads_unique_hashes": 15500,
+  "exact_duplicate_copies": 1008,
+  "zero_byte_images": [],
+  "decode_errors": [
+    {
+      "path": "uploads/2025/07/Steamer-Tray.png",
+      "bytes": 2819782,
+      "width": "",
+      "height": "",
+      "status": "UnidentifiedImageError: cannot identify image file 'C:\\\\Users\\\\likto\\\\Desktop\\\\lsmachinery-com-my-20260926-141447-vcu6ltj866a0\\\\uploads\\\\2025\\\\0",
+      "sha256": "33d88362f018eaa8d0324f18512747378582b4ef77643aad834f12453beafd2b",
+      "resized_variant": false
+    }
+  ],
+  "other_media": {
+    ".mp3": 1,
+    ".mp4": 10,
+    ".mov": 1,
+    ".pdf": 5
+  }
+}

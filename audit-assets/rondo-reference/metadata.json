@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Rondo Solution Page.mp4",
+    "slug": "solutions",
+    "duration": 13.386878,
+    "width": 1920,
+    "height": 988
+  },
+  {
+    "name": "Rondo Baked Goods page.mp4",
+    "slug": "baked-goods",
+    "duration": 24.063278,
+    "width": 1920,
+    "height": 984
+  },
+  {
+    "name": "Rondo machines - Dough sheeters, Compas 4.0 page.mp4",
+    "slug": "compas-detail",
+    "duration": 48.278667,
+    "width": 1920,
+    "height": 980
+  },
+  {
+    "name": "Rondo machine landing page.mp4",
+    "slug": "machine-landing",
+    "duration": 15.788667,
+    "width": 1920,
+    "height": 986
+  }
+]

@@ -20,6 +20,47 @@
 @media(max-width:520px){.home-hero.reference-hero{min-height:790px;height:790px}.home-hero .reference-hero-panel h1{font-size:45px;line-height:1.04;max-width:390px}.home-hero .reference-hero-panel{padding-top:45px}.home-hero .reference-hero-panel .lede{font-size:16px;line-height:1.6}.home-hero .home-machinery-media{inset:385px 0 0;width:100%}.home-hero .hero-machine-image{height:87%;width:80%;left:20%}.home-hero .home-machine-frame figcaption{left:var(--gutter);bottom:25px}.home-hero .hero-product-link{font-size:12px}.current-editorial-panel{padding:27px 24px;width:96%;margin-top:-48px}.current-editorial-title{font-size:39px!important}.current-editorial-media{height:310px}.current-capabilities{gap:12px}.current-capabilities strong{font-size:10px}.current-editorial-actions{gap:17px;flex-wrap:wrap}.editorial-current .client-marquee{padding-block:25px}.food-shortcut .food-shortcut-image{height:155px}.food-shortcut .food-name{font-size:18px}.food-shortcuts{gap:24px 15px}.segment-picker-visual{height:320px}.segment-picker-item h3 button{font-size:26px}.footer-main{grid-template-columns:1fr 1fr;gap:36px 20px}.footer-brand{grid-column:1/-1}.footer-links:last-child{grid-column:1/-1}.footer-inner{padding-top:45px}.footer-bottom{align-items:flex-start;gap:22px}.footer-social-icons{gap:8px}.footer-social-icons a{width:35px;height:35px}.footer-brand p{font-size:12px}}
 @media(prefers-reduced-motion:reduce){.food-shortcut .food-shortcut-image{transition:none}html:not(.motion-opted-in) .client-marquee .client-strip-list{flex-wrap:wrap;justify-content:center;transform:none!important}html:not(.motion-opted-in) .client-marquee .client-strip-clone{display:none}}
 
+/* Machine food applications use compact, framed output photographs. */
+.machine-food-showcase .food-gallery-grid {
+  grid-template-columns: repeat(auto-fit, minmax(140px, 180px));
+  justify-content: center;
+  gap: 26px clamp(20px, 3vw, 42px);
+}
+.machine-food-showcase .food-example { max-width: 180px; text-align: center; }
+.machine-food-showcase .food-example figure {
+  width: clamp(116px, 11vw, 154px);
+  aspect-ratio: 1;
+  margin: 0 auto 14px;
+  padding: 4px;
+  overflow: hidden;
+  border: 1px solid #d9d6ce;
+  border-radius: 50%;
+  background: #f5f3ee;
+}
+.machine-food-showcase .food-example-image {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 200ms ease-out;
+}
+.machine-food-showcase .food-example:hover .food-example-image { transform: scale(1.035); }
+.machine-food-showcase .food-example:focus-visible { outline: 2px solid #a74517; outline-offset: 5px; }
+.machine-food-showcase .food-example .eyebrow { display: block; margin: 0 0 4px; font-size: 10px; line-height: 1.35; text-align: center; }
+.machine-food-showcase .food-example h3 { margin: 0; font-size: 15px; line-height: 1.4; letter-spacing: -.01em; text-align: center; }
+@media(max-width:520px) {
+  .machine-food-showcase .food-gallery-grid,
+  .machine-food-showcase .food-gallery-grid.has-two { grid-template-columns: repeat(auto-fit, minmax(136px, 1fr)); gap: 22px 16px; }
+  .machine-food-showcase .food-example { max-width: 180px; justify-self: center; }
+  .machine-food-showcase .food-example figure { width: min(100%, 138px); }
+  .machine-food-showcase .food-example h3 { font-size: 14px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .machine-food-showcase .food-example-image { transition: none; }
+  .machine-food-showcase .food-example:hover .food-example-image { transform: none; }
+}
+
 /* Full-bleed client proof uses the document content width, without scrollbar overflow. */
 body{container-type:inline-size}
 .editorial-current .client-marquee.is-static{padding-inline:var(--gutter)}

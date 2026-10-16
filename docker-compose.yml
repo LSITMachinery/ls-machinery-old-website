@@ -1,0 +1,64 @@
+services:
+  database:
+    image: postgres:18
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${CMS_DB_ADMIN_PASSWORD:?Set CMS_DB_ADMIN_PASSWORD in the local environment}
+      POSTGRES_DB: postgres
+      CMS_DB_USER: ${CMS_DB_USER:-ls_cms}
+      CMS_DB_NAME: ${CMS_DB_NAME:-ls_cms}
+      CMS_DB_PASSWORD: ${CMS_DB_PASSWORD:?Set CMS_DB_PASSWORD in the local environment}
+      POSTGRES_INITDB_ARGS: --auth-host=scram-sha-256 --auth-local=scram-sha-256
+    volumes:
+      - ls_cms_database:/var/lib/postgresql
+      - ./cms/docker/create-app-role.sh:/docker-entrypoint-initdb.d/10-create-app-role.sh:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d postgres"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+      start_period: 10s
+    security_opt:
+      - no-new-privileges:true
+
+  cms:
+    build:
+      context: ./cms
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      CMS_HOST: 0.0.0.0
+      CMS_PORT: 8412
+      CMS_DATA_DIR: /data
+      CMS_DB_HOST: database
+      CMS_DB_PORT: 5432
+      CMS_DB_NAME: ${CMS_DB_NAME:-ls_cms}
+      CMS_DB_USER: ${CMS_DB_USER:-ls_cms}
+      CMS_DB_PASSWORD: ${CMS_DB_PASSWORD:?Set CMS_DB_PASSWORD in the local environment}
+      CMS_SESSION_SECRET: ${CMS_SESSION_SECRET:?Set CMS_SESSION_SECRET in the local environment}
+      CMS_SECURE_COOKIE: ${CMS_SECURE_COOKIE:-0}
+    ports:
+      - "127.0.0.1:${CMS_HOST_PORT:-8412}:8412"
+    volumes:
+      - ls_cms_media:/data
+    depends_on:
+      database:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:8412/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+      start_period: 20s
+    read_only: true
+    tmpfs:
+      - /tmp:size=32m
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+
+volumes:
+  ls_cms_database:
+  ls_cms_media:

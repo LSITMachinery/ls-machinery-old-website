@@ -6,7 +6,7 @@ const base = process.env.LS_PREVIEW_URL || "http://127.0.0.1:8000/";
 (async () => {
   const browser = await chromium.launch({ headless: true });
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, reducedMotion: "reduce" });
-  await page.goto(`${base}#home`, { waitUntil: "networkidle" });
+  await page.goto(`${base}#home`, { waitUntil: "domcontentloaded" });
   await page.evaluate(() => {
     const kitchen = window.LS_CATALOGUE.categories.find((category) => category.name === "Kitchen");
     kitchen.items = Array.from({ length: 100 }, (_, index) => ({ name: `Kitchen Fixture ${String(index).padStart(3, "0")}` }));

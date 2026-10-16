@@ -1,0 +1,833 @@
+[
+  {
+    "width": 2504,
+    "hash": "home",
+    "client": 2504,
+    "scroll": 2504,
+    "tokens": [
+      [
+        "--max",
+        "1920px"
+      ],
+      [
+        "--gutter",
+        "clamp(22px,4vw,88px)"
+      ],
+      [
+        "--ink",
+        "#20211f"
+      ],
+      [
+        "--orange",
+        "#f26732"
+      ]
+    ],
+    "elements": [
+      {
+        "selector": "reference-hero home-hero",
+        "width": 2504,
+        "height": 760,
+        "font": "16px"
+      },
+      {
+        "selector": "section-wrap section-pad home-current editorial-current",
+        "width": 1920,
+        "height": 1204,
+        "font": "16px"
+      },
+      {
+        "selector": "current-editorial-media",
+        "width": 1395,
+        "height": 640,
+        "font": "16px"
+      },
+      {
+        "selector": "client-strip-wrap client-marquee",
+        "width": 2504,
+        "height": 175,
+        "font": "16px"
+      },
+      {
+        "selector": "why-visual-section section-pad",
+        "width": 2504,
+        "height": 1186,
+        "font": "16px"
+      },
+      {
+        "selector": "section-title fade-in",
+        "width": 1744,
+        "height": 85,
+        "font": "80px"
+      },
+      {
+        "selector": "section-wrap section-pad",
+        "width": 1920,
+        "height": 1282,
+        "font": "16px"
+      },
+      {
+        "selector": "section-title compact-heading fade-in",
+        "width": 640,
+        "height": 140,
+        "font": "66px"
+      },
+      {
+        "selector": "section-wrap section-pad home-segments",
+        "width": 1920,
+        "height": 1033,
+        "font": "16px"
+      },
+      {
+        "selector": "section-title fade-in",
+        "width": 1744,
+        "height": 70,
+        "font": "66px"
+      },
+      {
+        "selector": "section-wrap section-pad home-experiences",
+        "width": 1920,
+        "height": 874,
+        "font": "16px"
+      },
+      {
+        "selector": "section-title fade-in",
+        "width": 690,
+        "height": 140,
+        "font": "66px"
+      }
+    ]
+  },
+  {
+    "width": 2504,
+    "hash": "machine/mini-cookie-depositor-mcd",
+    "client": 2504,
+    "scroll": 2504,
+    "tokens": [
+      [
+        "--max",
+        "1920px"
+      ],
+      [
+        "--gutter",
+        "clamp(22px,4vw,88px)"
+      ],
+      [
+        "--ink",
+        "#20211f"
+      ],
+      [
+        "--orange",
+        "#f26732"
+      ]
+    ],
+    "elements": [
+      {
+        "selector": "machine-image-well",
+        "width": 1744,
+        "height": 510,
+        "font": "16px"
+      },
+      {
+        "selector": "section-wrap section-pad",
+        "width": 1920,
+        "height": 470,
+        "font": "16px"
+      },
+      {
+        "selector": "section-title fade-in",
+        "width": 389,
+        "height": 70,
+        "font": "66px"
+      },
+      {
+        "selector": "section-wrap section-pad product-process",
+        "width": 1920,
+        "height": 606,
+        "font": "16px"
+      },
+      {
+        "selector": "section-title fade-in",
+        "width": 837,
+        "height": 140,
+        "font": "66px"
+      },
+      {
+        "selector": "section-wrap section-pad machine-food-showcase",
+        "width": 1920,
+        "height": 932,
+        "font": "16px"
+      },
+      {
+        "selector": "section-title fade-in",
+        "width": 837,
+        "height": 70,
+        "font": "66px"
+      },
+      {
+        "selector": "product-technical section-pad",
+        "width": 2504,
+        "height": 554,
+        "font": "16px"
+      },
+      {
+        "selector": "section-title fade-in",
+        "width": 1744,
+        "height": 70,
+        "font": "66px"
+      },
+      {
+        "selector": "section-wrap section-pad related-process",
+        "width": 1920,
+        "height": 724,
+        "font": "16px"
+      },
+      {
+        "selector": "section-title fade-in",
+        "width": 1744,
+        "height": 70,
+        "font": "66px"
+      }
+    ]
+  },
+  {
+    "width": 2504,
+    "hash": "solutions",
+    "client": 2504,
+    "scroll": 2504,
+    "tokens": [
+      [
+        "--max",
+        "1920px"
+      ],
+      [
+        "--gutter",
+        "clamp(22px,4vw,88px)"
+      ],
+      [
+        "--ink",
+        "#20211f"
+      ],
+      [
+        "--orange",
+        "#f26732"
+      ]
+    ],
+    "elements": []
+  },
+  {
+    "width": 2504,
+    "hash": "company",
+    "client": 2504,
+    "scroll": 2504,
+    "tokens": [
+      [
+        "--max",
+        "1920px"
+      ],
+      [
+        "--gutter",
+        "clamp(22px,4vw,88px)"
+      ],
+      [
+        "--ink",
+        "#20211f"
+      ],
+      [
+        "--orange",
+        "#f26732"
+      ]
+    ],
+    "elements": [
+      {
+        "selector": "reference-hero",
+        "width": 2504,
+        "height": 680,
+        "font": "16px"
+      },
+      {
+        "selector": "section-title fade-in",
+        "width": 466,
+        "height": 140,
+        "font": "66px"
+      },
+      {
+        "selector": "section-title fade-in",
+        "width": 1004,
+        "height": 70,
+        "font": "66px"
+      },
+      {
+        "selector": "section-title fade-in",
+        "width": 466,
+        "height": 140,
+        "font": "66px"
+      },
+      {
+        "selector": "section-title fade-in",
+        "width": 1004,
+        "height": 70,
+        "font": "66px"
+      },
+      {
+        "selector": "section-wrap section-pad company-pathways",
+        "width": 1920,
+        "height": 467,
+        "font": "16px"
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "hash": "home",
+    "client": 1440,
+    "scroll": 1440,
+    "tokens": [
+      [
+        "--max",
+        "1920px"
+      ],
+      [
+        "--gutter",
+        "clamp(22px,4vw,88px)"
+      ],
+      [
+        "--ink",
+        "#20211f"
+      ],
+      [
+        "--orange",
+        "#f26732"
+      ]
+    ],
+    "elements": [
+      {
+        "selector": "reference-hero home-hero",
+        "width": 1440,
+        "height": 760,
+        "font": "16px"
+      },
+      {
+        "selector": "section-wrap section-pad home-current editorial-current",
+        "width": 1440,
+        "height": 1107,
+        "font": "16px"
+      },
+      {
+        "selector": "current-editorial-media",
+        "width": 1060,
+        "height": 640,
+        "font": "16px"
+      },
+      {
+        "selector": "client-strip-wrap client-marquee",
+        "width": 1440,
+        "height": 175,
+        "font": "16px"
+      },
+      {
+        "selector": "why-visual-section section-pad",
+        "width": 1440,
+        "height": 1019,
+        "font": "16px"
+      },
+      {
+        "selector": "section-title fade-in",
+        "width": 1325,
+        "height": 76,
+        "font": "72px"
+      },
+      {
+        "selector": "section-wrap section-pad",
+        "width": 1440,
+        "height": 1124,
+        "font": "16px"
+      },
+      {
+        "selector": "section-title compact-heading fade-in",
+        "width": 640,
+        "height": 116,
+        "font": "54.72px"
+      },
+      {
+        "selector": "section-wrap section-pad home-segments",
+        "width": 1440,
+        "height": 975,
+        "font": "16px"
+      },
+      {
+        "selector": "section-title fade-in",
+        "width": 1325,
+        "height": 58,
+        "font": "54.72px"
+      },
+      {
+        "selector": "section-wrap section-pad home-experiences",
+        "width": 1440,
+        "height": 804,
+        "font": "16px"
+      },
+      {
+        "selector": "section-title fade-in",
+        "width": 690,
+        "height": 116,
+        "font": "54.72px"
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "hash": "machine/mini-cookie-depositor-mcd",
+    "client": 1440,
+    "scroll": 1440,
+    "tokens": [
+      [
+        "--max",
+        "1920px"
+      ],
+      [
+        "--gutter",
+        "clamp(22px,4vw,88px)"
+      ],
+      [
+        "--ink",
+        "#20211f"
+      ],
+      [
+        "--orange",
+        "#f26732"
+      ]
+    ],
+    "elements": [
+      {
+        "selector": "machine-image-well",
+        "width": 1325,
+        "height": 510,
+        "font": "16px"
+      },
+      {
+        "selector": "section-wrap section-pad",
+        "width": 1440,
+        "height": 438,
+        "font": "16px"
+      },
+      {
+        "selector": "section-title fade-in",
+        "width": 322,
+        "height": 58,
+        "font": "54.72px"
+      },
+      {
+        "selector": "section-wrap section-pad product-process",
+        "width": 1440,
+        "height": 560,
+        "font": "16px"
+      },
+      {
+        "selector": "section-title fade-in",
+        "width": 627,
+        "height": 116,
+        "font": "54.72px"
+      },
+      {
+        "selector": "section-wrap section-pad machine-food-showcase",
+        "width": 1440,
+        "height": 867,
+        "font": "16px"
+      },
+      {
+        "selector": "section-title fade-in",
+        "width": 627,
+        "height": 58,
+        "font": "54.72px"
+      },
+      {
+        "selector": "product-technical section-pad",
+        "width": 1440,
+        "height": 496,
+        "font": "16px"
+      },
+      {
+        "selector": "section-title fade-in",
+        "width": 1325,
+        "height": 58,
+        "font": "54.72px"
+      },
+      {
+        "selector": "section-wrap section-pad related-process",
+        "width": 1440,
+        "height": 666,
+        "font": "16px"
+      },
+      {
+        "selector": "section-title fade-in",
+        "width": 1325,
+        "height": 58,
+        "font": "54.72px"
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "hash": "solutions",
+    "client": 1440,
+    "scroll": 1440,
+    "tokens": [
+      [
+        "--max",
+        "1920px"
+      ],
+      [
+        "--gutter",
+        "clamp(22px,4vw,88px)"
+      ],
+      [
+        "--ink",
+        "#20211f"
+      ],
+      [
+        "--orange",
+        "#f26732"
+      ]
+    ],
+    "elements": []
+  },
+  {
+    "width": 1440,
+    "hash": "company",
+    "client": 1440,
+    "scroll": 1440,
+    "tokens": [
+      [
+        "--max",
+        "1920px"
+      ],
+      [
+        "--gutter",
+        "clamp(22px,4vw,88px)"
+      ],
+      [
+        "--ink",
+        "#20211f"
+      ],
+      [
+        "--orange",
+        "#f26732"
+      ]
+    ],
+    "elements": [
+      {
+        "selector": "reference-hero",
+        "width": 1440,
+        "height": 619,
+        "font": "16px"
+      },
+      {
+        "selector": "section-title fade-in is-visible",
+        "width": 496,
+        "height": 58,
+        "font": "54.72px"
+      },
+      {
+        "selector": "section-title fade-in",
+        "width": 1065,
+        "height": 58,
+        "font": "54.72px"
+      },
+      {
+        "selector": "section-title fade-in",
+        "width": 496,
+        "height": 116,
+        "font": "54.72px"
+      },
+      {
+        "selector": "section-title fade-in",
+        "width": 1065,
+        "height": 58,
+        "font": "54.72px"
+      },
+      {
+        "selector": "section-wrap section-pad company-pathways",
+        "width": 1440,
+        "height": 421,
+        "font": "16px"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "hash": "home",
+    "client": 390,
+    "scroll": 390,
+    "tokens": [
+      [
+        "--max",
+        "1920px"
+      ],
+      [
+        "--gutter",
+        "clamp(22px,4vw,88px)"
+      ],
+      [
+        "--ink",
+        "#20211f"
+      ],
+      [
+        "--orange",
+        "#f26732"
+      ]
+    ],
+    "elements": [
+      {
+        "selector": "reference-hero home-hero",
+        "width": 390,
+        "height": 790,
+        "font": "16px"
+      },
+      {
+        "selector": "section-wrap section-pad home-current editorial-current",
+        "width": 390,
+        "height": 1231,
+        "font": "16px"
+      },
+      {
+        "selector": "current-editorial-media",
+        "width": 346,
+        "height": 310,
+        "font": "16px"
+      },
+      {
+        "selector": "client-strip-wrap client-marquee",
+        "width": 390,
+        "height": 137,
+        "font": "16px"
+      },
+      {
+        "selector": "why-visual-section section-pad",
+        "width": 390,
+        "height": 1680,
+        "font": "16px"
+      },
+      {
+        "selector": "section-title fade-in",
+        "width": 346,
+        "height": 47,
+        "font": "44px"
+      },
+      {
+        "selector": "section-wrap section-pad",
+        "width": 390,
+        "height": 989,
+        "font": "16px"
+      },
+      {
+        "selector": "section-title compact-heading fade-in",
+        "width": 346,
+        "height": 68,
+        "font": "32px"
+      },
+      {
+        "selector": "section-wrap section-pad home-segments",
+        "width": 390,
+        "height": 1049,
+        "font": "16px"
+      },
+      {
+        "selector": "section-title fade-in",
+        "width": 346,
+        "height": 34,
+        "font": "32px"
+      },
+      {
+        "selector": "section-wrap section-pad home-experiences",
+        "width": 390,
+        "height": 1131,
+        "font": "16px"
+      },
+      {
+        "selector": "section-title fade-in",
+        "width": 346,
+        "height": 68,
+        "font": "32px"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "hash": "machine/mini-cookie-depositor-mcd",
+    "client": 390,
+    "scroll": 390,
+    "tokens": [
+      [
+        "--max",
+        "1920px"
+      ],
+      [
+        "--gutter",
+        "clamp(22px,4vw,88px)"
+      ],
+      [
+        "--ink",
+        "#20211f"
+      ],
+      [
+        "--orange",
+        "#f26732"
+      ]
+    ],
+    "elements": [
+      {
+        "selector": "machine-image-well",
+        "width": 346,
+        "height": 300,
+        "font": "16px"
+      },
+      {
+        "selector": "section-wrap section-pad",
+        "width": 390,
+        "height": 675,
+        "font": "16px"
+      },
+      {
+        "selector": "section-title fade-in",
+        "width": 189,
+        "height": 34,
+        "font": "32px"
+      },
+      {
+        "selector": "section-wrap section-pad product-process",
+        "width": 390,
+        "height": 843,
+        "font": "16px"
+      },
+      {
+        "selector": "section-title fade-in",
+        "width": 346,
+        "height": 68,
+        "font": "32px"
+      },
+      {
+        "selector": "section-wrap section-pad machine-food-showcase",
+        "width": 390,
+        "height": 1155,
+        "font": "16px"
+      },
+      {
+        "selector": "section-title fade-in",
+        "width": 346,
+        "height": 68,
+        "font": "32px"
+      },
+      {
+        "selector": "product-technical section-pad",
+        "width": 390,
+        "height": 654,
+        "font": "16px"
+      },
+      {
+        "selector": "section-title fade-in",
+        "width": 346,
+        "height": 68,
+        "font": "32px"
+      },
+      {
+        "selector": "section-wrap section-pad related-process",
+        "width": 390,
+        "height": 745,
+        "font": "16px"
+      },
+      {
+        "selector": "section-title fade-in",
+        "width": 346,
+        "height": 68,
+        "font": "32px"
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "hash": "solutions",
+    "client": 390,
+    "scroll": 390,
+    "tokens": [
+      [
+        "--max",
+        "1920px"
+      ],
+      [
+        "--gutter",
+        "clamp(22px,4vw,88px)"
+      ],
+      [
+        "--ink",
+        "#20211f"
+      ],
+      [
+        "--orange",
+        "#f26732"
+      ]
+    ],
+    "elements": []
+  },
+  {
+    "width": 390,
+    "hash": "company",
+    "client": 390,
+    "scroll": 390,
+    "tokens": [
+      [
+        "--max",
+        "1920px"
+      ],
+      [
+        "--gutter",
+        "clamp(22px,4vw,88px)"
+      ],
+      [
+        "--ink",
+        "#20211f"
+      ],
+      [
+        "--orange",
+        "#f26732"
+      ]
+    ],
+    "elements": [
+      {
+        "selector": "reference-hero",
+        "width": 390,
+        "height": 596,
+        "font": "16px"
+      },
+      {
+        "selector": "section-title fade-in",
+        "width": 346,
+        "height": 34,
+        "font": "32px"
+      },
+      {
+        "selector": "section-title fade-in",
+        "width": 346,
+        "height": 34,
+        "font": "32px"
+      },
+      {
+        "selector": "section-title fade-in",
+        "width": 346,
+        "height": 68,
+        "font": "32px"
+      },
+      {
+        "selector": "section-title fade-in",
+        "width": 346,
+        "height": 34,
+        "font": "32px"
+      },
+      {
+        "selector": "section-wrap section-pad company-pathways",
+        "width": 390,
+        "height": 556,
+        "font": "16px"
+      }
+    ]
+  }
+]

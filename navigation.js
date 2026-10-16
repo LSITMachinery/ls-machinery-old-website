@@ -4,7 +4,7 @@
   const slug = (value) => String(value).toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
   const escape = (value) => String(value ?? "").replace(/[&<>"']/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[character]);
   const nameOf = (entry) => typeof entry === "string" ? entry : entry.name;
-  let config, header, nav, panel, toggle, backdrop, contactDialog, portal, active = null, drawerOpen = false, initialized = false, menuPinned = false, machineCategory = "";
+  let config, header, nav, panel, toggle, backdrop, contactDialog, portal, active = null, drawerOpen = false, initialized = false, menuPinned = false, machineCategory = "", pageIsLocked = false, lockedScrollY = 0;
   const exitTimers = new WeakMap();
   const reducedMotion = () => document.body.classList.contains("motion-paused") || (matchMedia("(prefers-reduced-motion: reduce)").matches && !document.documentElement.classList.contains("motion-opted-in"));
   function exitAnimation(element) {
@@ -70,9 +70,22 @@
     return `<div class="ls-menu-inner"><div class="ls-menu-heading"><a class="ls-menu-overview" href="${href(key)}">${groupTitle(key)}<span>${escape(config.t("overview"))} <span aria-hidden="true">→</span></span></a><button class="ls-menu-close" type="button" aria-label="${escape(config.t("close"))}"><span aria-hidden="true">×</span></button></div>${contents(key)}</div>`;
   }
   function lockPage(locked) {
-    document.body.classList.toggle("ls-navigation-open", locked || Boolean(contactDialog?.open));
-    // The mobile drawer is modal; the desktop disclosure retains ordinary tab order.
-    for (const element of document.querySelectorAll("#main, #footer")) element.inert = locked && mobile.matches;
+    const shouldLock = Boolean((locked && mobile.matches && drawerOpen) || contactDialog?.open);
+    if (shouldLock && !pageIsLocked) {
+      lockedScrollY = window.scrollY;
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${lockedScrollY}px`;
+      document.body.style.width = "100%";
+      pageIsLocked = true;
+    } else if (!shouldLock && pageIsLocked) {
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      pageIsLocked = false;
+      window.scrollTo(0, lockedScrollY);
+    }
+    document.body.classList.toggle("ls-navigation-open", shouldLock);
+    for (const element of document.querySelectorAll("#main, #footer")) element.inert = shouldLock && mobile.matches && drawerOpen;
   }
   function sync() {
     const open = mobile.matches ? drawerOpen : Boolean(active);
@@ -177,36 +190,41 @@
     panel.setAttribute("aria-label", translate("Explore LS", "探索 LS", "Terokai LS"));
     const actions = header.querySelector(".header-actions");
     actions.classList.add("ls-header-utility");
-    const mainRow = document.createElement("div");
-    mainRow.className = "ls-header-main";
-    portal = actions.querySelector(".portal-button");
-    const motionControl = actions.querySelector("[data-motion-toggle]");
-    mainRow.append(header.querySelector(".brand"), nav);
-    if (portal) mainRow.append(portal);
-    if (motionControl) mainRow.append(motionControl);
-    mainRow.append(toggle);
-    header.prepend(actions, mainRow);
-    nav.querySelectorAll("a[data-nav]").forEach((anchor) => {
-      const key = anchor.dataset.nav;
-      if (!groups[key]) return;
-      const button = document.createElement("button");
-      button.type = "button";
-      button.className = "ls-nav-trigger";
-      button.dataset.menu = key;
-      button.setAttribute("aria-expanded", "false");
-      const item = document.createElement('div');
-      item.className = 'ls-nav-item';
-      anchor.before(item);
-      anchor.className = 'ls-nav-link';
-      anchor.removeAttribute('data-i18n');
-      item.append(anchor, button);
-      const section = document.createElement("div");
-      section.className = "ls-mobile-panel";
-      section.id = `ls-mobile-${key}`;
-      section.dataset.group = key;
-      section.hidden = true;
-      item.after(section);
-    });
+    const alreadyHydrated = header.classList.contains("ls-header") && Boolean(header.querySelector(".ls-header-main")) && Boolean(nav.querySelector(".ls-nav-trigger"));
+    if (alreadyHydrated) {
+      portal = header.querySelector(".portal-button");
+    } else {
+      const mainRow = document.createElement("div");
+      mainRow.className = "ls-header-main";
+      portal = actions.querySelector(".portal-button");
+      const motionControl = actions.querySelector("[data-motion-toggle]");
+      mainRow.append(header.querySelector(".brand"), nav);
+      if (portal) mainRow.append(portal);
+      if (motionControl) mainRow.append(motionControl);
+      mainRow.append(toggle);
+      header.prepend(actions, mainRow);
+      nav.querySelectorAll("a[data-nav]").forEach((anchor) => {
+        const key = anchor.dataset.nav;
+        if (!groups[key]) return;
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "ls-nav-trigger";
+        button.dataset.menu = key;
+        button.setAttribute("aria-expanded", "false");
+        const item = document.createElement('div');
+        item.className = 'ls-nav-item';
+        anchor.before(item);
+        anchor.className = 'ls-nav-link';
+        anchor.removeAttribute('data-i18n');
+        item.append(anchor, button);
+        const section = document.createElement("div");
+        section.className = "ls-mobile-panel";
+        section.id = `ls-mobile-${key}`;
+        section.dataset.group = key;
+        section.hidden = true;
+        item.after(section);
+      });
+    }
     backdrop = document.createElement("div");
     backdrop.className = "ls-navigation-backdrop";
     backdrop.hidden = true;

@@ -1,0 +1,18 @@
+{
+  "width": 2560,
+  "height": 1920,
+  "alt": {
+    "en": "Food-production machinery arranged in a production room, from LS source photography",
+    "zh": "LS 原始照片：生产车间内的食品生产机械",
+    "ms": "Jentera pengeluaran makanan di ruang pengeluaran, daripada foto sumber LS"
+  },
+  "source": "uploads/2025/05/78c980a32569e0275822ffb9b0efab19badf8493.jpg",
+  "sha256": "8a2e16e095621b3a676ba0dff718bbd1ad9a0619b031c76fa10860f81781da4c",
+  "original": "assets/images/source/ls-production-floor.jpg",
+  "sizes": {
+    "480": "assets/images/responsive/ls-production-floor-w480.webp",
+    "800": "assets/images/responsive/ls-production-floor-w800.webp",
+    "1280": "assets/images/responsive/ls-production-floor-w1280.webp",
+    "1920": "assets/images/responsive/ls-production-floor-w1920.webp"
+  }
+}

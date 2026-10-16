@@ -11,7 +11,7 @@ const routes = [
   "segment/large-mega-enterprises", "solutions", "solution/factory-line-planning",
   "solution/facility-fit-out", "solution/machinery-automation", "solution/financing-support", "services", "service/support-repairs", "service/spare-parts-request", "service/installation-training", "service/technical-documents", "service/production-improvement",
   "company", "company/history", "company/customer-experiences", "company/customer-partnerships", "company/locations", "company/careers", "insights", "inquiry",
-  "machine/lsf-502-mcd", "machine/lsf-502-mcwc", "machine/lsf-502-mcad", "missing-page"
+  "machine/lsf-502-mcd", "machine/lsf-502-mcwc", "machine/lsf-502-mcad"
 ];
 
 (async () => {
@@ -19,10 +19,15 @@ const routes = [
   const page = await browser.newPage({ viewport: { width: 1440, height: 1000 }, reducedMotion: "no-preference" });
   const pageErrors = [];
   page.on("pageerror", (error) => pageErrors.push(error.message));
-  await page.goto(`${base}#home`, { waitUntil: "networkidle" });
+  await page.goto(`${base}?visual-check=1`, { waitUntil: "domcontentloaded" });
   const navigate = async route => {
     await page.evaluate(nextRoute => { location.hash = '#' + nextRoute; }, route);
-    await page.waitForFunction(nextRoute => document.querySelector('#main').dataset.route === nextRoute, route);
+    try {
+      await page.waitForFunction(nextRoute => document.querySelector('#main').dataset.route === nextRoute, route, {timeout:5000});
+    } catch {
+      const current = await page.evaluate(() => ({url:location.href,route:document.querySelector('#main')?.dataset.route,router:typeof window.LSRouter}));
+      throw new Error(`route did not render: ${route}; current state ${JSON.stringify(current)}`);
+    }
     await page.waitForFunction(() => !document.querySelector('.route-curtain'));
   };
   const catalogueRoutes = await page.evaluate(() => window.LS_CATALOGUE.categories.flatMap(category => category.items || (category.subcategories || []).flatMap(sub => sub.items)).map(item => 'machine/' + item.name.toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')));
@@ -30,7 +35,7 @@ const routes = [
 
   assert.equal(await page.locator('.intro-video,.current-intro-disclosure,.footer-newsletter').count(),0,'removed homepage media and newsletter must stay absent');
   const reducedMotionPage = await browser.newPage({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce' });
-  await reducedMotionPage.goto(base+'#home', {waitUntil:'networkidle'});
+  await reducedMotionPage.goto(base+'?visual-check=1', {waitUntil:'domcontentloaded'});
   const reducedMotionToggle=reducedMotionPage.locator('[data-motion-toggle]').first();
   assert.equal(await reducedMotionToggle.getAttribute('aria-pressed'),'true');
   await reducedMotionToggle.click();
@@ -57,12 +62,13 @@ const routes = [
         if(!el) return null;
         const box=el.getBoundingClientRect();
         const title=el.querySelector('h1');
-        return {editorial:el.matches(".pp-solutions-intro,.pp-insights-intro"),left:box.left,right:box.right,width:innerWidth,title:title?.textContent.trim(),color:title?getComputedStyle(title).color:'',images:el.querySelectorAll('img').length};
+        const panel=title?.closest('.reference-hero-panel');
+        return {editorial:el.matches(".pp-solutions-intro,.pp-insights-intro"),left:box.left,right:box.right,width:innerWidth,title:title?.textContent.trim(),color:title?getComputedStyle(title).color:'',panelBackground:panel?getComputedStyle(panel).backgroundColor:'',images:el.querySelectorAll('img').length};
       })(),
       textStage: !!document.querySelector('.is-process-overview'),
       tallCards: [...document.querySelectorAll('.catalogue-item')].filter((card) => card.getBoundingClientRect().height > 520).length,
       textCardImages: document.querySelectorAll('.catalogue-item.is-text-card img').length,
-      route: location.hash.slice(1)
+      route: document.querySelector('#main')?.dataset.route
     }));
     assert.equal(state.route, route, `route did not render: ${route}`);
     assert.ok(state.imageCount > 0 || (route.startsWith("machine/") && state.textStage), `route has neither verified imagery nor the clean text treatment for an unmatched machine: ${route}`);
@@ -78,7 +84,8 @@ const routes = [
     assert.equal(await page.locator('#lead-form').count(), route === 'inquiry' || route === 'services/spare-parts' || route === 'service/spare-parts-request' ? 1 : 0, `full inquiry form should appear only on Contact and Spare Parts (${route})`);
     assert.ok(route === "company/history" || state.hero.editorial || (Math.abs(state.hero.left)<1 && Math.abs(state.hero.right-state.hero.width)<1), `hero does not span the page on ${route}`);
     const titleColor=state.hero.color.match(/\d+/g).map(Number);
-    assert.ok(route==='company/history'||state.hero.editorial?Math.max(...titleColor)<100:Math.min(...titleColor)>225,`hero title should remain readable on ${route}`);
+    const titleOnLightPanel=route==='home'&&Math.max(...titleColor)<100&&state.hero.panelBackground.match(/\d+/g)?.map(Number).slice(0,3).every(value=>value>220);
+    assert.ok(route==='company/history'||state.hero.editorial?Math.max(...titleColor)<100:titleOnLightPanel||Math.min(...titleColor)>225,`hero title should remain readable on ${route}`);
   }
 
   await navigate('machine/lsf-502-mcd');

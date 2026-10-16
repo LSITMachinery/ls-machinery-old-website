@@ -180,7 +180,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible { outline:3px solid #
 .section-index-link.is-active { color:#ad3b12; font-weight:700; }
 .section-index-toggle { display:none; }
 .route-curtain { position:fixed; inset:0; background:var(--orange); z-index:200; pointer-events:none; }
-.fade-in { transition:opacity .65s var(--ease),transform .65s var(--ease); transform:translateY(24px); }
+.fade-in { transition:opacity .24s var(--ease),transform .24s var(--ease); transform:translateY(12px); }
 .viewer-dialog { width:100vw; max-width:100vw; max-height:100svh; height:100svh; margin:0; background:#303030; }
 .viewer-content { width:100%; height:100%; max-height:none; background:#303030; }
 .viewer-image { object-fit:contain; width:100%; height:100%; max-height:none; }

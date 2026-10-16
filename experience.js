@@ -6,6 +6,49 @@
   let transitionNumber = 0;
   let curtain = null;
   let curtainAnimation = null;
+  const journeyStorageKey = "ls-production-journey-stage-v1";
+  const validJourneyStages = new Set(["appointment", "planning", "order-placement", "installation", "technology-transfer", "after-sales"]);
+  function stageFromLocation() {
+    const hashQuery = location.hash.includes("?") ? location.hash.slice(location.hash.indexOf("?") + 1) : "";
+    const value = new URLSearchParams(hashQuery || location.search).get("journeyStage");
+    return validJourneyStages.has(value) ? value : "";
+  }
+  function getJourneyStage() {
+    const fromUrl = stageFromLocation();
+    if (fromUrl) return fromUrl;
+    try {
+      const saved = sessionStorage.getItem(journeyStorageKey);
+      return validJourneyStages.has(saved) ? saved : "";
+    } catch { return ""; }
+  }
+  function setJourneyStage(value) {
+    if (!validJourneyStages.has(value)) return;
+    try { sessionStorage.setItem(journeyStorageKey, value); } catch {}
+    window.dispatchEvent(new CustomEvent("ls:journey-stage", { detail: { stage: value } }));
+  }
+  function clearJourneyStage() {
+    try { sessionStorage.removeItem(journeyStorageKey); } catch {}
+    const current=new URL(location.href);
+    current.searchParams.delete("journeyStage");
+    if(current.hash.includes("?")){
+      const [anchor,query]=current.hash.split("?",2),params=new URLSearchParams(query);
+      params.delete("journeyStage");
+      current.hash=anchor+(params.size?"?"+params.toString():"");
+    }
+    history.replaceState(history.state,"",current.pathname+current.search+current.hash);
+    window.dispatchEvent(new CustomEvent("ls:journey-stage", { detail: { stage: "" } }));
+  }
+  function withJourneyStage(href, value = getJourneyStage()) {
+    if (!value || !validJourneyStages.has(value)) return href;
+    const raw = String(href || "");
+    if (/^(mailto:|https?:\/\/wa\.me|whatsapp:)/i.test(raw)) return raw;
+    const queryAt = raw.indexOf("?");
+    const base = queryAt < 0 ? raw : raw.slice(0, queryAt);
+    const params = new URLSearchParams(queryAt < 0 ? "" : raw.slice(queryAt + 1));
+    params.set("journeyStage", value);
+    return `${base}?${params.toString()}`;
+  }
+  window.LSJourney = Object.freeze({ getStage: getJourneyStage, setStage: setJourneyStage, clearStage: clearJourneyStage, withStage: withJourneyStage });
   const motionAllowed = () => typeof config.motionAllowed === "function" ? Boolean(config.motionAllowed()) : !matchMedia("(prefers-reduced-motion: reduce)").matches;
   const text = (en, zh, ms) => config.language === "zh" ? zh : config.language === "ms" ? ms : en;
 
@@ -22,6 +65,64 @@
       controller.abort();
       cleanups.forEach((cleanup) => cleanup());
     };
+
+    main.querySelectorAll("[data-journey-picker]").forEach((picker) => {
+      const buttons = [...picker.querySelectorAll("[data-journey-stage]")];
+      const panels = [...picker.querySelectorAll("[data-journey-guidance]")];
+      const empty = picker.querySelector("[data-journey-empty]");
+      const status = picker.querySelector("[data-journey-status]");
+      let clearButton=picker.querySelector("[data-journey-clear]");
+      if(!clearButton){
+        clearButton=document.createElement("button");clearButton.type="button";clearButton.className="pp-journey-clear";clearButton.dataset.journeyClear="";clearButton.textContent=text("Clear selection","清除选择","Kosongkan pilihan");clearButton.hidden=true;
+        picker.querySelector(".pp-journey-steps")?.after(clearButton);
+      }
+      const timers = new Map();
+      function reflect(value, announce = false) {
+        const selected = validJourneyStages.has(value) ? value : "";
+        main.querySelectorAll("[data-journey-field]").forEach((field) => { field.value = selected; });
+        buttons.forEach((button) => {
+          const active = button.dataset.journeyStage === selected;
+          button.setAttribute("aria-pressed", String(active));
+          button.classList.toggle("is-selected", active);
+          const node = button.querySelector(".pp-journey-node");
+          if (!node) return;
+          clearTimeout(timers.get(node));
+          node.classList.remove("is-just-selected");
+          if (active && announce && motionAllowed()) {
+            void node.offsetWidth;
+            node.classList.add("is-just-selected");
+            timers.set(node, setTimeout(() => node.classList.remove("is-just-selected"), 560));
+          }
+        });
+        panels.forEach((panel) => {
+          const active = panel.dataset.journeyGuidance === selected;
+          panel.hidden = !active;
+          panel.inert = !active;
+        });
+        if (empty) empty.hidden = Boolean(selected);
+        if (clearButton) clearButton.hidden=!selected;
+        if (status) {
+          status.hidden = !selected;
+          status.textContent = selected ? text(
+            `Your stated need: ${buttons.find((button) => button.dataset.journeyStage === selected)?.textContent.trim() || ""}. This is not project tracking.`,
+            `您陈述的需求：${buttons.find((button) => button.dataset.journeyStage === selected)?.textContent.trim() || ""}。此选择并非项目进度记录。`,
+            `Keperluan yang anda nyatakan: ${buttons.find((button) => button.dataset.journeyStage === selected)?.textContent.trim() || ""}. Ini bukan status projek yang dijejaki.`
+          ) : "";
+        }
+        picker.querySelectorAll("[data-journey-action]").forEach((link) => {
+          link.dataset.journeyBase ||= link.getAttribute("href") || "#inquiry?intent=consult";
+          link.href = selected ? withJourneyStage(link.dataset.journeyBase, selected) : link.dataset.journeyBase;
+        });
+      }
+      buttons.forEach((button) => listen(button, "click", () => {
+        setJourneyStage(button.dataset.journeyStage);
+        reflect(button.dataset.journeyStage, true);
+      }));
+      if(clearButton)listen(clearButton,"click",clearJourneyStage);
+      listen(window, "ls:journey-stage", (event) => reflect(event.detail?.stage || ""));
+      reflect(getJourneyStage());
+      cleanups.push(() => timers.forEach((timer) => clearTimeout(timer)));
+    });
 
     main.querySelectorAll("[data-segment-picker]").forEach((picker, pickerNumber) => {
       const buttons = [...picker.querySelectorAll("button[data-segment-index]")];
@@ -69,6 +170,50 @@
       });
       const initial = buttons.find((button) => button.getAttribute("aria-expanded") === "true") || buttons[0];
       if (initial) choose(initial.dataset.segmentIndex);
+    });
+
+    main.querySelectorAll("[data-capability-explorer]").forEach((explorer, explorerNumber) => {
+      const tabs = [...explorer.querySelectorAll("[data-capability-tab]")];
+      const panels = [...explorer.querySelectorAll("[data-capability-panel]")];
+      const photos = [...explorer.querySelectorAll("[data-capability-photo]")];
+      function choose(value) {
+        tabs.forEach((tab) => {
+          const selected = tab.dataset.capabilityTab === value;
+          tab.setAttribute("aria-selected", String(selected));
+          tab.tabIndex = selected ? 0 : -1;
+          tab.classList.toggle("is-active", selected);
+        });
+        panels.forEach((panel) => {
+          const selected = panel.dataset.capabilityPanel === value;
+          panel.hidden = !selected;
+          panel.inert = !selected;
+        });
+        photos.forEach((photo) => {
+          const selected = photo.dataset.capabilityPhoto === value;
+          photo.classList.toggle("is-active", selected);
+          photo.setAttribute("aria-hidden", String(!selected));
+          photo.inert = !selected;
+        });
+      }
+      tabs.forEach((tab, index) => {
+        const panel = panels.find((item) => item.dataset.capabilityPanel === tab.dataset.capabilityTab);
+        if (panel) {
+          panel.id ||= `ls-capability-panel-${explorerNumber}-${index}`;
+          tab.id ||= `ls-capability-tab-${explorerNumber}-${index}`;
+          tab.setAttribute("aria-controls", panel.id);
+          panel.setAttribute("aria-labelledby", tab.id);
+        }
+        listen(tab, "click", () => choose(tab.dataset.capabilityTab));
+        listen(tab, "keydown", (event) => {
+          if (!["ArrowRight", "ArrowLeft", "Home", "End"].includes(event.key)) return;
+          event.preventDefault();
+          const target = event.key === "Home" ? 0 : event.key === "End" ? tabs.length - 1 : (index + (event.key === "ArrowRight" ? 1 : -1) + tabs.length) % tabs.length;
+          tabs[target].focus();
+          choose(tabs[target].dataset.capabilityTab);
+        });
+      });
+      const initial = tabs.find((tab) => tab.getAttribute("aria-selected") === "true") || tabs[0];
+      if (initial) choose(initial.dataset.capabilityTab);
     });
 
     main.querySelectorAll("[data-process]").forEach((process, processNumber) => {

@@ -1,0 +1,615 @@
+{
+  "source": "Audited backup uploads and published LS machine records; paths are relative to the backup root.",
+  "records": [
+    {
+      "category": "Bakery",
+      "subcategory": "Mixer",
+      "name": "Planetary Mixer",
+      "source_path": "uploads/2026/05/LS-Machine-Thumbnails-2025-Web-47.png",
+      "match_type": "exact",
+      "evidence": "Published LS machine profile title “Planetary Mixer” is linked to this numbered machine image; association found in the backup database.",
+      "confidence": "high",
+      "fallback_label": null
+    },
+    {
+      "category": "Bakery",
+      "subcategory": "Mixer",
+      "name": "Spiral Mixer",
+      "source_path": "uploads/2025/07/Spiral-Mixer.png",
+      "match_type": "exact",
+      "evidence": "Source filename identifies Spiral Mixer; visual asset is a bakery mixer photo. No model number is asserted.",
+      "confidence": "high",
+      "fallback_label": null
+    },
+    {
+      "category": "Bakery",
+      "subcategory": "Mixer",
+      "name": "Horizontal Mixer",
+      "source_path": "uploads/2026/01/LS-Machine-Thumbnails-2025-Web-16.png",
+      "match_type": "exact",
+      "evidence": "Published LS machine profile title “Horizontal Mixer” is linked to this numbered machine image in the backup database.",
+      "confidence": "high",
+      "fallback_label": null
+    },
+    {
+      "category": "Bakery",
+      "subcategory": "Depositor Series",
+      "name": "Mini Cookie Depositor (MCD)",
+      "source_path": "uploads/2025/11/LSF-502-MCD-Mini-Cookies-Depositor.png",
+      "match_type": "exact",
+      "evidence": "Source filename explicitly identifies LSF-502 MCD / Mini Cookies Depositor; visible KRONO branding and machine image checked.",
+      "confidence": "high",
+      "fallback_label": null
+    },
+    {
+      "category": "Bakery",
+      "subcategory": "Depositor Series",
+      "name": "Mini Cookie Wire Cut (MCWC)",
+      "source_path": "uploads/2025/11/Mini-Cookies-Wire-Cut-Depositor-LSF-502-MCWC.png",
+      "match_type": "exact",
+      "evidence": "Source filename explicitly identifies LSF-502 MCWC / Mini Cookies Wire Cut Depositor; visible KRONO branding and machine image checked.",
+      "confidence": "high",
+      "fallback_label": null
+    },
+    {
+      "category": "Bakery",
+      "subcategory": "Depositor Series",
+      "name": "Mini Cake Depositor (MCAD)",
+      "source_path": "uploads/2026/01/LS-Machine-Thumbnails-2025-Web-02.png",
+      "match_type": "exact",
+      "evidence": "Published LS machine profile title “Mini Cake Depositor” is linked to this numbered machine image in the backup database.",
+      "confidence": "high",
+      "fallback_label": null
+    },
+    {
+      "category": "Bakery",
+      "subcategory": "Depositor Series",
+      "name": "Industri Cookies/Cakes Depositor",
+      "source_path": "uploads/2025/09/3-in-1-Cookies-and-Wire-Cut-And-Cake-Depositor-new.png",
+      "match_type": "category",
+      "evidence": "Filename and visible machine identify a combined cookie / wire-cut / cake depositor, but the catalogue entry is ambiguous and no exact profile association was confirmed.",
+      "confidence": "medium",
+      "fallback_label": "Bakery depositor category reference — combined unit shown; exact listed machine and supplied name need LS confirmation."
+    },
+    {
+      "category": "Bakery",
+      "subcategory": "Dough Forming",
+      "name": "Dough Sheeter (Freeway)",
+      "source_path": "uploads/2025/07/Auto-Sheeter-T800.png",
+      "match_type": "category",
+      "evidence": "Authentic LS dough-sheeter image; source identifies T800, while the catalogue entry specifies Freeway, so the specific product is unconfirmed.",
+      "confidence": "medium",
+      "fallback_label": "Dough-sheeter category reference — Freeway model not confirmed."
+    },
+    {
+      "category": "Bakery",
+      "subcategory": "Dough Forming",
+      "name": "Donuts Maker (Krono)",
+      "source_path": "uploads/2026/05/LS-Machine-Thumbnails-2025-Web-48.png",
+      "match_type": "exact",
+      "evidence": "Published LS product profile and product card pair Web-48 with the Donut Forming Machine entry; the KRONO-branded machine is visually confirmed. No model configuration or performance is inferred.",
+      "confidence": "high",
+      "fallback_label": null
+    },
+    {
+      "category": "Bakery",
+      "subcategory": "Dough Forming",
+      "name": "Dough Divider",
+      "source_path": "uploads/2025/07/Dough-Divider.png",
+      "match_type": "exact",
+      "evidence": "Source filename directly identifies Dough Divider; no model or performance claim is inferred.",
+      "confidence": "high",
+      "fallback_label": null
+    },
+    {
+      "category": "Bakery",
+      "subcategory": "Dough Forming",
+      "name": "Dough Rounder",
+      "source_path": "uploads/2025/07/Automatic-Dough-Divider-Rounder.png",
+      "match_type": "category",
+      "evidence": "Authentic dough-divider-and-rounder image; the catalogue requests a rounder alone, so the displayed machine is not an exact match.",
+      "confidence": "medium",
+      "fallback_label": "Dough-forming category reference — a combined divider/rounder is shown."
+    },
+    {
+      "category": "Bakery",
+      "subcategory": "Dough Forming",
+      "name": "Continuous Dough Divider Rounder",
+      "source_path": "uploads/2025/07/Automatic-Dough-Divider-and-Rounder.png",
+      "match_type": "exact",
+      "evidence": "Published LS profile title and URL slug identify “Continuous Dough Divider Rounder”; this file is its primary image in the backup database.",
+      "confidence": "high",
+      "fallback_label": null
+    },
+    {
+      "category": "Bakery",
+      "subcategory": "Dough Forming",
+      "name": "Molder",
+      "source_path": "uploads/2025/07/Moulder.png",
+      "match_type": "exact",
+      "evidence": "Source filename directly identifies a moulder; the spelling differs from the catalogue’s “Molder,” with no model number asserted.",
+      "confidence": "medium",
+      "fallback_label": null
+    },
+    {
+      "category": "Bakery",
+      "subcategory": "Encrusting Series",
+      "name": "Dough Encrusting Machine",
+      "source_path": "uploads/2025/07/Multipurpose-Encrusting-Machine.png",
+      "match_type": "category",
+      "evidence": "Authentic LS multipurpose encrusting machine image; the catalogue entry does not specify this model or multipurpose configuration.",
+      "confidence": "medium",
+      "fallback_label": "Encrusting category reference — multipurpose model shown; exact listed machine not confirmed."
+    },
+    {
+      "category": "Bakery",
+      "subcategory": "Encrusting Series",
+      "name": "Sheet Forming Encrusting & Molding Machine",
+      "source_path": "uploads/2025/07/New-Automatic-Encrusting-Moulding-Machine.png",
+      "match_type": "category",
+      "evidence": "Authentic LS encrusting and moulding machine image; sheet-forming configuration is not established by the source record.",
+      "confidence": "medium",
+      "fallback_label": "Encrusting category reference — sheet-forming configuration not confirmed."
+    },
+    {
+      "category": "Bakery",
+      "subcategory": "Encrusting Series",
+      "name": "Trays Arranger Machine",
+      "source_path": "uploads/2025/07/Automatic-Discharge-Tray-Machine.png",
+      "match_type": "category",
+      "evidence": "Authentic LS tray-handling machine image, but the source names a discharge tray machine rather than the catalogue’s tray arranger.",
+      "confidence": "medium",
+      "fallback_label": "Bakery tray-handling category reference — arranger model not confirmed."
+    },
+    {
+      "category": "Bakery",
+      "subcategory": "Encrusting Series",
+      "name": "Rounding Machine",
+      "source_path": "uploads/2025/07/Automatic-Dough-Divider-Rounder.png",
+      "match_type": "category",
+      "evidence": "Authentic LS dough-divider-and-rounder image; the catalogue entry does not specify this combined machine.",
+      "confidence": "medium",
+      "fallback_label": "Dough-forming category reference — combined divider/rounder shown; exact rounding machine not confirmed."
+    },
+    {
+      "category": "Bakery",
+      "subcategory": "Fermentation",
+      "name": "Proofer",
+      "source_path": "uploads/2025/07/Proofer.png",
+      "match_type": "exact",
+      "evidence": "Source filename directly identifies an LS Proofer machine image.",
+      "confidence": "high",
+      "fallback_label": null
+    },
+    {
+      "category": "Bakery",
+      "subcategory": "Fermentation",
+      "name": "Retarder Proofer",
+      "source_path": "uploads/2026/04/LS-Machine-Thumbnails-2025-Web-29.png",
+      "match_type": "exact",
+      "evidence": "Published LS machine profile title “Retarder Proofer” is linked to this numbered machine image in the backup database.",
+      "confidence": "high",
+      "fallback_label": null
+    },
+    {
+      "category": "Bakery",
+      "subcategory": "Fermentation",
+      "name": "Roll-In Proofer",
+      "source_path": "uploads/2025/07/Retarder-Proofer-2-Door.png",
+      "match_type": "category",
+      "evidence": "Authentic LS retarder-proofer image; source does not confirm a roll-in configuration.",
+      "confidence": "medium",
+      "fallback_label": "Proofer category reference — roll-in configuration not confirmed."
+    },
+    {
+      "category": "Bakery",
+      "subcategory": "Fermentation",
+      "name": "Proofer Room",
+      "source_path": "uploads/2026/04/LS-Machine-Thumbnails-2025-Web-32.png",
+      "match_type": "exact",
+      "evidence": "The published LS machine profile titled Proofer Room is linked to this numbered machine thumbnail in the backup database.",
+      "confidence": "high",
+      "fallback_label": null
+    },
+    {
+      "category": "Bakery",
+      "subcategory": "Oven",
+      "name": "Hybrid Tunnel Oven (LPG/NPG/Electric Heating System)",
+      "source_path": "uploads/2025/07/Tunnel-Oven.png",
+      "match_type": "category",
+      "evidence": "Authentic LS tunnel oven image; hybrid design and the listed fuel options are not verified by this asset.",
+      "confidence": "medium",
+      "fallback_label": "Tunnel-oven category reference — hybrid configuration and heating options not confirmed."
+    },
+    {
+      "category": "Bakery",
+      "subcategory": "Oven",
+      "name": "Deck Oven (Gas/Electric Heating)",
+      "source_path": "uploads/2026/01/LS-Machine-Thumbnails-2025-Web-22.png",
+      "match_type": "category",
+      "evidence": "Published LS profile identifies a Luxury Deck Oven; the catalogue entry is generic and its heating configuration is unverified.",
+      "confidence": "medium",
+      "fallback_label": "Deck-oven category reference — specific Luxury Deck Oven shown; heating options not confirmed."
+    },
+    {
+      "category": "Bakery",
+      "subcategory": "Oven",
+      "name": "Convection Oven (Gas/Electric Heating)",
+      "source_path": "uploads/2025/07/Electrical-Convection-Oven.png",
+      "match_type": "category",
+      "evidence": "Authentic LS electrical convection oven image; it does not establish the catalogue’s gas/electric options or exact model.",
+      "confidence": "medium",
+      "fallback_label": "Convection-oven category reference — electrical unit shown; gas/electric options not confirmed."
+    },
+    {
+      "category": "Bakery",
+      "subcategory": "Oven",
+      "name": "Rotary Oven (Gas/Electric/Diser Heating)",
+      "source_path": "uploads/2026/01/LS-Machine-Thumbnails-2025-Web-09.png",
+      "match_type": "exact",
+      "evidence": "Published LS machine profile title “Rotary Oven” is linked to this numbered machine image; the catalogue’s heating wording remains unverified.",
+      "confidence": "high",
+      "fallback_label": null
+    },
+    {
+      "category": "Bakery",
+      "subcategory": "Oven",
+      "name": "Mini Rotary Convention Oven (Gas/Electric Heating)",
+      "source_path": "uploads/2025/07/Mini-Rotary-Convection-Oven-10-Tray.png",
+      "match_type": "category",
+      "evidence": "Authentic LS mini rotary convection oven image; source says “Convection” while the catalogue says “Convention,” and the heating options are not confirmed.",
+      "confidence": "medium",
+      "fallback_label": "Mini rotary-oven category reference — catalogue spelling and heating options need confirmation."
+    },
+    {
+      "category": "Bakery",
+      "subcategory": "Cutting",
+      "name": "Horizontal Cutter",
+      "source_path": "uploads/2025/07/Bread-Slicer.png",
+      "match_type": "category",
+      "evidence": "Authentic LS bakery cutting image, but source identifies a bread slicer; no matching horizontal-cutter profile was found.",
+      "confidence": "medium",
+      "fallback_label": "Bakery cutting category reference — bread slicer shown; horizontal cutter not confirmed."
+    },
+    {
+      "category": "Bakery",
+      "subcategory": "Cutting",
+      "name": "Cake Cutter",
+      "source_path": "uploads/2025/07/Cake-Cutter-Machine.png",
+      "match_type": "exact",
+      "evidence": "Source filename directly identifies Cake Cutter Machine; no model number or technical claim is inferred.",
+      "confidence": "high",
+      "fallback_label": null
+    },
+    {
+      "category": "Bakery",
+      "subcategory": "Cutting",
+      "name": "Ultrasound SoundCake Cutter",
+      "source_path": "uploads/2025/07/Ultrasonic-Cake-Cutter.png",
+      "match_type": "category",
+      "evidence": "Authentic LS ultrasonic cake-cutter image; the catalogue wording is ambiguous and not an exact confirmed product title.",
+      "confidence": "medium",
+      "fallback_label": "Cake-cutting category reference — ultrasonic model shown; supplied catalogue name needs confirmation."
+    },
+    {
+      "category": "Bakery",
+      "subcategory": "Cakes Finishing",
+      "name": "Cakes Cream Coating",
+      "source_path": "uploads/2024/12/Hotel-Line-2.png",
+      "match_type": "category",
+      "evidence": "Visually inspected existing-site food image shows patisserie products, not coating machinery.",
+      "confidence": "medium",
+      "fallback_label": "Food application image — patisserie products shown; coating machine image not matched."
+    },
+    {
+      "category": "Bakery",
+      "subcategory": "Cakes Finishing",
+      "name": "Cream Puffs Injector",
+      "source_path": "uploads/2025/07/Automatic-Cake-Filling-Lifter-Machine.png",
+      "match_type": "category",
+      "evidence": "Authentic LS cake-filling machine image; injector type and compatibility with cream puffs are not confirmed.",
+      "confidence": "medium",
+      "fallback_label": "Bakery filling category reference — cake-filling machine shown; cream-puff injector not confirmed."
+    },
+    {
+      "category": "Bakery",
+      "subcategory": "Cakes Finishing",
+      "name": "Chocolate Coating",
+      "source_path": "uploads/2024/12/Hotel-Line-2.png",
+      "match_type": "category",
+      "evidence": "Visually inspected existing-site food image shows patisserie products, not chocolate-coating machinery.",
+      "confidence": "medium",
+      "fallback_label": "Food application image — patisserie products shown; coating machine image not matched."
+    },
+    {
+      "category": "Kitchen",
+      "subcategory": "—",
+      "name": "Combi Oven (Laynox)",
+      "source_path": "uploads/2024/12/Hotel-Line-2.png",
+      "match_type": "category",
+      "evidence": "Visually inspected existing-site food image shows patisserie products; no LS combi-oven image or confirmed “Laynox” brand match was found.",
+      "confidence": "low",
+      "fallback_label": "Food application image — machine and supplied brand spelling are unconfirmed."
+    },
+    {
+      "category": "Kitchen",
+      "subcategory": "—",
+      "name": "Heavy Duty Robot Cooker Machine",
+      "source_path": "uploads/2024/12/Kitchen-Line-2.png",
+      "match_type": "category",
+      "evidence": "Visually inspected existing-site image shows food output, not a robot cooker machine.",
+      "confidence": "low",
+      "fallback_label": "Food application image — robot-cooker machine image not matched."
+    },
+    {
+      "category": "Kitchen",
+      "subcategory": "—",
+      "name": "Cooker Mixer",
+      "source_path": "uploads/2026/01/LS-Machine-Thumbnails-2025-Web-25.png",
+      "match_type": "exact",
+      "evidence": "The backup database pairs Web-25 with the published title “Lifted Gas Heated Oil Insulated Cooker Mixer”; visual inspection confirms a cooker-mixer machine. The generic catalogue name does not claim fuel, heating, capacity or model details.",
+      "confidence": "high",
+      "fallback_label": null
+    },
+    {
+      "category": "Kitchen",
+      "subcategory": "—",
+      "name": "Steamer",
+      "source_path": "uploads/2025/07/Automatic-Gas-Steamer.png",
+      "match_type": "exact",
+      "evidence": "The published LS product card names this image Automatic Gas Steamer. The generic catalogue entry is matched only to the steamer equipment type; no fuel or model detail is claimed.",
+      "confidence": "high",
+      "fallback_label": null
+    },
+    {
+      "category": "Kitchen",
+      "subcategory": "—",
+      "name": "Deep Fryer System",
+      "source_path": "uploads/2025/01/Sesame-Ball.jpeg",
+      "match_type": "category",
+      "evidence": "Existing-site food image shows a fried-food application, not a deep-fryer system.",
+      "confidence": "low",
+      "fallback_label": "Food application image — deep-fryer machine image not matched."
+    },
+    {
+      "category": "Kitchen",
+      "subcategory": "—",
+      "name": "Emulsifier",
+      "source_path": "uploads/2024/12/Kuih-Line-2.png",
+      "match_type": "category",
+      "evidence": "Visually inspected existing-site image shows kuih food, not an emulsifier machine.",
+      "confidence": "low",
+      "fallback_label": "Food application image — emulsifier machine image not matched."
+    },
+    {
+      "category": "Kitchen",
+      "subcategory": "—",
+      "name": "Vegetable Cutter Machine",
+      "source_path": "uploads/2024/12/Dumpling-Line-2.png",
+      "match_type": "category",
+      "evidence": "Visually inspected existing-site image shows dim sum food, not a vegetable cutter.",
+      "confidence": "low",
+      "fallback_label": "Food application image — vegetable-cutter machine image not matched."
+    },
+    {
+      "category": "Kitchen",
+      "subcategory": "—",
+      "name": "Meat Cutter",
+      "source_path": "uploads/2024/12/Dumpling-Line-2.png",
+      "match_type": "category",
+      "evidence": "Visually inspected existing-site image shows dim sum food, not a meat cutter.",
+      "confidence": "low",
+      "fallback_label": "Food application image — meat-cutter machine image not matched."
+    },
+    {
+      "category": "Kitchen",
+      "subcategory": "—",
+      "name": "Bowl Cutter",
+      "source_path": "uploads/2024/12/Dumpling-Line-2.png",
+      "match_type": "category",
+      "evidence": "Visually inspected existing-site image shows dim sum food, not a bowl cutter.",
+      "confidence": "low",
+      "fallback_label": "Food application image — bowl-cutter machine image not matched."
+    },
+    {
+      "category": "Kitchen",
+      "subcategory": "—",
+      "name": "Fish Ball/Cakes Maker",
+      "source_path": "uploads/2024/12/Dumpling-Line-2.png",
+      "match_type": "category",
+      "evidence": "Visually inspected existing-site image shows dim sum food, not a fish-ball or fish-cake machine.",
+      "confidence": "low",
+      "fallback_label": "Food application image — fish-ball/cake machine image not matched."
+    },
+    {
+      "category": "Kitchen",
+      "subcategory": "—",
+      "name": "Dim Sum Maker",
+      "source_path": "uploads/2025/07/Fully-Automatic-Dumpling-Machine.png",
+      "match_type": "category",
+      "evidence": "Authentic LS dumpling-machine image; the catalogue’s Dim Sum Maker is not confirmed to be this specific machine or model.",
+      "confidence": "medium",
+      "fallback_label": "Dim Sum machinery category reference — dumpling machine shown; exact model not confirmed."
+    },
+    {
+      "category": "Package",
+      "subcategory": "—",
+      "name": "Horizontal Pillow Pack Packaging Machine",
+      "source_path": "uploads/2025/07/Reciprocating-Servo-Pillow-Packaging-Machine-LSF-450WX.png",
+      "match_type": "category",
+      "evidence": "Authentic LS pillow-packaging machine image; the catalogue does not identify this specific LSF-450WX model or reciprocating-servo configuration.",
+      "confidence": "medium",
+      "fallback_label": "Pillow-packaging category reference — LSF-450WX shown; exact model not confirmed."
+    },
+    {
+      "category": "Package",
+      "subcategory": "—",
+      "name": "Horizontal Pillow Pack Box Motion Packaging Machine",
+      "source_path": "uploads/2025/07/Horizontal-Packaging-Machine.png",
+      "match_type": "category",
+      "evidence": "Authentic LS horizontal packaging image; box-motion configuration and exact model are not confirmed.",
+      "confidence": "medium",
+      "fallback_label": "Horizontal-packaging category reference — box-motion configuration not confirmed."
+    },
+    {
+      "category": "Package",
+      "subcategory": "—",
+      "name": "Vertical Box Motion Packaging Machine",
+      "source_path": "uploads/2025/07/Vertical-Automatic-Packaging-Machine-LSF-5235DC.png",
+      "match_type": "category",
+      "evidence": "Authentic LS vertical packaging machine image; box-motion configuration and catalogue model are not confirmed.",
+      "confidence": "medium",
+      "fallback_label": "Vertical-packaging category reference — box-motion configuration not confirmed."
+    },
+    {
+      "category": "Package",
+      "subcategory": "—",
+      "name": "Powder Vertical Packaging Machine",
+      "source_path": "uploads/2025/07/Vertical-Automatic-Packaging-Machine-LSF-5235DC.png",
+      "match_type": "category",
+      "evidence": "Authentic LS vertical packaging machine image; powder handling is not established by the source record.",
+      "confidence": "medium",
+      "fallback_label": "Vertical-packaging category reference — powder configuration not confirmed."
+    },
+    {
+      "category": "Package",
+      "subcategory": "—",
+      "name": "Sauces/Filling Package Machine",
+      "source_path": "uploads/2025/07/Horizontal-Packaging-Machine.png",
+      "match_type": "category",
+      "evidence": "Authentic LS packaging machine image; sauce/filling capability is not established by the source record.",
+      "confidence": "medium",
+      "fallback_label": "Packaging category reference — sauce/filling configuration not confirmed."
+    },
+    {
+      "category": "Package",
+      "subcategory": "—",
+      "name": "Computerized Multihead Weigher of Packing Machine with Plain Surface",
+      "source_path": "uploads/2025/07/Automatic-Vertical-Packaging-with-Weighing-Process.png",
+      "match_type": "category",
+      "evidence": "Authentic LS packaging image whose filename mentions a weighing process; computerized multihead and plain-surface details are not confirmed.",
+      "confidence": "medium",
+      "fallback_label": "Packaging-and-weighing category reference — multihead and plain-surface details not confirmed."
+    },
+    {
+      "category": "Package",
+      "subcategory": "—",
+      "name": "Vacuum Packaging Machines",
+      "source_path": "uploads/2025/07/Horizontal-Packaging-Machine.png",
+      "match_type": "category",
+      "evidence": "Authentic LS horizontal packaging image; vacuum function and machine model are not established by the source record.",
+      "confidence": "medium",
+      "fallback_label": "Packaging category reference — vacuum function not confirmed."
+    },
+    {
+      "category": "Refrigeration Series",
+      "subcategory": "—",
+      "name": "Blast Freezer",
+      "source_path": "uploads/2025/07/Blast-Freezer.png",
+      "match_type": "exact",
+      "evidence": "Source filename directly identifies Blast Freezer; authentic LS product image checked.",
+      "confidence": "high",
+      "fallback_label": null
+    },
+    {
+      "category": "Refrigeration Series",
+      "subcategory": "—",
+      "name": "Tunnel Blast Freezer",
+      "source_path": "uploads/2025/07/Blast-Freezer.png",
+      "match_type": "category",
+      "evidence": "Authentic LS blast-freezer image; the source does not identify a tunnel configuration.",
+      "confidence": "medium",
+      "fallback_label": "Refrigeration category reference — tunnel configuration not confirmed."
+    },
+    {
+      "category": "Refrigeration Series",
+      "subcategory": "—",
+      "name": "Nitrogen Blast Freezer System",
+      "source_path": "uploads/2025/07/Blast-Freezer.png",
+      "match_type": "category",
+      "evidence": "Authentic LS blast-freezer image; nitrogen system capability is not established by the source record.",
+      "confidence": "medium",
+      "fallback_label": "Refrigeration category reference — nitrogen system not confirmed."
+    },
+    {
+      "category": "Refrigeration Series",
+      "subcategory": "—",
+      "name": "Upright Freezer/Chiller",
+      "source_path": "uploads/2025/07/Blast-Freezer.png",
+      "match_type": "category",
+      "evidence": "Authentic LS blast-freezer image; it does not depict or confirm an upright freezer/chiller.",
+      "confidence": "low",
+      "fallback_label": "Refrigeration category reference — upright freezer/chiller image not matched."
+    },
+    {
+      "category": "Refrigeration Series",
+      "subcategory": "—",
+      "name": "Counter Freezer/Chiller",
+      "source_path": "uploads/2025/07/Blast-Freezer.png",
+      "match_type": "category",
+      "evidence": "Authentic LS blast-freezer image; it does not depict or confirm a counter freezer/chiller.",
+      "confidence": "low",
+      "fallback_label": "Refrigeration category reference — counter freezer/chiller image not matched."
+    },
+    {
+      "category": "Production Line",
+      "subcategory": "—",
+      "name": "Puff Pastry Make-Up Line (Freeway)",
+      "source_path": "uploads/2024/12/Frozen-Line-2.png",
+      "match_type": "category",
+      "evidence": "Visually inspected existing-site food image shows croissant/pastry output; no exact Freeway line image or product record was confirmed.",
+      "confidence": "low",
+      "fallback_label": "Food application image — pastry output shown; Freeway production line not matched."
+    },
+    {
+      "category": "Production Line",
+      "subcategory": "—",
+      "name": "Pizza Base Make-Up Line (Freeway)",
+      "source_path": "uploads/2024/12/Hotel-Line-2.png",
+      "match_type": "category",
+      "evidence": "Visually inspected existing-site food image shows patisserie output; no exact Freeway pizza-base line image was found.",
+      "confidence": "low",
+      "fallback_label": "Food application image — pizza-base production line not matched."
+    },
+    {
+      "category": "Production Line",
+      "subcategory": "—",
+      "name": "Toast/Burger Buns Production Line",
+      "source_path": "uploads/2024/12/Kitchen-Line-2.png",
+      "match_type": "category",
+      "evidence": "Visually inspected existing-site food image shows bread/bun output; no exact toast or burger-bun line image was confirmed.",
+      "confidence": "low",
+      "fallback_label": "Food application image — bread/buns shown; production line not matched."
+    },
+    {
+      "category": "Production Line",
+      "subcategory": "—",
+      "name": "Cookies/Cream Crackers Production Line",
+      "source_path": "uploads/2025/11/Lemon-Butter-Cookies-Recipe17.jpg",
+      "match_type": "category",
+      "evidence": "Existing-site food image shows cookies, not a production line; no exact cookies/crackers line image was confirmed.",
+      "confidence": "low",
+      "fallback_label": "Food application image — cookies shown; production line not matched."
+    },
+    {
+      "category": "Production Line",
+      "subcategory": "—",
+      "name": "Cakes Production Line",
+      "source_path": "uploads/2024/12/Hotel-Line-2.png",
+      "match_type": "category",
+      "evidence": "Visually inspected existing-site food image shows patisserie products, not a production line; no exact cake-line image was confirmed.",
+      "confidence": "low",
+      "fallback_label": "Food application image — patisserie shown; production line not matched."
+    },
+    {
+      "category": "Production Line",
+      "subcategory": "—",
+      "name": "Breadcrumbs",
+      "source_path": "uploads/2024/12/Kitchen-Line-2.png",
+      "match_type": "category",
+      "evidence": "Visually inspected existing-site image shows bread/bun food output; catalogue notes already flag whether “Breadcrumbs” is a line or product as unconfirmed.",
+      "confidence": "low",
+      "fallback_label": "Food application image — bread shown; whether this entry is a line or product needs confirmation."
+    }
+  ]
+}

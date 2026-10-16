@@ -6,7 +6,7 @@ const base = process.env.LS_PREVIEW_URL || 'http://127.0.0.1:8000/';
   const browser = await chromium.launch();
   const page = await browser.newPage({viewport:{width:1440,height:900},reducedMotion:'reduce'});
   const errors=[];page.on('pageerror',error=>errors.push(error.message));
-  await page.goto(base+'#home',{waitUntil:'networkidle'});
+  await page.goto(base+'#home',{waitUntil:'domcontentloaded'});
   for(const width of [1440,390]) {
     await page.setViewportSize({width,height:900});
     for(const route of ['food','machines','solutions','services','company']) {
@@ -14,21 +14,24 @@ const base = process.env.LS_PREVIEW_URL || 'http://127.0.0.1:8000/';
       if(width<1001) await page.locator('.mobile-toggle').click();
       const link=page.locator(`.primary-nav .ls-nav-link[data-nav="${route}"]`);
       assert.equal(await link.count(),1,`the ${route} label must be a page link`);
-      assert.equal(await link.getAttribute('href'),'#'+route);
+      assert.equal(await link.getAttribute('href'),`/${route}/`);
       await link.click();
       await page.waitForFunction(route=>document.querySelector('#main').dataset.route===route,route);
-      assert.equal(await page.evaluate(()=>location.hash),'#'+route);
+      assert.equal(await page.evaluate(()=>location.pathname),`/${route}/`);
+      assert.equal(await page.evaluate(()=>location.hash),'');
       assert.equal(await page.locator('#main h1').count(),1);
       assert.equal(await page.locator('#main').evaluate(el=>el.inert),false);
     }
     await page.goto(base+'#home');
     if(width<1001) await page.locator('.mobile-toggle').click();
+    const homePath = await page.evaluate(()=>location.pathname);
     if(width>1000) {
       await page.locator('.ls-nav-item:has([data-nav="machines"])').hover();
       assert.equal(await page.locator('.ls-desktop-menu').isVisible(),true,'desktop menus should preview on hover');
       await page.locator('.ls-nav-trigger[data-menu="machines"]').click();
     } else await page.locator('.ls-nav-trigger[data-menu="machines"]').click();
-    assert.equal(await page.evaluate(()=>location.hash),'#home','dropdown control must not change pages');
+    assert.equal(await page.evaluate(()=>location.pathname),homePath,'dropdown control must not change pages');
+    assert.equal(await page.evaluate(()=>location.hash),'');
     const menu=width>1000?page.locator('.ls-desktop-menu'):page.locator('#ls-mobile-machines');
     assert.equal(await menu.isVisible(),true);
     const machineCategories = menu.locator('[data-machine-category]');
@@ -39,21 +42,21 @@ const base = process.env.LS_PREVIEW_URL || 'http://127.0.0.1:8000/';
     assert.equal(await selectedMachinePanel.count(),1);
     assert.equal(await selectedMachinePanel.locator('li a').count(),3,'the selected category should show three featured machines');
     assert.deepEqual(await selectedMachinePanel.locator('li a').allTextContents(),['Mini Cookie Depositor (MCD)','Mini Cookie Wire Cut (MCWC)','Mini Cake Depositor (MCAD)'],'Bakery should prioritize the three requested cookie/cake machine candidates');
-    assert.equal(await selectedMachinePanel.locator('.ls-menu-all').getAttribute('href'),'#machines/bakery','View all should open the selected category');
+    assert.equal(await selectedMachinePanel.locator('.ls-menu-all').getAttribute('href'),'/machines/bakery/','View all should open the selected category');
     await machineCategories.filter({hasText:'Bakery'}).focus();
     await page.keyboard.press('ArrowRight');
     assert.equal(await page.evaluate(()=>document.activeElement.dataset.machineCategory),'kitchen','arrow keys should move between category controls');
-    assert.equal(await menu.locator('[data-machine-category-panel]:visible .ls-menu-all').getAttribute('href'),'#machines/kitchen','keyboard focus should preview the focused category');
+    assert.equal(await menu.locator('[data-machine-category-panel]:visible .ls-menu-all').getAttribute('href'),'/machines/kitchen/','keyboard focus should preview the focused category');
     await page.keyboard.press('Enter');
     if(width>1000) {
       await machineCategories.filter({hasText:'Kitchen'}).hover();
-      assert.equal(await menu.locator('[data-machine-category-panel]:visible .ls-menu-all').getAttribute('href'),'#machines/kitchen','hover should preview a category');
+      assert.equal(await menu.locator('[data-machine-category-panel]:visible .ls-menu-all').getAttribute('href'),'/machines/kitchen/','hover should preview a category');
     }
     await machineCategories.filter({hasText:'Kitchen'}).click();
     await machineCategories.filter({hasText:'Bakery'}).hover();
-    assert.equal(await menu.locator('[data-machine-category-panel]:visible .ls-menu-all').getAttribute('href'),width>1000?'#machines/bakery':'#machines/kitchen','desktop hover follows the pointer; mobile selection follows taps');
+    assert.equal(await menu.locator('[data-machine-category-panel]:visible .ls-menu-all').getAttribute('href'),width>1000?'/machines/bakery/':'/machines/kitchen/','desktop hover follows the pointer; mobile selection follows taps');
     await machineCategories.filter({hasText:'Bakery'}).click();
-    await menu.locator('a[href="#machines/bakery"]').first().click();
+    await menu.locator('a[href="/machines/bakery/"]').first().click();
     await page.waitForFunction(()=>document.querySelector('#main').dataset.route==='machines/bakery');
     assert.equal(await page.locator('#main').evaluate(el=>el.inert),false);
   }
@@ -73,7 +76,7 @@ const base = process.env.LS_PREVIEW_URL || 'http://127.0.0.1:8000/';
   await page.locator('.insights-link').click();
   await page.waitForFunction(()=>document.querySelector('#main').dataset.route==='insights');
   await page.locator('.portal-button').click();
-  assert.equal(await page.locator('.ls-contact-drawer').evaluate(el=>el.open),true);
+  assert.equal(await page.locator('.ls-contact-drawer').evaluate(el=>el.open),true,'Contact opens its inquiry choices');
   await page.keyboard.press('Escape');
   await page.locator('.ls-header .brand').click();
   await page.waitForFunction(()=>document.querySelector('#main').dataset.route==='home');

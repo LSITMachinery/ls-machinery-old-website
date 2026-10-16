@@ -49,6 +49,24 @@
       "About LS": "Tentang LS", "Our History": "Sejarah LS", "Customer Experiences": "Pengalaman Pelanggan", "Locations": "Lokasi", "Careers": "Kerjaya", "Food production": "Pengeluaran makanan", "Machines": "Mesin", "Solutions": "Penyelesaian", "Services & company": "Perkhidmatan & syarikat"
     }
   };
+  Object.assign(LOCAL_NAMES.zh, {
+    "Planetary Mixer":"行星式搅拌机", "Spiral Mixer":"螺旋搅拌机", "Horizontal Mixer":"卧式搅拌机",
+    "Mini Cookie Depositor (MCD)":"迷你曲奇注料机（MCD）", "Mini Cookie Wire Cut (MCWC)":"迷你曲奇钢丝切割机（MCWC）", "Mini Cake Depositor (MCAD)":"迷你蛋糕注料机（MCAD）", "Industri Cookies/Cakes Depositor":"工业曲奇/蛋糕注料机",
+    "Dough Sheeter (Freeway)":"面团压片机（Freeway）", "Donuts Maker (Krono)":"甜甜圈成型机（KRONO）", "Dough Divider":"面团分割机", "Dough Rounder":"面团搓圆机", "Continuous Dough Divider Rounder":"连续式面团分割搓圆机", "Molder":"成型机", "Dough Encrusting Machine":"面团包馅机", "Sheet Forming Encrusting & Molding Machine":"面片成型、包馅与整形机", "Trays Arranger Machine":"托盘排列机", "Rounding Machine":"搓圆机", "Proofer":"醒发箱", "Retarder Proofer":"冷藏醒发箱", "Roll-In Proofer":"推入式醒发箱", "Proofer Room":"醒发室",
+    "Hybrid Tunnel Oven (LPG/NPG/Electric Heating System)":"混合式隧道炉（LPG/NPG/电加热系统）", "Deck Oven (Gas/Electric Heating)":"层炉（燃气/电加热）", "Convection Oven (Gas/Electric Heating)":"热风循环炉（燃气/电加热）", "Rotary Oven (Gas/Electric/Diser Heating)":"旋转炉（燃气/电/Diser 加热）", "Mini Rotary Convention Oven (Gas/Electric Heating)":"迷你旋转热风炉（燃气/电加热）", "Horizontal Cutter":"卧式切割机", "Cake Cutter":"蛋糕切割机", "Ultrasound SoundCake Cutter":"SoundCake 超声波蛋糕切割机", "Cakes Cream Coating":"蛋糕奶油涂层机", "Cream Puffs Injector":"泡芙注馅机", "Chocolate Coating":"巧克力涂层机",
+    "Combi Oven (Laynox)":"万能蒸烤箱（Laynox）", "Heavy Duty Robot Cooker Machine":"重型机器人烹饪机", "Cooker Mixer":"烹饪搅拌机", "Steamer":"蒸柜", "Deep Fryer System":"深炸系统", "Emulsifier":"乳化机", "Vegetable Cutter Machine":"蔬菜切割机", "Meat Cutter":"肉类切割机", "Bowl Cutter":"斩拌机", "Fish Ball/Cakes Maker":"鱼丸/鱼饼成型机", "Dim Sum Maker":"点心成型机",
+    "Horizontal Pillow Pack Packaging Machine":"卧式枕式包装机", "Horizontal Pillow Pack Box Motion Packaging Machine":"卧式盒式枕包机", "Vertical Box Motion Packaging Machine":"立式间歇式包装机", "Powder Vertical Packaging Machine":"粉剂立式包装机", "Sauces/Filling Package Machine":"酱料/充填包装机", "Computerized Multihead Weigher of Packing Machine with Plain Surface":"平板式电脑多头组合秤包装机", "Vacuum Packaging Machines":"真空包装机",
+    "Blast Freezer":"速冻柜", "Tunnel Blast Freezer":"隧道式速冻机", "Nitrogen Blast Freezer System":"氮气速冻系统", "Upright Freezer/Chiller":"立式冷冻/冷藏柜", "Counter Freezer/Chiller":"工作台式冷冻/冷藏柜", "Puff Pastry Make-Up Line (Freeway)":"酥皮生产线（Freeway）", "Pizza Base Make-Up Line (Freeway)":"披萨饼底生产线（Freeway）", "Toast/Burger Buns Production Line":"吐司/汉堡包生产线", "Cookies/Cream Crackers Production Line":"曲奇/奶油饼干生产线", "Cakes Production Line":"蛋糕生产线", "Breadcrumbs":"面包糠生产线"
+  });
+  Object.assign(LOCAL_NAMES.ms, {
+    "Planetary Mixer":"Pengadun Planetari", "Spiral Mixer":"Pengadun Spiral", "Horizontal Mixer":"Pengadun Mendatar",
+    "Mini Cookie Depositor (MCD)":"Mesin Pendeposit Kuki Mini (MCD)", "Mini Cookie Wire Cut (MCWC)":"Mesin Pemotong Dawai Kuki Mini (MCWC)", "Mini Cake Depositor (MCAD)":"Mesin Pendeposit Kek Mini (MCAD)", "Industri Cookies/Cakes Depositor":"Mesin Pendeposit Kuki dan Kek Industri",
+    "Dough Sheeter (Freeway)":"Mesin Canai Doh (Freeway)", "Donuts Maker (Krono)":"Mesin Pembuat Donat (KRONO)", "Dough Divider":"Mesin Pembahagi Doh", "Dough Rounder":"Mesin Pembulat Doh", "Continuous Dough Divider Rounder":"Mesin Pembahagi dan Pembulat Doh Berterusan", "Molder":"Mesin Pembentuk", "Dough Encrusting Machine":"Mesin Pengisian Inti Doh", "Sheet Forming Encrusting & Molding Machine":"Mesin Pembentukan Kepingan, Pengisian Inti dan Pembentuk", "Trays Arranger Machine":"Mesin Penyusun Dulang", "Rounding Machine":"Mesin Pembulat", "Proofer":"Kabinet Pengembang Doh", "Retarder Proofer":"Kabinet Penyejuk dan Pengembang Doh", "Roll-In Proofer":"Kabinet Pengembang Jenis Tolak Masuk", "Proofer Room":"Bilik Pengembang Doh",
+    "Hybrid Tunnel Oven (LPG/NPG/Electric Heating System)":"Ketuhar Terowong Hibrid (sistem pemanasan LPG/NPG/elektrik)", "Deck Oven (Gas/Electric Heating)":"Ketuhar Lantai (pemanasan gas/elektrik)", "Convection Oven (Gas/Electric Heating)":"Ketuhar Perolakan (pemanasan gas/elektrik)", "Rotary Oven (Gas/Electric/Diser Heating)":"Ketuhar Putar (pemanasan gas/elektrik/Diser)", "Mini Rotary Convention Oven (Gas/Electric Heating)":"Ketuhar Perolakan Putar Mini (pemanasan gas/elektrik)", "Horizontal Cutter":"Pemotong Mendatar", "Cake Cutter":"Mesin Pemotong Kek", "Ultrasound SoundCake Cutter":"Mesin Pemotong Kek Ultrasound SoundCake", "Cakes Cream Coating":"Mesin Salutan Krim Kek", "Cream Puffs Injector":"Mesin Penyuntik Krim Puff", "Chocolate Coating":"Mesin Salutan Coklat",
+    "Combi Oven (Laynox)":"Ketuhar Kombi (Laynox)", "Heavy Duty Robot Cooker Machine":"Mesin Memasak Robot Tugas Berat", "Cooker Mixer":"Pengadun dan Pemasak", "Steamer":"Pengukus", "Deep Fryer System":"Sistem Penggoreng Rendam", "Emulsifier":"Mesin Pengemulsi", "Vegetable Cutter Machine":"Mesin Pemotong Sayur", "Meat Cutter":"Pemotong Daging", "Bowl Cutter":"Mesin Pemotong Mangkuk", "Fish Ball/Cakes Maker":"Mesin Pembuat Bebola dan Kek Ikan", "Dim Sum Maker":"Mesin Pembuat Dim Sum",
+    "Horizontal Pillow Pack Packaging Machine":"Mesin Pembungkusan Bantal Mendatar", "Horizontal Pillow Pack Box Motion Packaging Machine":"Mesin Pembungkusan Bantal Mendatar Gerakan Kotak", "Vertical Box Motion Packaging Machine":"Mesin Pembungkusan Menegak Gerakan Kotak", "Powder Vertical Packaging Machine":"Mesin Pembungkusan Serbuk Menegak", "Sauces/Filling Package Machine":"Mesin Pembungkusan Sos dan Isian", "Computerized Multihead Weigher of Packing Machine with Plain Surface":"Mesin Pembungkusan dengan Penimbang Berbilang Kepala Berkomputer dan Permukaan Rata", "Vacuum Packaging Machines":"Mesin Pembungkusan Vakum",
+    "Blast Freezer":"Penyejuk Beku Hembusan", "Tunnel Blast Freezer":"Penyejuk Beku Hembusan Terowong", "Nitrogen Blast Freezer System":"Sistem Penyejuk Beku Hembusan Nitrogen", "Upright Freezer/Chiller":"Peti Sejuk Beku/Penyejuk Menegak", "Counter Freezer/Chiller":"Peti Sejuk Beku/Penyejuk Kaunter", "Puff Pastry Make-Up Line (Freeway)":"Barisan Pastri Puff (Freeway)", "Pizza Base Make-Up Line (Freeway)":"Barisan Pengeluaran Asas Piza (Freeway)", "Toast/Burger Buns Production Line":"Barisan Pengeluaran Roti Bakar dan Ban Burger", "Cookies/Cream Crackers Production Line":"Barisan Pengeluaran Kuki dan Biskut Krim", "Cakes Production Line":"Barisan Pengeluaran Kek", "Breadcrumbs":"Barisan Pengeluaran Serbuk Roti"
+  });
   const STORAGE = {
     language: "ls-site-language",
     motion: "ls-site-motion-paused",
@@ -62,6 +80,7 @@
   const CATALOGUE_PAGE_SIZE = 12;
   const CATALOGUE_STATE_PREFIX = "ls-catalogue-state-v1:";
   const CATALOGUE_RETURN_KEY = "ls-catalogue-return-category-v1";
+  let catalogueFilterCleanup = null;
   const storedMotionPreference = readStore(STORAGE.motion, null);
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -76,6 +95,8 @@
       topline: "KEJURUTERAAN UNTUK GENERASI BAHARU PENGELUARAN MAKANAN", toplink: "Terokai kemungkinan", navFood: "Pengeluaran makanan", navMachines: "Mesin", navSolutions: "Penyelesaian", navServices: "Perkhidmatan", navCompany: "Syarikat", navInsights: "Maklumat", portal: "Contact", motionPause: "Jeda gerakan", motionPlay: "Mainkan gerakan", heroEyebrow: "LS Smart Machinery · Malaysia", heroTitleA: "Sediakan ruang", heroTitleB: "untuk seterusnya.", heroLead: "Mesin dan penyelesaian pengeluaran untuk pengeluar makanan pada setiap peringkat.", exploreMachines: "Terokai mesin", requestConversation: "Mulakan perbualan", currentLabel: "01 / TERKINI DI LS", whyLabel: "02 / MENGAPA LS", foodLabel: "03 / PENGELUARAN MAKANAN", segmentsLabel: "04 / UNTUK SIAPA", newsLabel: "05 / WAWASAN", storiesLabel: "06 / PENGALAMAN PELANGGAN", contactLabel: "JELASKAN LANGKAH SETERUSNYA", allMachines: "Terokai katalog", allFood: "Terokai pengeluaran makanan", allSolutions: "Lihat cara kami membantu", allServices: "Terokai perkhidmatan", viewCategory: "Lihat kategori", askForQuote: "Minta sebut harga", consult: "Tempah konsultasi", visit: "Atur lawatan", openEmail: "Buka draf e-mel", emailReady: "Aplikasi e-mel akan membuka draf. Semak dan hantar sendiri; laman web belum menghantarnya.", openWhatsApp: "Buka WhatsApp", homeLink: "Laman utama", askForInfo: "Tanya LS tentang mesin ini", contactUs: "Kongsikan perancangan anda", overview: "Gambaran keseluruhan", capabilities: "Cara LS boleh membantu", findMachine: "Cari mesin", filter: "Tapis mengikut nama atau subkategori", allItems: "Semua peralatan", suitability: "Adakah mesin ini sesuai untuk anda?", features: "Ciri utama", benefits: "Direka mengikut proses anda", application: "Aplikasi makanan", technical: "Data teknikal", related: "Terokai lagi", accessories: "Aksesori", complementary: "Mesin pelengkap", similar: "Mesin serupa", itemAwaiting: "Maklumat produk sedang disahkan oleh LS. Hubungi pasukan kami tentang proses dan keperluan anda.", graphicNote: "ILUSTRASI SEMENTARA · FOTO YANG DILULUSKAN LS AKAN DITAMBAH", unverified: "Maklumat katalog menunggu pengesahan LS", notAvailable: "Butiran akan ditambah selepas semakan LS.", country: "Negara", firstName: "Nama pertama", lastName: "Nama keluarga", company: "Syarikat", email: "E-mel", phone: "Telefon", message: "Mesej", inquiryType: "Bagaimanakah kami boleh membantu?", selectOne: "Pilih satu", optional: "Pilihan", inquiryMachine: "Mesin atau halaman", insightsSubscribe: "Saya berminat menerima LS Insights. Sila hubungi saya tentang langganan.", spareParts: "Permintaan alat ganti", machineNumber: "Nombor mesin", model: "Model", partNumber: "Nombor artikel / alat ganti jika diketahui", description: "Penerangan alat ganti", quantity: "Kuantiti", deliveryAddress: "Alamat penghantaran", remarks: "Catatan", spareIntro: "Berikan maklumat selengkap mungkin agar LS dapat mengenal pasti alat ganti dan membuat susulan dengan cekap.", unknownPart: "Tidak pasti alat ganti yang diperlukan? Sertakan butiran dalam pertanyaan umum dan pasukan LS akan membuat susulan.", cmsTitle: "Studio kandungan", cmsLocal: "Pratonton peribadi setempat · disimpan dalam pelayar ini sahaja", editor: "Penyunting", publisher: "Penerbit", pageToEdit: "Pilih halaman", copyToEdit: "Kandungan dan terjemahan", saveDraft: "Simpan draf", publish: "Penerbit mengesahkan", discard: "Buang draf", technicalReview: "Semakan teknikal", machineReview: "Penyemak teknikal mengesahkan kandungan mesin", preview: "Pratonton peribadi langsung", history: "Sejarah aktiviti", mediaLibrary: "Pustaka media", uploadMedia: "Pilih imej", draftSaved: "Draf disimpan dalam pelayar ini.", published: "Diterbitkan dalam pratonton pelayar ini.", discarded: "Draf dibuang dan versi terbitan semasa dipulihkan.", publisherOnly: "Tukar kepada Penerbit untuk menerbitkan draf.", reviewRequired: "Kandungan mesin memerlukan semakan teknikal sebelum diterbitkan.", noDraft: "Tiada draf tersimpan untuk bahasa ini.", noActivity: "Tiada aktiviti studio lagi.", cmsWarning: "Untuk demonstrasi sahaja: prototaip setempat ini tiada log masuk, storan bersama, pratonton pelayan atau kebenaran penerbitan sebenar.", publishConfirm: "Terbitkan draf yang telah disemak ini ke pratonton laman dalam pelayar ini?", currentPublished: "Kandungan terbitan semasa", homeIntro: "LS Smart Machinery menyokong pengeluar makanan dengan mesin, reka bentuk barisan pengeluaran, kerja kemudahan dan perkhidmatan selepas jualan.", historyTitle: "Sejarah untuk diceritakan", historyText: "Sejarah dan pencapaian syarikat yang disahkan akan ditambah selepas semakan.", locationTitle: "Lawati LS", locationText: "Lokasi dan maklumat lawatan akan ditambah selepas LS mengesahkan alamat dan proses janji temu.", careersTitle: "Bina masa depan bersama", careersText: "Pautan kerjaya akan ditambah selepas LS mengesahkan kekosongan dan saluran rasmi.", insightsText: "Kemas kini syarikat, acara dan cerita industri yang berkaitan akan dipaparkan selepas disahkan LS.", experienceText: "Kisah pelanggan akan diterbitkan selepas pengalaman dan butiran sokongan diluluskan LS.", pending: "Butiran perlu disahkan sebelum diterbitkan", aiComing: "AKAN DATANG", noResults: "Tiada item katalog yang sepadan. Cuba carian lain.", viewAll: "Lihat semua", serviceProcess: "Daripada perbualan pertama kepada sokongan berterusan", close: "Tutup"
     }
   };
+  Object.assign(WORDS.zh, { segmentCta:"探索此客户类别", contactPending:"此联系选项暂未设置，请使用其他联系方法或稍后再试。", intro:"关于 LS", latest:"LS 动态", finish:"通用页脚", sourceWarning:"目录名称按原资料保留；所选项目仍待目录确认。" });
+  Object.assign(WORDS.ms, { segmentCta:"Terokai segmen ini", contactPending:"Pilihan hubungan ini belum disediakan. Gunakan pilihan lain atau cuba lagi kemudian.", intro:"Tentang LS", latest:"Terkini di LS", finish:"Pengaki bersama", sourceWarning:"Nama sumber dikekalkan seperti yang diterima; item terpilih menunggu pengesahan katalog." });
   const PAGE_COPY = {
     en: {
       introTitle: "Production is personal.", introAccent: "Your machinery should be, too.", introAside: "From layout planning and machine supply to installation, technology transfer and continued service, LS helps bring production requirements into focus.", currentTitle: "Production starts with a better question.", whyTitle: "Good production begins with a good partner.", whyBody: "Bring LS your product, process and priorities. Start with a conversation, then explore the capabilities that match your requirements.", foodTitle: "Made for the foods people love.", foodNote: "Explore by food type to begin; LS can confirm machine fit for your process.", segmentTitle: "Your next step starts where you are.", segmentLead: "Different production goals bring different questions. Find a starting point, then share your requirements with LS.", newsTitle: "Ideas, people & progress.", newsFeature: "Stay close to what’s happening at LS.", newsFeatureBody: "Verified company updates, events and industry stories will be shared here.", storyTitle: "Built on real experiences.", storyQuote: "Customer experiences will be shared here after the people and details are confirmed.", socialTitle: "Keep up with LS.", socialBody: "Find LS on its official social channels once confirmed.", contactTitle: "Let’s make good things happen.", contactBody: "Tell us what you’re planning and how we can follow up. Your selected page or machine will be included in the inquiry summary.", browseNote: "Explore by food type to begin; LS can confirm machine fit for your process.", segment01: "Explore equipment and share your early production questions with LS.", segment02: "Discuss production changes, equipment and support with LS.", segment03: "Explore production lines and share your integration needs with LS."
@@ -123,7 +144,7 @@
   ];
   const SOLUTIONS = ["Factory & Line Planning", "Machinery & Automation", "Facility Fit-Out", "Financing Support"];
   const SERVICES = ["Support & Repairs", "Installation & Training", "Technical Documents", "Spare Parts Request", "Production Improvement"];
-  const COMPANY = ["About LS", "Our History", "Customer Partnerships", "Project Process", "Locations", "Careers"];
+  const COMPANY = ["About LS", "Our History", "Customer Partnerships", "Locations", "Careers"];
   const SOCIAL_LINKS = [
     { name: "Facebook", href: "https://www.facebook.com/lssmartmachineryofficial/", icon: '<path d="M13.5 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.5 1.6-1.5h1.7V3.9c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3V10H7.3v3h2.8v8z"/>' },
     { name: "Instagram", href: "https://www.instagram.com/ls_smart_machinery/?hl=en", icon: '<rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="6" r="1.2"/>' },
@@ -140,7 +161,7 @@
   ];
 
   const state = {
-    language: readStore(STORAGE.language, "en"),
+    language: window.LSRouter.language(),
     motionPaused: storedMotionPreference ?? prefersReducedMotion,
     motionOptIn: storedMotionPreference === false && prefersReducedMotion,
     route: "home",
@@ -160,9 +181,7 @@
   const nav = document.querySelector(".primary-nav");
   const megaPanel = document.querySelector(".mega-panel");
   const languagePicker = document.getElementById("language-picker");
-  const studioMode=new URLSearchParams(location.search).get('studio')==='1';
-  languagePicker.closest('.language-picker').hidden=!studioMode&&!window.LSRouter.legacy;
-  if(!studioMode&&!window.LSRouter.legacy)state.language='en';
+  languagePicker.closest('.language-picker').hidden=window.LSRouter.legacy;
   let fullscreenReturnFocus = null;
   const titleCase = (value) => String(value || "").replace(/\b\S/g, (c) => c.toUpperCase());
   const t = (key) => (WORDS[state.language] && WORDS[state.language][key]) || WORDS.en[key] || key;
@@ -256,8 +275,7 @@
   const arrowLink = (href, label) => `<a class="arrow-link" href="${esc(href)}">${esc(label)} <span aria-hidden="true">↗</span></a>`;
   const buttonLink = (href, label, cls = "") => `<a class="button-link ${cls}" href="${esc(href)}">${esc(label)} <span class="button-arrow" aria-hidden="true">↗</span></a>`;
   const getContent = (language = state.language) => {
-    const saved = readStore(STORAGE.published, {});
-    return { ...DEFAULT_CONTENT[language], ...(saved[language] || {}) };
+    return { ...DEFAULT_CONTENT[language] };
   };
   function storySeed(language = state.language) {
     return {
@@ -270,13 +288,10 @@
     };
   }
   function publishedStories(language = state.language) {
-    const stored = readStore(STORAGE.published, {})[language] || {};
     const defaults = storySeed(language);
-    const clients = Array.from({length:Math.min(100,Math.max(defaults.clients.length,stored.clients?.length||0))},(_,index)=>({...defaults.clients[index],...(stored.clients?.[index]||{})}));
-    const experiences = defaults.experiences.map((item, index) => ({ ...item, ...(stored.experiences?.[index] || {}) })).slice(0, 10);
     return {
-      clients: clients.filter((item) => item.name && item.source && (!item.image || item.image === "gardenia" || item.image === "tk-bakery") && (!item.customImage || isLocalStoryImage(item.customImage))),
-      experiences: experiences.filter((item) => (item.image && sectionAsset("customerExperiences", item.image)) || isLocalStoryImage(item.customImage))
+      clients: defaults.clients.filter((item) => item.name && item.source && (!item.image || item.image === "gardenia" || item.image === "tk-bakery")),
+      experiences: defaults.experiences.filter((item) => item.image && sectionAsset("customerExperiences", item.image))
     };
   }
 
@@ -335,7 +350,7 @@
     const closedWord = { en: "closed", zh: "休息", ms: "tutup" }[language] || "closed";
     return [...open, closed.length ? `${closed.join(joiner)} ${closedWord}` : ""].filter(Boolean).join(" · ");
   }
-  function inquiryMessage({ machine = "", audience = "sales", intent = "" } = {}) {
+  function inquiryMessage({ machine = "", audience = "sales", intent = "", journeyStage = "" } = {}) {
     const careers = audience === "careers";
     const intro = careers ? tr("Hello LS HR team,", "您好，LS 人事团队：", "Helo pasukan HR LS,") : tr("Hello LS Smart Machinery,", "您好，LS Smart Machinery：", "Helo LS Smart Machinery,");
     const intentLabels = {
@@ -350,14 +365,16 @@
       : machine
         ? tr(`I would like to ${requestedIntent.toLowerCase()} about ${machine}.`, `我想${requestedIntent}，咨询 ${machine}。`, `Saya ingin ${requestedIntent.toLowerCase()} tentang ${machine}.`)
         : tr("I would like to discuss your machinery and production solutions.", "我想讨论贵公司的设备与生产方案。", "Saya ingin berbincang tentang mesin dan penyelesaian pengeluaran anda.");
-    return [intro, "", `${tr("Inquiry intent", "咨询事项", "Tujuan pertanyaan")}: ${requestedIntent}`, about, "", `${tr("Page", "页面", "Halaman")}: ${location.href}`, "", `${tr("Name", "姓名", "Nama")}:`, `${tr("Company", "公司", "Syarikat")}:`, `${tr("Phone", "电话", "Telefon")}:`].join("\n");
+    const stage = journeyStage || window.LSJourney?.getStage?.() || "";
+    const stageLabels = { appointment: tr("Appointment", "预约会面", "Temu janji"), planning: tr("Floor planning and design", "厂房规划与设计", "Perancangan dan reka bentuk lantai"), "order-placement": tr("Order placement", "下单", "Penempatan pesanan"), installation: tr("Installation", "安装", "Pemasangan"), "technology-transfer": tr("Technology transfer", "技术转移", "Pemindahan teknologi"), "after-sales": tr("After-sales service", "售后服务", "Khidmat selepas jualan") };
+    return [intro, "", `${tr("Inquiry intent", "咨询事项", "Tujuan pertanyaan")}: ${requestedIntent}`, about, ...(stageLabels[stage] ? [`${tr("Production stage selected", "已选生产阶段", "Peringkat pengeluaran dipilih")}: ${stageLabels[stage]}`] : []), "", `${tr("Page", "页面", "Halaman")}: ${location.href}`, "", `${tr("Name", "姓名", "Nama")}:`, `${tr("Company", "公司", "Syarikat")}:`, `${tr("Phone", "电话", "Telefon")}:`].join("\n");
   }
   function inquiryLinks(ctx = {}) {
     const contact = getContact();
     const careers = ctx.audience === "careers";
     const email = careers ? contact.careersEmail : contact.inquiryEmail;
     const whatsapp = String((careers ? contact.careersWhatsApp : contact.inquiryWhatsApp) || "").replace(/\D/g, "");
-    const message = ctx.message ?? inquiryMessage({ machine: ctx.machine, audience: careers ? "careers" : "sales", intent: ctx.intent });
+    const message = ctx.message ?? inquiryMessage({ machine: ctx.machine, audience: careers ? "careers" : "sales", intent: ctx.intent, journeyStage: ctx.journeyStage });
     const subject = ctx.subject || (careers ? tr("Career inquiry", "工作咨询", "Pertanyaan kerjaya") : `LS Smart Machinery ${ctx.intent ? `${ctx.intent} · ` : ""}${tr("inquiry", "咨询", "pertanyaan")}${ctx.machine ? ` — ${ctx.machine}` : ""}`);
     return {
       email: email ? `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}` : "",
@@ -429,14 +446,26 @@
 
   function pageFooter() {
     const contact = getContact();
-    const socials = SOCIAL_LINKS.map(({name,href,icon}) => `<a href="${esc(href)}" target="_blank" rel="noopener noreferrer" aria-label="LS Smart Machinery on ${esc(name)}" title="${esc(name)}"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">${icon}</svg></a>`).join("");
+    const socials = SOCIAL_LINKS.map(({name,href,icon}) => `<a href="${esc(href)}" target="_blank" rel="noopener noreferrer" aria-label="${esc(tr(`LS Smart Machinery on ${name}`,`LS Smart Machinery 的 ${name} 页面`,`LS Smart Machinery di ${name}`))}" title="${esc(name)}"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">${icon}</svg></a>`).join("");
     const phoneDigits = String(contact.inquiryWhatsApp || "").replace(/\D/g, "");
-    return `<div class="footer-inner"><div class="footer-main"><div class="footer-brand"><a class="footer-logo" href="#home" aria-label="LS Smart Machinery home">${assetImage(sectionAsset("brand"), "brand-logo", { alt: "LS Machinery Innovation", loading: "lazy" })}</a><p><strong>LS Smart Machinery (M) <span class="company-legal-suffix">SDN BHD</span></strong><br>Company Registration No. 1308318-K<br>MATRADE Registered · MOF Organization Certified<br>${esc(contact.address)}</p></div><div class="footer-links"><h3>Explore</h3><a href="#machines">Machines</a><a href="#food">Food production</a><a href="#solutions">Solutions</a><a href="#services">Services</a></div><div class="footer-links"><h3>Company</h3><a href="#company">About LS</a><a href="#company/history">Our history</a><a href="#company/customer-experiences">Customer partnerships</a><a href="#company/locations">Locations</a><a href="#company/project-process">How a project works</a><a href="#company/careers">Careers</a><a href="#insights">Insights</a></div><div class="footer-links"><h3>Talk to LS</h3><a href="#inquiry">Contact & inquiries</a><a href="#service/spare-parts-request">Spare parts request</a>${phoneDigits ? `<a href="tel:+${esc(phoneDigits)}">${esc(contact.phone)}</a>` : `<span>${esc(contact.phone)}</span>`}<a href="mailto:${esc(contact.inquiryEmail)}">${esc(contact.inquiryEmail)}</a><a href="${esc(contact.mapUrl)}" target="_blank" rel="noopener noreferrer">${esc(tr("Address and map", "地址与地图", "Alamat dan peta"))} ↗</a><span class="small-note">${esc(formatHours())}</span></div></div><div class="footer-bottom"><span>© ${new Date().getFullYear()} LS Smart Machinery (M) SDN BHD · <a class="photo-credits-link" href="food-photo-credits.html" target="_blank" rel="noopener">${esc(tr("Photo credits","照片版权","Kredit foto"))}</a></span><a class="photo-credits-link" href="/privacy/">Privacy Notice</a><div class="footer-social-icons" aria-label="Social media channels">${socials}</div></div></div>`;
+    return `<div class="footer-inner"><div class="footer-main"><div class="footer-brand"><a class="footer-logo" href="#home" aria-label="${esc(tr("LS Smart Machinery home","LS Smart Machinery 首页","Laman utama LS Smart Machinery"))}">${assetImage(sectionAsset("brand"), "brand-logo", { alt: "LS Machinery Innovation", loading: "lazy" })}</a><p><strong>LS Smart Machinery (M) <span class="company-legal-suffix">SDN BHD</span></strong><br>${esc(tr("Company Registration No.","公司注册号","No. Pendaftaran Syarikat"))} 1308318-K<br>${esc(tr("MATRADE Registered · MOF Organization Certified","MATRADE 注册 · 获 MOF 机构认证","Berdaftar dengan MATRADE · Diperakui Organisasi MOF"))}<br>${esc(contact.address)}</p></div><div class="footer-links"><h3>${esc(tr("Explore","探索","Terokai"))}</h3><a href="#machines">${esc(t("navMachines"))}</a><a href="#food">${esc(t("navFood"))}</a><a href="#solutions">${esc(t("navSolutions"))}</a><a href="#services">${esc(t("navServices"))}</a></div><div class="footer-links"><h3>${esc(tr("Company","公司","Syarikat"))}</h3><a href="#company">${esc(t("intro"))}</a><a href="#company/history">${esc(tr("Our history","LS 的发展历程","Sejarah LS"))}</a><a href="#company/customer-experiences">${esc(tr("Customer partnerships","客户合作","Kerjasama pelanggan"))}</a><a href="#company/locations">${esc(tr("Locations","地点","Lokasi"))}</a><a href="#company/careers">${esc(tr("Careers","职业发展","Kerjaya"))}</a><a href="#insights">${esc(t("navInsights"))}</a></div><div class="footer-links"><h3>${esc(tr("Talk to LS","联系 LS","Hubungi LS"))}</h3><a href="#inquiry">${esc(tr("Contact & inquiries","联系与咨询","Hubungan dan pertanyaan"))}</a><a href="#service/spare-parts-request">${esc(t("spareParts"))}</a>${phoneDigits ? `<a href="tel:+${esc(phoneDigits)}">${esc(contact.phone)}</a>` : `<span>${esc(contact.phone)}</span>`}<a href="mailto:${esc(contact.inquiryEmail)}">${esc(contact.inquiryEmail)}</a><a href="${esc(contact.mapUrl)}" target="_blank" rel="noopener noreferrer">${esc(tr("Address and map", "地址与地图", "Alamat dan peta"))} ↗</a><span class="small-note">${esc(formatHours())}</span></div></div><div class="footer-bottom"><span>© ${new Date().getFullYear()} LS Smart Machinery (M) SDN BHD · <a class="photo-credits-link" href="food-photo-credits.html" target="_blank" rel="noopener">${esc(tr("Photo credits","照片版权","Kredit foto"))}</a></span><a class="photo-credits-link" href="/privacy/">${esc(tr("Privacy Notice","隐私通知","Notis privasi"))}</a><div class="footer-social-icons" aria-label="${esc(tr("Social media channels","社交媒体","Saluran media sosial"))}">${socials}</div></div></div>`;
   }
 
   function applyLanguage() {
     document.documentElement.lang = state.language === "zh" ? "zh-Hans" : state.language === "ms" ? "ms" : "en";
     languagePicker.value = state.language;
+    const languageLabel = tr("Language", "语言", "Bahasa");
+    languagePicker.setAttribute("aria-label", languageLabel);
+    const pickerLabel = languagePicker.closest(".language-picker");
+    const hiddenPickerLabel = pickerLabel?.querySelector(".sr-only");
+    if (hiddenPickerLabel) hiddenPickerLabel.textContent = languageLabel;
+    const headerSearch = document.querySelector(".header-search-link");
+    if (headerSearch) {
+      headerSearch.href = urlFor("search");
+      headerSearch.setAttribute("aria-label", tr("Search machinery", "搜索设备", "Cari mesin"));
+      headerSearch.innerHTML = `${tr("Search", "查找", "Cari")} <span aria-hidden="true">⌕</span>`;
+    }
+    document.querySelector(".header-whatsapp")?.setAttribute("aria-label", tr("Contact LS on WhatsApp", "通过 WhatsApp 联系 LS", "Hubungi LS melalui WhatsApp"));
     document.querySelectorAll("[data-i18n]").forEach((element) => { element.innerHTML = t(element.dataset.i18n); });
     document.title = state.language === "en" ? "LS Smart Machinery — Production, thoughtfully engineered" : `${t("navMachines")} — LS Smart Machinery`;
   }
@@ -495,21 +524,314 @@
   }
 
   function searchPage() {
-    return `<section class="section-wrap section-pad industrial-range"><span class="eyebrow">LS MACHINERY</span><h1 class="display-title">${esc(tr('Find equipment by name or model.','按名称或型号查找设备。','Cari peralatan mengikut nama atau model.'))}</h1><form role="search" action="/search/"><label class="field"><span>${esc(tr('Machine name, model or process','设备名称、型号或工序','Nama mesin, model atau proses'))}</span><input type="search" name="q" value="${esc(new URLSearchParams(location.search).get('q')||'')}" placeholder="LSF-502, mixer, cookie" autocomplete="off"></label><button class="button-link" type="submit">${esc(tr('Search','查找','Cari'))} ↗</button></form><p data-global-search-count aria-live="polite"></p><div class="catalogue-list industrial-machine-list" data-global-search-results></div></section>`;
+    const params = new URLSearchParams(location.search);
+    return `<section class="section-wrap section-pad discovery-page" aria-labelledby="discovery-title"><span class="eyebrow">${esc(tr('LS MACHINERY · DISCOVERY','LS 设备 · 探索','MESIN LS · PENEROKAAN'))}</span><h1 class="display-title" id="discovery-title">${esc(tr('Find the right next step.','找到合适的下一步。','Cari langkah seterusnya yang sesuai.'))}</h1><p class="discovery-intro">${esc(tr('Search machines, food applications, services and practical answers from LS.','搜索 LS 设备、食品应用、服务与实用解答。','Cari mesin, aplikasi makanan, perkhidmatan dan jawapan praktikal daripada LS.'))}</p><form class="discovery-search-form" role="search" action="/search/"><label class="sr-only" for="discovery-query">${esc(tr('Search machines, food, services and answers','搜索设备、食品、服务与解答','Cari mesin, makanan, perkhidmatan dan jawapan'))}</label><div class="discovery-input-row"><input id="discovery-query" type="search" name="q" value="${esc(params.get('q')||'')}" placeholder="${esc(tr('Try “MCD”, “cookies” or “repairs”','试试 “MCD”、“饼干” 或 “维修”','Cuba “MCD”, “kuki” atau “pembaikan”'))}" autocomplete="off" spellcheck="false" aria-autocomplete="list" aria-controls="discovery-results" aria-describedby="discovery-count"><button class="discovery-clear" type="button" data-search-clear aria-label="${esc(tr('Clear search','清除搜索','Kosongkan carian'))}" hidden>×</button><button class="discovery-submit" type="submit">${esc(tr('Search','查找','Cari'))}<span aria-hidden="true">↗</span></button></div></form><div class="discovery-filters" data-search-filters role="group" aria-label="${esc(tr('Filter search results','筛选搜索结果','Tapis hasil carian'))}" hidden></div><p class="discovery-count" id="discovery-count" data-global-search-count aria-live="polite" aria-atomic="true"></p><div class="discovery-results" id="discovery-results" data-global-search-results></div></section>`;
   }
 
-  function setupGlobalSearch() {
-    const form=main.querySelector('form[role="search"]');if(!form)return;
-    const input=form.querySelector('input'),list=main.querySelector('[data-global-search-results]'),count=main.querySelector('[data-global-search-count]');if(!list||!count)return;
-    const normalized=value=>String(value).toLowerCase().replace(/[^a-z0-9\u4e00-\u9fff]/g,'');
-    const update=()=>{
-      const query=normalized(input.value);
-      const items=allCatalogueItems().filter(item=>!query||normalized(item.name+' '+displayName(item.name)+' '+item.category+' '+(item.subcategory||'')+' '+machineTitleDefault(slug(item.name))).includes(query));
-      count.textContent=tr(`${items.length} machines`,`${items.length} 台设备`,`${items.length} mesin`);
-      list.innerHTML=items.length?items.map(item=>catalogueCard(item,item.category)).join(''):`<p>${esc(t('noResults'))}</p>`;
+  const SEARCH_TYPES = {
+    machine: { en: "Machines", zh: "机器设备", ms: "Mesin" },
+    food: { en: "Food", zh: "食品", ms: "Makanan" },
+    service: { en: "Services", zh: "服务", ms: "Perkhidmatan" },
+    solution: { en: "Solutions", zh: "解决方案", ms: "Penyelesaian" },
+    segment: { en: "Customer types", zh: "客户类型", ms: "Jenis pelanggan" },
+    company: { en: "Company", zh: "公司", ms: "Syarikat" },
+    insight: { en: "Insights", zh: "资讯", ms: "Wawasan" },
+    faq: { en: "Questions", zh: "常见问题", ms: "Soalan" }
+  };
+  const SEARCH_FAQS = [
+    {
+      id: "equipment-fit", route: "machines/bakery", title: { en: "How do I choose suitable equipment?", zh: "如何选择适合的设备？", ms: "Bagaimana memilih peralatan yang sesuai?" },
+      answer: { en: "Start with your product, process, intended output and available space. LS can review those requirements with you before confirming machine suitability.", zh: "先考虑产品、流程、预期产量及空间。LS 可与您讨论需求，再确认设备适用性。", ms: "Mulakan dengan produk, proses, output sasaran dan ruang. LS boleh menyemak keperluan anda sebelum mengesahkan kesesuaian mesin." }
+    },
+    {
+      id: "installation-training", route: "machines/bakery", title: { en: "Can LS support installation and training?", zh: "LS 是否提供安装与培训支持？", ms: "Adakah LS menyediakan pemasangan dan latihan?" },
+      answer: { en: "LS provides installation, technology transfer, maintenance and after-sales support. Discuss the services required for your equipment and production setup with the team.", zh: "LS 提供安装、技术转移、维护及售后支持。欢迎与团队讨论设备及生产配置所需的服务。", ms: "LS menyediakan pemasangan, pemindahan teknologi, penyelenggaraan dan sokongan selepas jualan. Bincangkan perkhidmatan yang diperlukan untuk mesin dan susunan pengeluaran anda bersama pasukan." }
+    },
+    {
+      id: "inquiry-details", route: "machines/bakery", title: { en: "What should I include in an inquiry?", zh: "咨询时应提供哪些资料？", ms: "Apakah maklumat untuk pertanyaan?" },
+      answer: { en: "Include your product, current process, requirements and a reply contact. When you start from a machine page, its model is carried into your email or WhatsApp message automatically.", zh: "请提供产品、现有流程、需求及联系方式。从设备页面发起咨询时，型号会自动加入电邮或 WhatsApp 消息。", ms: "Sertakan produk, proses semasa, keperluan dan cara dihubungi. Model dibawa secara automatik ke mesej e-mel atau WhatsApp apabila anda bermula dari halaman mesin." }
+    }
+  ];
+
+  function searchIndex() {
+    const entries = [];
+    const flattenTerms = value => {
+      if (typeof value === "string" || typeof value === "number") return [String(value)];
+      if (Array.isArray(value)) return value.flatMap(flattenTerms);
+      if (value && typeof value === "object") return Object.values(value).flatMap(flattenTerms);
+      return [];
     };
-    form.addEventListener('submit',event=>{event.preventDefault();history.replaceState(null,'',urlFor('search')+'?q='+encodeURIComponent(input.value));update();});
-    input.addEventListener('input',update);update();
+    const add = (type, title, href, description, terms = [], models = [], featured = false, names = []) => {
+      const values = flattenTerms([title, description, terms]).filter(Boolean);
+      entries.push({ type, title: typeof title === "string" ? { en: title, zh: title, ms: title } : title, description: typeof description === "string" ? { en: description, zh: description, ms: description } : description, href, terms: values, names: flattenTerms([title, names]).map(normalizeSearchText), models, featured });
+    };
+    const localizedContent = Object.fromEntries(["en", "zh", "ms"].map(language => [language, getContent(language)]));
+    const allItems = allCatalogueItems();
+    allItems.forEach(item => {
+      const name = displayName(item.name);
+      const record = window.LS_MACHINE_CONTENT?.[item.name] || {};
+      const model = record.model || "";
+      const title = model ? `${model} · ${localName(name)}` : localName(name);
+      const alias = item.name.match(/\(([^)]+)\)/)?.[1] || "";
+      const localizedTerm = (value, language) => language === "zh" ? LOCAL_NAMES.zh[value] || value : language === "ms" ? LOCAL_NAMES.ms[value] || value : value;
+      const applications = (record.applications || []).flatMap(value => [value, localizedTerm(value, "zh"), localizedTerm(value, "ms")]);
+      const features = (record.features || []).flatMap(feature => [feature.title, feature.body]);
+      const intro = record.intro || {};
+      const translatedName = language => language === "zh" ? LOCAL_NAMES.zh[name] || name : language === "ms" ? LOCAL_NAMES.ms[name] || name : name;
+      const localizedTitle = language => model ? `${model} · ${translatedName(language)}` : translatedName(language);
+      const translatedCategory = language => language === "zh" ? LOCAL_NAMES.zh[item.category] || item.category : language === "ms" ? LOCAL_NAMES.ms[item.category] || item.category : item.category;
+      const translatedSubcategory = language => language === "zh" ? LOCAL_NAMES.zh[item.subcategory] || item.subcategory : language === "ms" ? LOCAL_NAMES.ms[item.subcategory] || item.subcategory : item.subcategory;
+      add("machine", { en: localizedTitle("en"), zh: localizedTitle("zh"), ms: localizedTitle("ms") }, `machine/${slug(item.name)}`, intro, [item.name, name, alias, model, item.category, translatedCategory("zh"), translatedCategory("ms"), item.subcategory || "", translatedSubcategory("zh") || "", translatedSubcategory("ms") || "", applications, features], model ? [model] : [], false, [item.name, name, alias]);
+    });
+
+    add("machine", { en: "Machines", zh: "机器设备", ms: "Mesin" }, "machines", { en: "Browse the LS equipment catalogue by category.", zh: "按类别浏览 LS 设备目录。", ms: "Terokai katalog peralatan LS mengikut kategori." }, ["catalogue", "equipment", "machine", "machines", "设备", "mesin"], [], true);
+
+    FOOD_GROUPS.forEach(food => {
+      const foodSlug = slug(food.name);
+      const visual = window.LS_FOOD_VISUALS?.[food.name];
+      const itemNames = (visual?.items || []).map(item => item.name);
+      const aliases = {
+        "Cookies & Biscuits": ["cookies", "biscuits", "饼干", "曲奇", "biskut", "kuki"],
+        "Cakes": ["cake", "kek", "蛋糕"],
+        "Bread & Buns": ["bread", "bun", "roti", "ban", "面包", "餐包"],
+        "Pastries & Crusted Foods": ["pastry", "pastries", "croissant", "pastri", "酥点", "酥皮"],
+        "Kueh & Asian Foods": ["kueh", "kuih", "糕点", "亚洲食品", "makanan asia"],
+        "Dim Sum": ["dim sum", "点心"]
+      }[food.name] || [];
+      const translatedName = language => language === "zh" ? LOCAL_NAMES.zh[food.name] || food.name : language === "ms" ? LOCAL_NAMES.ms[food.name] || food.name : food.name;
+      add("food", { en: translatedName("en"), zh: translatedName("zh"), ms: translatedName("ms") }, `food/${foodSlug}`, { en: "Explore machinery and production information for this food category.", zh: "浏览此食品类别的设备与生产资料。", ms: "Terokai maklumat mesin dan pengeluaran bagi kategori makanan ini." }, [food.name, translatedName("zh"), translatedName("ms"), aliases, itemNames]);
+    });
+    add("food", { en: "Food production", zh: "食品生产", ms: "Pengeluaran makanan" }, "food", { en: "Choose a food category to explore relevant machinery and production information.", zh: "选择食品类别，浏览相关设备与生产资料。", ms: "Pilih kategori makanan untuk meneroka mesin dan maklumat pengeluaran." }, ["food production", "food categories", "bakery", "food", "食品生产", "pengeluaran makanan"], [], true);
+
+    const services = [
+      ["Support & Repairs", ["repair", "repairs", "maintenance", "fault", "维修", "维护", "pembaikan", "penyelenggaraan"]],
+      ["Installation & Training", ["installation", "training", "operator", "安装", "培训", "pemasangan", "latihan"]],
+      ["Technical Documents", ["documents", "manual", "technical data", "技术文件", "手册", "dokumen", "teknikal"]],
+      ["Spare Parts Request", ["spare parts", "parts", "replacement", "备件", "零件", "alat ganti"]],
+      ["Production Improvement", ["process improvement", "modification", "生产改善", "改装", "penambahbaikan", "pengubahsuaian"]]
+    ];
+    services.forEach(([name, aliases]) => {
+      const translatedName = language => language === "zh" ? LOCAL_NAMES.zh[name] || name : language === "ms" ? LOCAL_NAMES.ms[name] || name : name;
+      add("service", { en: translatedName("en"), zh: translatedName("zh"), ms: translatedName("ms") }, `service/${slug(name)}`, { en: "Talk to LS about this service.", zh: "向 LS 咨询此项服务。", ms: "Bincang perkhidmatan ini dengan LS." }, [name, translatedName("zh"), translatedName("ms"), aliases]);
+    });
+    add("service", { en: "Services", zh: "服务", ms: "Perkhidmatan" }, "services", { en: "Explore installation, training, repairs and after-sales support.", zh: "了解安装、培训、维修及售后服务。", ms: "Terokai pemasangan, latihan, pembaikan dan sokongan selepas jualan." }, ["service", "services", "support", "服务", "sokongan"], [], true);
+
+    SOLUTIONS.forEach(name => {
+      const translatedName = language => language === "zh" ? LOCAL_NAMES.zh[name] || name : language === "ms" ? LOCAL_NAMES.ms[name] || name : name;
+      add("solution", { en: translatedName("en"), zh: translatedName("zh"), ms: translatedName("ms") }, `solution/${slug(name)}`, { en: localizedContent.en.solutionIntro, zh: localizedContent.zh.solutionIntro, ms: localizedContent.ms.solutionIntro }, [name, translatedName("zh"), translatedName("ms")]);
+    });
+    add("solution", { en: "Solutions", zh: "解决方案", ms: "Penyelesaian" }, "solutions", { en: "Explore production planning, machinery and facility support.", zh: "了解生产规划、设备与厂房配套。", ms: "Terokai perancangan pengeluaran, mesin dan sokongan kemudahan." }, ["solution", "solutions", "production planning", "解决方案", "penyelesaian"], [], true);
+    SEGMENTS.forEach(segment => {
+      const translatedName = language => language === "zh" ? LOCAL_NAMES.zh[segment.name] || segment.name : language === "ms" ? LOCAL_NAMES.ms[segment.name] || segment.name : segment.name;
+      add("segment", { en: translatedName("en"), zh: translatedName("zh"), ms: translatedName("ms") }, `segment/${slug(segment.name)}`, segment.summary || "", [segment.name, translatedName("zh"), translatedName("ms"), segment.summary || ""]);
+    });
+
+    const content = localizedContent[state.language];
+    add("company", { en: "About LS", zh: "关于 LS", ms: "Tentang LS" }, "company", { en: localizedContent.en.homeIntro, zh: localizedContent.zh.homeIntro, ms: localizedContent.ms.homeIntro }, [localizedContent.en.currentTitle, localizedContent.zh.currentTitle, localizedContent.ms.currentTitle, localizedContent.en.currentText, localizedContent.zh.currentText, localizedContent.ms.currentText, "company", "contact", "contact LS"] , [], true);
+    add("company", { en: "Our History", zh: "LS 的发展历程", ms: "Sejarah LS" }, "company/history", { en: "The LS story, from its early machinery to today.", zh: "从早期设备到今天，了解 LS 的发展历程。", ms: "Kisah LS daripada mesin awal hingga hari ini." }, ["history", "LSF-800-SM", "company history"], [], true);
+    add("company", { en: "Customer Partnerships", zh: "客户合作", ms: "Kerjasama pelanggan" }, "company/customer-partnerships", { en: "Explore LS’s published customer and production gallery.", zh: "浏览 LS 已发布的客户与生产图库。", ms: "Terokai galeri pelanggan dan pengeluaran yang diterbitkan LS." }, ["customer", "partnership", ...publishedStories().clients.map(item => item.name)], [], true);
+    add("company", { en: "Locations", zh: "地点", ms: "Lokasi" }, "company/locations", { en: "Find LS in Balakong, Selangor, Malaysia.", zh: "LS 位于马来西亚雪兰莪州无拉港。", ms: "Temui LS di Balakong, Selangor, Malaysia." }, ["address", "map", "visit", "Balakong", getContact().address]);
+    const roles = (Array.isArray(content.careerRoles) ? content.careerRoles : CAREER_ROLE_DEFAULTS).filter(role => role?.name?.trim() && officialCareerUrl(role.url)).slice(0, CAREER_ROLE_LIMIT);
+    roles.forEach(role => add("company", role.titles || role.name, "company/careers", role.description || content.careerIntro, [role.name, role.department || "careers", role.type || "", role.description || ""]));
+
+    const insightStories = [
+      [{ en: "A closer look at cookie depositing.", zh: "近距离了解饼干注料。", ms: "Lihat lebih dekat pendepositan kuki." }, { en: "Explore the LSF 502 MCD and its place in cookie production.", zh: "了解 LSF 502 MCD 及其在饼干生产中的应用。", ms: "Terokai LSF 502 MCD dan peranannya dalam pengeluaran kuki." }, ["LSF 502 MCD", "cookie", "cookies", "饼干", "kuki"]],
+      [{ en: "Where machinery meets everyday production.", zh: "设备融入日常生产的现场。", ms: "Apabila mesin bertemu pengeluaran harian." }, { en: "Explore the equipment, people and practical work in LS’s production gallery.", zh: "了解 LS 生产图库中的设备、团队与实际工作。", ms: "Terokai peralatan, pasukan dan kerja praktikal dalam galeri pengeluaran LS." }, ["people", "production", "gallery", "团队", "pengeluaran"]],
+      [{ en: "The journey behind LS.", zh: "LS 发展历程背后的故事。", ms: "Perjalanan di sebalik LS." }, { en: "Read the company story through the workshop, its people and a new chapter in Balakong.", zh: "从工坊、团队到无拉港的新篇章，了解 LS 的公司故事。", ms: "Ikuti kisah syarikat melalui bengkel, pasukannya dan bab baharu di Balakong." }, ["history", "workshop", "Balakong", "公司", "bengkel"]]
+    ];
+    insightStories.forEach(([title, body, terms]) => add("insight", title, "insights", body, [title, body, terms], [], true));
+    add("insight", { en: "LS updates", zh: "LS 动态", ms: "Kemas kini LS" }, "insights", { en: localizedContent.en.insightsText, zh: localizedContent.zh.insightsText, ms: localizedContent.ms.insightsText }, [localizedContent.en.insightsText, localizedContent.zh.insightsText, localizedContent.ms.insightsText, "company updates", "events", "industry"], [], true);
+    add("insight", { en: "Careers at LS", zh: "加入 LS", ms: "Kerjaya di LS" }, "company/careers", { en: localizedContent.en.careerIntro, zh: localizedContent.zh.careerIntro, ms: localizedContent.ms.careerIntro }, [localizedContent.en.careerIntro, localizedContent.zh.careerIntro, localizedContent.ms.careerIntro, roles.map(role => role.name)], [], true);
+
+    SEARCH_FAQS.forEach(faq => add("faq", faq.title, `machines/bakery?faq=${faq.id}`, faq.answer, [faq.title, faq.answer], [], true));
+    const seen = new Set();
+    return entries.filter(entry => {
+      const key = `${entry.type}|${entry.href}|${normalizeSearchText(Object.values(entry.title).join(" "))}`;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+  }
+
+  function normalizeSearchText(value) {
+    return String(value ?? "").normalize("NFKC").toLocaleLowerCase().replace(/[^\p{L}\p{N}]/gu, "");
+  }
+
+  function searchText(entry) { return normalizeSearchText(entry.terms.join(" ")); }
+  function setupGlobalSearch() {
+    const faqParam = new URLSearchParams(itemRoute().split("?")[1] || "").get("faq");
+    if (faqParam) {
+      const index = SEARCH_FAQS.findIndex(item => item.id === faqParam);
+      const faq = index >= 0 ? main.querySelectorAll(".faq-item")[index] : null;
+      if (faq) window.setTimeout(() => {
+        faq.open = true;
+        const summary = faq.querySelector("summary");
+        faq.scrollIntoView({ behavior: state.motionPaused ? "instant" : "smooth", block: "center" });
+        summary?.focus({ preventScroll: true });
+      }, 0);
+    }
+
+    const form = main.querySelector(".discovery-search-form");
+    if (!form) return;
+    const input = form.querySelector("input[name='q']");
+    const list = main.querySelector("[data-global-search-results]");
+    const count = main.querySelector("[data-global-search-count]");
+    const filters = main.querySelector("[data-search-filters]");
+    const clear = main.querySelector("[data-search-clear]");
+    if (!input || !list || !count || !filters || !clear) return;
+    let index = searchIndex();
+    const typeLabel = type => SEARCH_TYPES[type]?.[state.language] || SEARCH_TYPES[type]?.en || type;
+    const emptyEntries = index.filter(entry => entry.featured && (["machine", "food", "service", "solution", "insight", "faq"].includes(entry.type)));
+    let activeType = new URLSearchParams(location.search).get("type") || "all";
+    let visibleLimit = 8;
+    let activeIndex = -1;
+    let timer = 0;
+    let renderedQuery = null;
+    let currentEntries = [];
+    const updateResultMotion = () => list.classList.toggle("is-motion-paused", state.motionPaused || window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    const setUrlState = (query, type = activeType) => {
+      const target = new URL(location.href);
+      if (query) target.searchParams.set("q", query); else target.searchParams.delete("q");
+      if (type && type !== "all") target.searchParams.set("type", type); else target.searchParams.delete("type");
+      history.replaceState(null, "", `${target.pathname}${target.search}${target.hash}`);
+    };
+    const renderFilters = (matches) => {
+      const counts = matches.reduce((out, entry) => (out[entry.type] = (out[entry.type] || 0) + 1, out), {});
+      const available = ["all", ...Object.keys(SEARCH_TYPES).filter(type => counts[type])];
+      if (!available.includes(activeType)) activeType = "all";
+      if (available.length <= 1) { filters.replaceChildren(); filters.hidden = true; return; }
+      filters.hidden = false;
+      filters.innerHTML = available.map(type => {
+        const label = type === "all" ? tr("All results", "全部结果", "Semua hasil") : typeLabel(type);
+        const total = type === "all" ? matches.length : counts[type];
+        return `<button type="button" class="discovery-filter" data-search-type="${esc(type)}" aria-pressed="${type === activeType}">${esc(label)}<span>${total}</span></button>`;
+      }).join("");
+    };
+    const renderGroup = (title, entries) => `<section class="discovery-group"><h2>${esc(title)}</h2><div class="discovery-group-items">${entries.map(entry => `<a class="discovery-result" href="${esc(urlFor(entry.href))}"><span class="discovery-result-copy"><small>${esc(typeLabel(entry.type))}</small><strong>${esc(entry.title[state.language] || entry.title.en)}</strong><span>${esc(entry.description?.[state.language] || entry.description?.en || "")}</span></span><span class="discovery-result-arrow" aria-hidden="true">↗</span></a>`).join("")}</div></section>`;
+    const renderEntries = (entries, emptyQuery = false) => {
+      updateResultMotion();
+      if (emptyQuery) {
+        const destinations = entries.filter(entry => entry.type !== "faq").slice(0, 5);
+        const faqs = entries.filter(entry => entry.type === "faq").slice(0, 3);
+        list.innerHTML = `${renderGroup(tr("Explore LS", "探索 LS", "Terokai LS"), destinations)}${renderGroup(tr("Common questions", "常见问题", "Soalan lazim"), faqs)}`;
+        return;
+      }
+      const filtered = activeType === "all" ? entries : entries.filter(entry => entry.type === activeType);
+      currentEntries = filtered.slice(0, visibleLimit);
+      if (!filtered.length) {
+        list.innerHTML = `<div class="discovery-no-results"><strong>${esc(tr("No matches yet.", "暂未找到相关内容。", "Tiada padanan ditemui."))}</strong><p>${esc(tr("Try a shorter phrase, a model code, a food or a service. You can also browse the catalogue or contact LS.", "试试更短的词语、型号、食品或服务。您也可以浏览设备目录或联系 LS。", "Cuba frasa lebih pendek, kod model, makanan atau perkhidmatan. Anda juga boleh meneroka katalog atau menghubungi LS."))}</p><div><a href="${esc(urlFor("machines"))}">${esc(tr("Browse machines", "浏览设备", "Terokai mesin"))} ↗</a><a href="${esc(urlFor("inquiry"))}">${esc(tr("Contact LS", "联系 LS", "Hubungi LS"))} ↗</a></div></div>`;
+        return;
+      }
+      const shown = currentEntries.reduce((groups, entry) => ((groups[entry.type] ||= []).push(entry), groups), {});
+      list.innerHTML = Object.entries(shown).map(([type, rows]) => renderGroup(typeLabel(type), rows)).join("");
+      if (filtered.length > currentEntries.length) {
+        list.insertAdjacentHTML("beforeend", `<button class="discovery-more" type="button" data-search-more>${esc(tr("Show more matches", "显示更多结果", "Tunjukkan lebih banyak hasil"))}<span>${currentEntries.length} / ${filtered.length}</span></button>`);
+      }
+    };
+    const score = (entry, query) => {
+      const q = normalizeSearchText(query);
+      if (!q) return 0;
+      if (entry.models.some(model => normalizeSearchText(model) === q)) return 0;
+      if (entry.names.some(value => value.startsWith(q))) return 10;
+      const haystack = searchText(entry);
+      if (haystack.includes(q)) return 20;
+      const words = String(query).trim().split(/\s+/).map(normalizeSearchText).filter(Boolean);
+      return words.length && words.every(word => haystack.includes(word)) ? 30 : Infinity;
+    };
+    const update = (query = input.value, immediate = false) => {
+      clearTimeout(timer);
+      const run = () => {
+        timer = 0;
+        const cleanQuery = query.trim();
+        renderedQuery = cleanQuery;
+        clear.hidden = !cleanQuery;
+        activeIndex = -1;
+        visibleLimit = 8;
+        if (!cleanQuery) {
+          activeType = "all";
+          setUrlState("");
+          filters.replaceChildren();
+          filters.hidden = true;
+          count.textContent = tr("Start with a destination or a common question.", "从常用入口或常见问题开始。", "Mulakan dengan destinasi atau soalan lazim.");
+          renderEntries(emptyEntries, true);
+          currentEntries = Array.from(list.querySelectorAll(".discovery-result"));
+          return;
+        }
+        const matches = index.map(entry => ({ entry, rank: score(entry, cleanQuery) })).filter(item => Number.isFinite(item.rank)).sort((a, b) => a.rank - b.rank || (a.entry.title.en || "").localeCompare(b.entry.title.en || ""));
+        const ranked = matches.map(item => item.entry);
+        renderFilters(ranked);
+        setUrlState(cleanQuery, activeType);
+        const scoped = activeType === "all" ? ranked : ranked.filter(entry => entry.type === activeType);
+        count.textContent = state.language === "zh" ? `找到 ${scoped.length} 条相关内容` : state.language === "ms" ? `${scoped.length} hasil yang sepadan` : `${scoped.length} matching result${scoped.length === 1 ? "" : "s"}`;
+        renderEntries(ranked);
+      };
+      if (immediate) run(); else timer = window.setTimeout(run, 150);
+    };
+    form.addEventListener("submit", event => { event.preventDefault(); update(input.value, true); });
+    input.addEventListener("input", () => update(input.value));
+    input.addEventListener("keydown", event => {
+      const links = Array.from(list.querySelectorAll("a.discovery-result"));
+      if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+        if (!links.length) return;
+        event.preventDefault();
+        activeIndex = event.key === "ArrowDown" ? (activeIndex + 1) % links.length : (activeIndex - 1 + links.length) % links.length;
+        links.forEach((link, index) => link.classList.toggle("is-keyboard-active", index === activeIndex));
+        links[activeIndex].scrollIntoView({ block: "nearest" });
+      } else if (event.key === "Enter" && input.value.trim() !== renderedQuery) {
+        event.preventDefault();
+        update(input.value, true);
+      } else if (event.key === "Enter" && links.length) {
+        event.preventDefault();
+        links[activeIndex >= 0 ? activeIndex : 0].click();
+      } else if (event.key === "Escape") {
+        event.preventDefault();
+        if (input.value) { input.value = ""; update("", true); }
+      }
+    });
+    clear.addEventListener("click", () => { input.value = ""; update("", true); input.focus(); });
+    filters.addEventListener("click", event => {
+      const button = event.target.closest("[data-search-type]");
+      if (!button) return;
+      activeType = button.dataset.searchType;
+      visibleLimit = 8;
+      setUrlState(input.value.trim(), activeType);
+      update(input.value, true);
+    });
+    list.addEventListener("click", event => {
+      if (!event.target.closest("[data-search-more]")) return;
+      visibleLimit += 8;
+      const query = input.value.trim();
+      const matches = index.map(entry => ({ entry, rank: score(entry, query) })).filter(item => Number.isFinite(item.rank)).sort((a, b) => a.rank - b.rank || (a.entry.title.en || "").localeCompare(b.entry.title.en || "")).map(item => item.entry);
+      renderEntries(matches);
+    });
+    renderFilters([]);
+    update(input.value, true);
+    window.LSCmsContent?.search(state.language).then(remoteEntries => {
+      if (!Array.isArray(remoteEntries) || state.route !== 'search' || !main.contains(form)) return;
+      const localPath = value => {
+        try {
+          const path = new URL(value, location.origin).pathname.replace(/^\/(?:zh|ms)(?=\/)/, '').replace(/^\/+|\/+$/g, '');
+          return path || 'home';
+        } catch { return ''; }
+      };
+      const cmsResults = remoteEntries.filter(entry => entry && typeof entry.route === 'string' && typeof entry.title === 'string').map(entry => {
+        const href = localPath(entry.route);
+        const title = entry.title.trim();
+        const description = String(entry.summary || '').trim();
+        return {
+          type: entry.type || 'company', href,
+          title: { [state.language]: title, en: title },
+          description: { [state.language]: description, en: description },
+          terms: [title, description, entry.text || ''],
+          names: [title],
+          models: [...new Set((String(entry.text || '') + ' ' + title).match(/\b[A-Z]{2,}[\w/-]*(?:\s+[A-Z0-9][\w/-]*){0,3}\b/g) || [])],
+          featured: false
+        };
+      }).filter(entry => entry.href);
+      const cmsRoutes = new Set(cmsResults.map(entry => `${entry.type}|${entry.href}`));
+      index = [...index.filter(entry => !cmsRoutes.has(`${entry.type}|${entry.href}`)), ...cmsResults];
+      update(input.value, true);
+    }).catch(() => {});
   }
 
   function genericOverviewPage(kind, name = "") {
@@ -536,6 +858,7 @@
   }
 
   function render() {
+    state.language=window.LSRouter.language();
     const rawRoute = itemRoute();
     const route = rawRoute.split("?")[0] || "home";
     const routeParams = new URLSearchParams(rawRoute.split("?")[1] || "");
@@ -545,6 +868,11 @@
     const [kind, ...rest] = route.split("/");
     const value = rest.join("/");
     let html;
+    if(route==="company/project-process"){
+      history.replaceState(null,"",window.LSRouter.url("services")+"#working-process");
+      window.dispatchEvent(new PopStateEvent("popstate"));
+      return;
+    }
     if (kind === "home" || kind === "") html = homePage();
     else if (kind === "privacy") html = window.LSBuyerResources.render(designConfig(route),route);
     else if (kind === "search") html = searchPage();
@@ -558,19 +886,26 @@
     else if (kind === "insights") html = genericOverviewPage(kind, value);
     else if (kind === "inquiry") html = inquirySection(routeParams.get("context") || "", routeParams.get("type") === "general");
     else html = notFoundPage();
+    window.LSDesign.cleanup?.();
     main.innerHTML = html.replace(/<section class="section-wrap section-pad solution-video-block">[\s\S]*?<\/section>/, "");
     document.getElementById("footer").innerHTML = pageFooter();
+    document.getElementById("footer").querySelectorAll('a[href="#company/project-process"]').forEach(link=>link.remove());
+    document.getElementById("footer").querySelectorAll('a[href="/privacy/"]').forEach(link=>link.href=urlFor('privacy'));
+    main.querySelectorAll('form[action="/search/"]').forEach(form=>form.action=urlFor('search'));
+    main.querySelectorAll('a[href="/privacy/"]').forEach(link=>link.href=urlFor('privacy'));
     hydratePageImages(route);
     window.LSDesign.enhance(designConfig(route));
-    if(route==='machines'){
-      const hero=main.querySelector('.reference-hero-panel');
-      hero?.insertAdjacentHTML('beforeend',`<form class="catalogue-global-search" role="search" action="/search/"><label class="sr-only" for="catalogue-global-q">Search all machines by name or model</label><input id="catalogue-global-q" name="q" type="search" placeholder="Search all machines · name or model"><button class="button-link" type="submit">Search ↗</button></form>`);
-    }
     main.dataset.route=route;
     applyLanguage();
     window.LSNavigation.refresh();
     window.LSRouter.convertLinks();
     window.LSPageMetadata.update(route);
+    const renderedLanguage = state.language;
+    window.LSCmsContent?.page(route, renderedLanguage).then(record => {
+      if (!record || state.route !== route || state.language !== renderedLanguage) return;
+      const meta = window.LSCmsContent.apply(main, record, renderedLanguage);
+      if (meta) window.LSPageMetadata.update(route, meta);
+    }).catch(() => {});
     syncMotionControls();
     const inquiryLink = document.querySelector('[data-nav="inquiry"]');
     const machineContext = route.startsWith("machine/") ? (findProduct(route.split("/").pop())?.name || route.split("/").pop().toUpperCase().replace(/-/g, " ")) : "";
@@ -586,7 +921,7 @@
     setupInquiryForm();
     window.LSIndustrial.mount(designConfig(route));
     const intent = routeParams.get('intent');
-    const intentNames = {quote:'Request a quote',consult:'Book a consultation',visit:'Arrange a visit',service:'Book a consultation'};
+    const intentNames = {quote:'Request a quote',consult:'Book a consultation',visit:'Arrange a visit',service:'Book a consultation',support:'Book a consultation'};
     const inquiryType = main.querySelector('#inq-type');
     if (intentNames[intent] && inquiryType) {
       inquiryType.value = intentNames[intent];
@@ -682,6 +1017,8 @@
   }
 
   function setupCatalogueSearch() {
+    catalogueFilterCleanup?.();
+    catalogueFilterCleanup = null;
     const search = document.getElementById("catalogue-search");
     const filter = document.getElementById("subcategory-filter");
     const list = document.getElementById("catalogue-list");
@@ -707,6 +1044,117 @@
       search.value = savedState.query || "";
       if (filter) filter.value = savedState.subcategory || "all";
       currentPage = Math.max(1, Number(savedState.page) || 1);
+    }
+    if (filter) {
+      const controller = new AbortController();
+      const field = filter.closest(".field");
+      const label = field?.querySelector(".sr-only");
+      const trigger = document.createElement("button");
+      const listbox = document.createElement("div");
+      const optionNodes = Array.from(filter.options).map((option, index) => {
+        const row = document.createElement("div");
+        row.className = "catalogue-filter-option";
+        row.setAttribute("role", "option");
+        row.dataset.value = option.value;
+        row.id = `catalogue-filter-option-${index}`;
+        row.tabIndex = -1;
+        row.innerHTML = `<span></span><span class="catalogue-filter-check" aria-hidden="true">✓</span>`;
+        row.firstElementChild.textContent = option.textContent;
+        return row;
+      });
+      trigger.type = "button";
+      trigger.className = "catalogue-filter-trigger";
+      trigger.setAttribute("aria-haspopup", "listbox");
+      trigger.setAttribute("aria-expanded", "false");
+      trigger.setAttribute("aria-controls", "catalogue-filter-listbox");
+      if (label) {
+        label.id ||= "catalogue-filter-label";
+        trigger.setAttribute("aria-labelledby", label.id);
+      }
+      listbox.id = "catalogue-filter-listbox";
+      listbox.className = "catalogue-filter-listbox";
+      listbox.setAttribute("role", "listbox");
+      listbox.hidden = true;
+      optionNodes.forEach(option => listbox.append(option));
+      filter.hidden = true;
+      field?.append(trigger, listbox);
+      let typeahead = "";
+      let typeaheadTimer = 0;
+      const selectedIndex = () => Math.max(0, optionNodes.findIndex(option => option.dataset.value === filter.value));
+      const focusOption = index => optionNodes[Math.min(optionNodes.length - 1, Math.max(0, index))]?.focus();
+      const sync = () => {
+        const selected = optionNodes.find(option => option.dataset.value === filter.value) || optionNodes[0];
+        if (!selected) return;
+        trigger.replaceChildren(document.createTextNode(selected.firstElementChild.textContent));
+        const chevron = document.createElement("span");
+        chevron.className = "catalogue-filter-chevron";
+        chevron.setAttribute("aria-hidden", "true");
+        chevron.textContent = "⌄";
+        trigger.append(chevron);
+        optionNodes.forEach(option => {
+          const active = option === selected;
+          option.setAttribute("aria-selected", String(active));
+          option.tabIndex = -1;
+        });
+        trigger.setAttribute("aria-activedescendant", selected.id);
+      };
+      const close = (returnFocus = false) => {
+        listbox.hidden = true;
+        trigger.setAttribute("aria-expanded", "false");
+        if (returnFocus) trigger.focus();
+      };
+      const open = (index = selectedIndex()) => {
+        listbox.hidden = false;
+        trigger.setAttribute("aria-expanded", "true");
+        focusOption(index);
+      };
+      const select = option => {
+        if (!option) return;
+        filter.value = option.dataset.value;
+        filter.dispatchEvent(new Event("change", { bubbles: true }));
+        sync();
+        close(true);
+      };
+      trigger.addEventListener("click", () => listbox.hidden ? open() : close(), { signal: controller.signal });
+      trigger.addEventListener("keydown", event => {
+        if (event.key === "ArrowDown" || event.key === "Enter" || event.key === " ") { event.preventDefault(); open(selectedIndex()); }
+        else if (event.key === "ArrowUp") { event.preventDefault(); open(optionNodes.length - 1); }
+        else if (event.key === "Escape" && !listbox.hidden) { event.preventDefault(); close(true); }
+        else if (event.key.length === 1 && /[\p{L}\p{N}]/u.test(event.key)) {
+          typeahead += event.key.toLocaleLowerCase();
+          window.clearTimeout(typeaheadTimer);
+          typeaheadTimer = window.setTimeout(() => { typeahead = ""; }, 500);
+          const match = optionNodes.findIndex(option => option.firstElementChild.textContent.toLocaleLowerCase().startsWith(typeahead));
+          if (match >= 0) { event.preventDefault(); open(match); }
+        }
+      }, { signal: controller.signal });
+      listbox.addEventListener("keydown", event => {
+        const current = optionNodes.indexOf(document.activeElement);
+        if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+          event.preventDefault();
+          focusOption((current + (event.key === "ArrowDown" ? 1 : -1) + optionNodes.length) % optionNodes.length);
+        } else if (event.key === "Home" || event.key === "End") {
+          event.preventDefault(); focusOption(event.key === "Home" ? 0 : optionNodes.length - 1);
+        } else if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault(); select(optionNodes[current]);
+        } else if (event.key === "Escape") {
+          event.preventDefault(); close(true);
+        } else if (event.key === "Tab") close();
+        else if (event.key.length === 1 && /[\p{L}\p{N}]/u.test(event.key)) {
+          typeahead += event.key.toLocaleLowerCase();
+          window.clearTimeout(typeaheadTimer);
+          typeaheadTimer = window.setTimeout(() => { typeahead = ""; }, 500);
+          const match = optionNodes.findIndex(option => option.firstElementChild.textContent.toLocaleLowerCase().startsWith(typeahead));
+          if (match >= 0) { event.preventDefault(); focusOption(match); }
+        }
+      }, { signal: controller.signal });
+      listbox.addEventListener("click", event => select(event.target.closest("[role=option]")), { signal: controller.signal });
+      document.addEventListener("pointerdown", event => {
+        if (!field?.contains(event.target)) close();
+      }, { capture: true, signal: controller.signal });
+      filter.addEventListener("change", sync, { signal: controller.signal });
+      sync();
+      catalogueFilterCleanup = () => { controller.abort(); window.clearTimeout(typeaheadTimer); };
     }
     const saveState = (scrollY = window.scrollY) => {
       try { sessionStorage.setItem(storageKey, JSON.stringify({ query: search.value, subcategory: filter?.value || "all", page: currentPage, scrollY })); }
@@ -772,6 +1220,7 @@
         `LS SMART MACHINERY — WEBSITE INQUIRY`,
         `Inquiry type: ${values.inquiryType || "General inquiry"}`,
         `Page / machine: ${page || "Home"}`,
+        `Production stage: ${values.journeyStage || "Not selected"}`,
         `Name: ${values.name || `${values.firstName || ""} ${values.lastName || ""}`.trim()}`,
         `Company: ${values.company || "Not provided"}`,
         `Email: ${values.email || "Not provided"}`,
@@ -783,7 +1232,7 @@
       }
       if (values.message) rows.push(`Message: ${values.message}`);
       for(const [key,label] of [['product','Product'],['dailyOutput','Approximate daily output'],['factoryLocation','Factory location'],['timeline','Planned timing']])if(values[key])rows.push(`${label}: ${values[key]}`);
-      rows.push(`Source page: ${new URLSearchParams(location.search).get('from')||form.dataset.machine||state.route}`);
+      rows.push(`Source page: ${new URLSearchParams(location.search).get('from')||form.dataset.machine||state.route}`,`Source URL: ${location.href}`);
       return rows.join("\n");
     };
     const send = (channel) => {
@@ -798,12 +1247,12 @@
     let requestKey=crypto.randomUUID(),sending=false,acceptedValues='';
     form.addEventListener('input',()=>{if(acceptedValues&&JSON.stringify(getValues())!==acceptedValues){acceptedValues='';requestKey=crypto.randomUUID();if(webSubmit)webSubmit.disabled=false;}});
     const clearButton=document.createElement('button');clearButton.type='button';clearButton.className='arrow-link';clearButton.textContent=tr('Clear form','清空表单','Kosongkan borang');form.querySelector('.form-actions')?.after(clearButton);
-    clearButton.addEventListener('click',()=>{if(sending)return;form.reset();form.querySelectorAll('input,textarea').forEach(input=>input.value='');try{sessionStorage.removeItem(draftKey);}catch{}status.textContent='';acceptedValues='';requestKey=crypto.randomUUID();if(webSubmit)webSubmit.disabled=false;});
+    clearButton.addEventListener('click',()=>{if(sending)return;form.reset();form.querySelectorAll('input,textarea').forEach(input=>input.value='');window.LSJourney?.clearStage?.();try{sessionStorage.removeItem(draftKey);}catch{}status.textContent='';acceptedValues='';requestKey=crypto.randomUUID();if(webSubmit)webSubmit.disabled=false;});
     form.addEventListener("submit", async event => {
       event.preventDefault();if(sending||!validateContact())return;saveValues();sending=true;if(webSubmit)webSubmit.disabled=true;
       status.textContent=tr('Sending your request…','正在发送您的咨询…','Menghantar pertanyaan anda…');
       try{
-        const response=await fetch('/api/inquiries',{method:'POST',headers:{'Content-Type':'application/json','Idempotency-Key':requestKey},body:JSON.stringify({...getValues(),kind:form.dataset.spare==='true'?'spare-parts':'inquiry',context:form.dataset.machine||'',sourcePage:new URLSearchParams(location.search).get('from')||state.route,language:state.language,messageText:formatSummary()}),signal:AbortSignal.timeout(20000)});
+        const response=await fetch('/api/inquiries',{method:'POST',headers:{'Content-Type':'application/json','Idempotency-Key':requestKey},body:JSON.stringify({...getValues(),intent:getValues().inquiryType||'',kind:form.dataset.spare==='true'?'spare-parts':'inquiry',context:form.dataset.machine||'',sourcePage:new URLSearchParams(location.search).get('from')||state.route,sourceUrl:location.href,language:state.language,messageText:formatSummary()}),signal:AbortSignal.timeout(20000)});
         const result=await response.json();if(!response.ok||!result.reference)throw new Error('delivery');
         status.textContent=tr(`Your request was accepted for delivery. Reference: ${result.reference}. Keep this reference for your follow-up.`,`您的咨询已获接受并安排递送。参考编号：${result.reference}。请保留此编号以便跟进。`,`Pertanyaan diterima untuk penghantaran. Rujukan: ${result.reference}. Simpan rujukan untuk susulan.`);
         acceptedValues=JSON.stringify(getValues());
@@ -1260,16 +1709,13 @@
     getCategories:()=>DATA.categories,getFoods:()=>FOOD_GROUPS,getSegments:()=>SEGMENTS,
     getSolutions:()=>SOLUTIONS,getServices:()=>SERVICES,getCompany:()=>COMPANY,
     isExactImage,inquiryActions});
-  document.querySelector('.ls-header-utility')?.insertAdjacentHTML('afterbegin',`<a class="header-search-link" href="${urlFor('search')}" aria-label="Search machinery">${tr('Search','查找','Cari')} <span aria-hidden="true">⌕</span></a>`);
-  const headerWhatsApp=document.createElement('a');headerWhatsApp.className='header-whatsapp';headerWhatsApp.target='_blank';headerWhatsApp.rel='noopener noreferrer';headerWhatsApp.setAttribute('aria-label','Contact LS on WhatsApp');headerWhatsApp.href='https://wa.me/'+String(getContact().inquiryWhatsApp).replace(/\D/g,'');headerWhatsApp.innerHTML='<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.7 7.4L3 20l1.1-4.8a8.5 8.5 0 1 1 16.4-3.7Z"/><path d="M8 7.2c.4 4.4 2.4 6.4 6.8 6.8l1.3-1.8-2.6-1.1-1.1 1.1-2.7-2.7 1.1-1.1L9.7 6Z"/></svg>';
-  document.querySelector('.portal-button')?.after(headerWhatsApp);
+  if(!document.querySelector('.header-search-link'))document.querySelector('.ls-header-utility')?.insertAdjacentHTML('afterbegin',`<a class="header-search-link" href="${urlFor('search')}" aria-label="Search machinery">${tr('Search','查找','Cari')} <span aria-hidden="true">⌕</span></a>`);
+  if(!document.querySelector('.header-whatsapp')){const headerWhatsApp=document.createElement('a');headerWhatsApp.className='header-whatsapp';headerWhatsApp.target='_blank';headerWhatsApp.rel='noopener noreferrer';headerWhatsApp.setAttribute('aria-label','Contact LS on WhatsApp');headerWhatsApp.href='https://wa.me/'+String(getContact().inquiryWhatsApp).replace(/\D/g,'');headerWhatsApp.innerHTML='<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.7 7.4L3 20l1.1-4.8a8.5 8.5 0 1 1 16.4-3.7Z"/><path d="M8 7.2c.4 4.4 2.4 6.4 6.8 6.8l1.3-1.8-2.6-1.1-1.1 1.1-2.7-2.7 1.1-1.1L9.7 6Z"/></svg>';document.querySelector('.portal-button')?.after(headerWhatsApp);}
   languagePicker.addEventListener("change", () => {
-    state.language = languagePicker.value;
-    writeStore(STORAGE.language, state.language);
-    render();
+    window.LSRouter.setLanguage(languagePicker.value);
+    writeStore(STORAGE.language, languagePicker.value);
   });
   window.LSRouter.start(render);
-  document.addEventListener('keydown',event=>{if(event.key==='Escape')cmsClose();});
   document.querySelector('.skip-link').addEventListener('click',event=>{event.preventDefault();main.focus();main.scrollIntoView();});
   document.addEventListener("click", (event) => {
     const motionToggle = event.target.closest("[data-motion-toggle]");
@@ -1285,14 +1731,6 @@
   document.querySelector(".viewer-close").addEventListener("click", () => document.querySelector(".viewer-dialog").close());
   document.querySelector(".viewer-dialog").addEventListener("click", (event) => { if (event.target === event.currentTarget) event.currentTarget.close(); });
   document.querySelector(".viewer-dialog").addEventListener("close", () => { if (fullscreenReturnFocus?.isConnected) fullscreenReturnFocus.focus(); });
-
-  const cmsLauncher = document.createElement("button");
-  cmsLauncher.type = "button";
-  cmsLauncher.className = "cms-trigger";
-  cmsLauncher.innerHTML = `<span></span> PREVIEW CMS`;
-  cmsLauncher.setAttribute("aria-label", "Open local CMS preview");
-  cmsLauncher.addEventListener("click", cmsOpen);
-  if (new URLSearchParams(location.search).get("studio")==="1") document.body.appendChild(cmsLauncher);
 
   if (window.LSRouter.legacy && !location.hash) history.replaceState(null, "", location.pathname+location.search+"#home");
   render();

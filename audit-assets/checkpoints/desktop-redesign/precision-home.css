@@ -1,0 +1,65 @@
+/* A single, deliberate introduction: compact editorial copy and an authentic machine. */
+.reference-home .precision-home-hero {
+  display:block; width:100%; max-width:none; margin:0; padding:0;
+  min-height:0; background:#1b1e1d; color:#fff; overflow:hidden;
+}
+.precision-hero-inner {
+  width:min(100%,1480px); margin-inline:auto; padding:46px var(--gutter) 0;
+  display:grid; grid-template-columns:1.08fr 1fr; column-gap:48px; align-items:center;
+  position:relative;
+}
+.precision-hero-copy {padding:12px 0 36px; position:relative; z-index:1;}
+.precision-hero-copy>.eyebrow {display:block; color:#b9c0bc; font-size:10px; letter-spacing:.13em; text-transform:uppercase;}
+.precision-hero-copy>.eyebrow::before {display:none;}
+.precision-hero-copy h1 {
+  max-width:660px; margin:20px 0 23px; color:#fff; font:650 clamp(44px,3.25vw,64px)/1.04 var(--display);
+  letter-spacing:-.048em; text-wrap:balance; overflow-wrap:normal;
+}
+.precision-hero-copy h1>span {display:block; color:#ff8637;}
+.precision-hero-lead {max-width:470px; color:#c9cdca; font-size:16px; line-height:1.7; margin:0 0 25px;}
+.precision-hero-copy .hero-actions {gap:23px;}
+.precision-home-hero .button-link {min-height:43px; padding:10px 19px; border-radius:2px; font-size:12px;}
+.precision-home-hero .arrow-link {font-size:12px; color:#eef0ed; border-color:#7d847f;}
+.precision-home-hero .arrow-link:hover {color:#ff9d5f;}
+.precision-hero-visual {
+  min-width:0; width:100%; height:360px; margin:0 0 22px; position:relative;
+  display:grid; place-items:center; isolation:isolate;
+}
+.precision-hero-visual::before {
+  content:''; position:absolute; width:78%; height:78%; z-index:-1;
+  background:radial-gradient(ellipse,#75817b27,transparent 68%); border-radius:50%;
+}
+.precision-hero-machine {display:block; position:static; width:100%; height:100%; max-width:510px; max-height:360px; padding:14px; object-fit:contain;}
+.precision-hero-paths {grid-column:1/-1; display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid #ffffff26;}
+.precision-hero-paths>a {display:flex; justify-content:space-between; align-items:center; gap:20px; padding:21px 25px; color:#dadfdb; font-size:12px; line-height:1.5; border-right:1px solid #ffffff26; transition:color .2s,background .2s;}
+.precision-hero-paths>a:first-child {padding-left:0;}
+.precision-hero-paths>a:last-child {border-right:0;padding-right:0;}
+.precision-hero-paths>a>span:last-child {color:#ff9653;font-size:18px;}
+.precision-hero-paths>a:hover {color:#fff;background:#ffffff05;}
+@media(min-width:1001px) and (prefers-reduced-motion:no-preference) {
+  .precision-hero-copy {animation:precision-copy-enter .65s both;}
+  .precision-hero-machine {animation:precision-machine-enter .85s .05s both;}
+}
+@keyframes precision-copy-enter {from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes precision-machine-enter {from{opacity:0;transform:translateX(16px)}to{opacity:1;transform:none}}
+@media(max-width:1000px) {
+  .precision-hero-inner {grid-template-columns:1.12fr 1fr; gap:0 20px; padding-top:34px;}
+  .precision-hero-copy h1 {font-size:clamp(36px,4.5vw,48px);}
+  .precision-hero-lead {font-size:14px;}
+  .precision-hero-visual {height:300px;}
+  .precision-hero-copy .hero-actions {gap:10px 20px;}
+  .precision-hero-paths>a {font-size:11px;padding-inline:16px;}
+}
+@media(max-width:600px) {
+  .precision-hero-inner {grid-template-columns:1fr;padding-top:30px;}
+  .precision-hero-copy {padding:0;}
+  .precision-hero-copy h1 {max-width:470px;font-size:clamp(36px,8.8vw,48px);line-height:1.07;margin:16px 0 18px;}
+  .precision-hero-lead {max-width:430px;margin-bottom:20px;font-size:14px;line-height:1.65;}
+  .precision-hero-visual {height:220px; width:90%;justify-self:center;margin:12px 0;}
+  .precision-hero-machine {max-height:220px;padding:0 20px;}
+  .precision-hero-paths {grid-template-columns:1fr;}
+  .precision-hero-paths>a,.precision-hero-paths>a:first-child,.precision-hero-paths>a:last-child {padding:13px 0;border-right:0;border-bottom:1px solid #ffffff1a;font-size:12px;}
+  .precision-hero-paths>a:last-child {border-bottom:0;}
+}
+@media(prefers-reduced-motion:reduce) {.precision-home-hero * {animation:none!important;transition:none!important;}}
+body.motion-paused .precision-home-hero * {animation:none!important;transition:none!important;}

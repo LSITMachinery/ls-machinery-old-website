@@ -6,7 +6,7 @@ const base = process.env.LS_PREVIEW_URL || "http://127.0.0.1:8000/";
 (async () => {
   const browser = await chromium.launch({ headless: true });
   const page = await browser.newPage({ viewport: { width: 1365, height: 900 } });
-  await page.goto(`${base}#service/spare-parts-request`, { waitUntil: "networkidle" });
+  await page.goto(`${base}#service/spare-parts-request`, { waitUntil: "domcontentloaded" });
   await page.locator("#part-machine").fill("SN-123");
   await page.locator("#part-model").fill("Hopper Series");
   await page.locator("#part-number").fill("HP-44");

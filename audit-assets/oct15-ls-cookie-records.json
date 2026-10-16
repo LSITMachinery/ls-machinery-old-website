@@ -1,0 +1,50 @@
+[
+  {
+    "key": "ls-piped-cookies",
+    "src": "assets/images/food-real/ls-piped-cookies-w1280.webp",
+    "sizes": {
+      "480": "assets/images/food-real/ls-piped-cookies-w480.webp",
+      "800": "assets/images/food-real/ls-piped-cookies-w800.webp",
+      "1280": "assets/images/food-real/ls-piped-cookies-w1280.webp"
+    },
+    "width": 6000,
+    "height": 3368,
+    "original": "assets/images/food-real/ls-piped-cookies-source.jpg",
+    "source": "LS website backup uploads/2025/11/IMG_2623.jpg",
+    "sha256": "caaf3dfee6c52e11d12ce2f933f69e11ac1f78374371258a8ad1e6f815b5588f",
+    "license": "Supplied LS website content; retain source ownership",
+    "author": "LS Smart Machinery"
+  },
+  {
+    "key": "ls-spiral-cookies",
+    "src": "assets/images/food-real/ls-spiral-cookies-w1280.webp",
+    "sizes": {
+      "480": "assets/images/food-real/ls-spiral-cookies-w480.webp",
+      "800": "assets/images/food-real/ls-spiral-cookies-w800.webp",
+      "1280": "assets/images/food-real/ls-spiral-cookies-w1280.webp"
+    },
+    "width": 2288,
+    "height": 4080,
+    "original": "assets/images/food-real/ls-spiral-cookies-source.jpg",
+    "source": "LS website backup uploads/2025/11/IMG_20250818_130309.jpg",
+    "sha256": "cc946acde2c9a2e711465a43c77415de92b3fc4456b546a941ba2141a7f827bb",
+    "license": "Supplied LS website content; retain source ownership",
+    "author": "LS Smart Machinery"
+  },
+  {
+    "key": "ls-round-cookies",
+    "src": "assets/images/food-real/ls-round-cookies-w1280.webp",
+    "sizes": {
+      "480": "assets/images/food-real/ls-round-cookies-w480.webp",
+      "800": "assets/images/food-real/ls-round-cookies-w800.webp",
+      "1280": "assets/images/food-real/ls-round-cookies-w1280.webp"
+    },
+    "width": 2288,
+    "height": 4080,
+    "original": "assets/images/food-real/ls-round-cookies-source.jpg",
+    "source": "LS website backup uploads/2025/11/IMG_20250212_130544.jpg",
+    "sha256": "eb0bdd8e92cf2ba6cdfd8fe873c3eceec03e16cd92e8a6ab026ed18bdaf7cdd9",
+    "license": "Supplied LS website content; retain source ownership",
+    "author": "LS Smart Machinery"
+  }
+]
