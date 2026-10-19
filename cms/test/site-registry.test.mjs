@@ -3,12 +3,12 @@ import test from 'node:test';
 import { assertGeneratedPageCoverage, createSiteRegistry, siteRegistry, templateForRoute } from '../src/site-registry.mjs';
 
 test('registry covers all generated canonical routes in three locales', () => {
-  assert.equal(siteRegistry.routeCount, 98);
+  assert.equal(siteRegistry.routeCount, 99);
   assert.deepEqual(siteRegistry.locales, ['en', 'zh', 'ms']);
-  assert.equal(siteRegistry.pageCount, 294);
+  assert.equal(siteRegistry.pageCount, 297);
   assert.deepEqual(assertGeneratedPageCoverage(siteRegistry), {
-    routeCount: 98,
-    pageCount: 294,
+    routeCount: 99,
+    pageCount: 297,
     locales: ['en', 'zh', 'ms']
   });
 });

@@ -11,5 +11,6 @@
   "production-pages.css",
   "styles/shared.css",
   "brand-refresh.css",
-  "homepage.css"
+  "homepage.css",
+  "styles/video-library.css"
 ]

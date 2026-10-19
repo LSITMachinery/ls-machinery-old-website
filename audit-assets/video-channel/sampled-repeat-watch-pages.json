@@ -1,0 +1,43 @@
+{
+  "observedOn": "2026-10-18",
+  "sourceChannelId": "UCg47JfshoyGiWqhftKV19MQ",
+  "records": [
+    {
+      "youtubeId": "JKolefbjkLM",
+      "sourceUrl": "https://www.youtube.com/watch?v=JKolefbjkLM",
+      "title": "Multipurpose Production Line 多样化生产线",
+      "channelName": "LS SMART MACHINERY (M) SDN BHD",
+      "channelId": "UCg47JfshoyGiWqhftKV19MQ",
+      "uploadTimestamp": "2022-07-29T22:27:09-07:00",
+      "durationSeconds": 78,
+      "listingDuration": "1:18",
+      "viewCountObserved": 20,
+      "captionTracks": [],
+      "watchPagePlaybackStatus": "OK",
+      "description": "LS SMART MACHINERY (M) SDN BHD provides A~Z service in food production and machinery line.\n---------------------------------------------------------------------------------------------------\n✅Machine maintenance and service  \nhttps://www.lsmachinery.com.my/landing/Maintenance\n✅Food production line & factory set up \nhttps://www.lsmachinery.com.my/landing/Factory\n---------------------------------------------------------------------------------------------------\nFor more enquiry or information, contact us at:\n\n📱Facebook - https://www.facebook.com/bakeryequipmentmalaysia/?ref=pages_you_manage\n📱WhatsApp - 012-657 7922 or https://wa.link/lrl1ew\n📱Website - https://www.lsmachinery.com.my\n\nLS Smart Machinery (M) Sdn. Bhd.",
+      "embeddedPlayerCheck": "The local site's YouTube IFrame player emitted PLAYING after selection during the 2026-10-18 browser check.",
+      "visualSamples": ["00:00", "00:12", "00:40", "01:10"]
+    },
+    {
+      "youtubeId": "8uc_nD3ptJs",
+      "sourceUrl": "https://www.youtube.com/watch?v=8uc_nD3ptJs",
+      "title": "Multipurpose Production Line 多样化生产线",
+      "channelName": "LS SMART MACHINERY (M) SDN BHD",
+      "channelId": "UCg47JfshoyGiWqhftKV19MQ",
+      "uploadTimestamp": "2021-11-16T02:00:52-08:00",
+      "durationSeconds": 78,
+      "listingDuration": "1:18",
+      "viewCountObserved": 91,
+      "captionTracks": [],
+      "watchPagePlaybackStatus": "OK",
+      "description": "A production line which included three machines and can produce different variety of products.\n---------------------------------------------------------------------------------------------------\n✅Machine maintenance and service  \nhttps://www.lsmachinery.com.my/landing/Maintenance\n✅Food production line & factory set up \nhttps://www.lsmachinery.com.my/landing/Factory\n---------------------------------------------------------------------------------------------------\nFor more enquiry or information, contact us at:\n\n📱Facebook - https://www.facebook.com/bakeryequipmentmalaysia/?ref=pages_you_manage\n📱WhatsApp - 012-687 9233 or https://wa.link/jkufj8\n📱Website - https://www.lsmachinery.com.my\n\nLS Smart Machinery (M) Sdn. Bhd.",
+      "embeddedPlayerCheck": "Not tested in the local site.",
+      "visualSamples": ["00:00", "00:12", "00:40", "01:10"]
+    }
+  ],
+  "comparison": {
+    "finding": "The title and listed duration match. Openings differ; both videos show setup work near 00:12 from different views, the same training scene and caption near 00:40, and the LS outro near 01:10.",
+    "status": "suspected_shared_footage_not_confirmed_duplicate",
+    "notReviewed": ["complete visual sequences", "audio", "spoken claims", "machine identities", "full production-line sequence"]
+  }
+}

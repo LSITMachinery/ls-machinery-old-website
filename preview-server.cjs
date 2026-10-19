@@ -51,6 +51,14 @@ function createServer(){return http.createServer((request, response) => {
   if(request.method!=='GET'&&request.method!=='HEAD'){response.writeHead(405).end('Method not allowed');return;}
   const publicRoot=process.env.LS_SITE_URL||'https://lsmachinery.com.my';
   const publicMode=process.env.LS_PUBLIC_SITE==='1';
+  // This review is available only on the loopback preview, never on a public build.
+  if(pathname==='/review/videos/'||pathname==='/review/videos'){
+    const localPeer=['127.0.0.1','::1','::ffff:127.0.0.1'].includes(request.socket.remoteAddress);
+    const review=path.join(root,'audit-assets','video-channel','review.html');
+    if(publicMode||!localPeer||!fs.existsSync(review)){response.writeHead(404).end('Not found');return;}
+    response.writeHead(200,{'Content-Type':'text/html; charset=utf-8','Cache-Control':'no-store','X-Robots-Tag':'noindex, nofollow','X-Content-Type-Options':'nosniff'});
+    response.end(request.method==='HEAD'?'':fs.readFileSync(review));return;
+  }
   const pagesDir=path.join(root,'public-pages');
   let manifest=[];try{manifest=JSON.parse(fs.readFileSync(path.join(pagesDir,'routes.json'),'utf8'));}catch{}
   if(pathname==='/robots.txt'){response.writeHead(200,{'Content-Type':'text/plain'}).end(publicMode?'User-agent: *\nAllow: /\nSitemap: '+publicRoot+'/sitemap.xml\n':'User-agent: *\nDisallow: /\n');return;}
@@ -70,11 +78,11 @@ function createServer(){return http.createServer((request, response) => {
   const aliases={'machine/lsf-502-mcd':'machine/mini-cookie-depositor-mcd','machine/lsf-502-mcwc':'machine/mini-cookie-wire-cut-mcwc','machine/lsf-502-mcad':'machine/mini-cake-depositor-mcad','company/customer-experiences':'company/customer-partnerships'};
   if(aliases[route]){const prefix=language==='en'?'':'/'+language;response.writeHead(308,{Location:prefix+'/'+aliases[route]+'/'+new URL(request.url,'http://localhost').search}).end();return;}
   const routeRoot=route.split('/')[0];
-  const isPage=route==='home'||['machines','machine','food','segment','solution','solutions','service','services','company','insights','inquiry','privacy','search'].includes(routeRoot);
+  const isPage=route==='home'||['machines','machine','food','segment','solution','solutions','service','services','company','insights','inquiry','privacy','search','videos'].includes(routeRoot);
   if(isPage&&!pathname.includes('.')){
     if(pathname!=='/'&&!pathname.endsWith('/')){response.writeHead(308,{Location:pathname+'/'+new URL(request.url,'http://localhost').search}).end();return;}
     const snapshot=path.resolve(pagesDir,language==='en'?route:path.join(language,route),'index.html');
-    const safeSnapshot=snapshot.startsWith(pagesDir+path.sep)&&process.env.LS_SKIP_PRERENDER!=='1'&&fs.existsSync(snapshot);
+    const safeSnapshot=(publicMode||process.env.LS_USE_PRERENDER==='1')&&snapshot.startsWith(pagesDir+path.sep)&&process.env.LS_SKIP_PRERENDER!=='1'&&fs.existsSync(snapshot);
     let html=fs.readFileSync(safeSnapshot?snapshot:path.join(root,'index.html'),'utf8');
     if(!publicMode)html=html.replace('</head>','<meta name="robots" content="noindex,nofollow"></head>');
     response.writeHead(manifest.length&&!manifest.includes(route)?404:200,{'Content-Type':'text/html; charset=utf-8','Cache-Control':'no-cache','X-Content-Type-Options':'nosniff','Referrer-Policy':'strict-origin-when-cross-origin'});

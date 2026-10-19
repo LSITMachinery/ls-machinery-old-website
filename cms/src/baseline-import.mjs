@@ -7,7 +7,7 @@ const TYPE_BY_TEMPLATE = Object.freeze({
   homepage: 'home', 'machine-catalogue': 'machine', 'machine-category': 'machine', 'machine-detail': 'machine',
   'food-catalogue': 'food', 'food-detail': 'food', segment: 'segment', 'solutions-index': 'solution',
   'solution-detail': 'solution', 'services-overview': 'service', 'service-detail': 'service', company: 'company',
-  insights: 'insight', inquiry: 'contact', privacy: 'privacy', search: 'search'
+  insights: 'insight', inquiry: 'contact', privacy: 'privacy', search: 'search', 'video-library': 'video_library'
 });
 
 function decodeHtml(value) {

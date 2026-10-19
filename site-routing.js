@@ -1,7 +1,7 @@
 /* Public path routing, with compatibility for previously shared fragment links. */
 (() => {
   'use strict';
-  const roots=new Set(['home','machines','machine','food','segment','solutions','solution','services','service','company','insights','inquiry','privacy','search']);
+  const roots=new Set(['home','machines','machine','food','segment','solutions','solution','services','service','company','insights','inquiry','privacy','search','videos']);
   const languages=new Set(['en','zh','ms']);
   const legacy=new URLSearchParams(location.search).get('legacy')==='1';
   if(legacy&&document.querySelector('base'))document.querySelector('base').href=location.pathname+location.search;

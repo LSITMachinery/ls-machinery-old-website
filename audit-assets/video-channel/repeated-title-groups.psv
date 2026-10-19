@@ -1,0 +1,14 @@
+group_id|normalized_title|video_id|format|listing_duration|finding
+G1|Air Mixer|nfjHT29efVo|video|0:22|same title; different listed durations; footage not compared
+G1|Air Mixer|-1YDdZt8SWI|video|2:18|same title; different listed durations; footage not compared
+G2|Automatic Dough Sheeter|aBLIP2AsTe4|video|1:24|same title; different listed durations; footage not compared
+G2|Automatic Dough Sheeter|riJuW354LMk|video|1:08|same title; different listed durations; footage not compared
+G2|Automatic Dough Sheeter|LGpKBjdCWTA|video|1:16|same title; different listed durations; footage not compared
+G3|Continuous Dough Segmentation|WibaeYEEfpM|video|0:55|same title across formats; footage not compared
+G3|Continuous Dough Segmentation|nSeR5D5Fri0|short||same title across formats; short duration not present on listing
+G4|Fully Automatic Jar Filling Packaging Line|95VxewbeZY8|video|2:18|same title; different listed durations; footage not compared
+G4|Fully Automatic Jar Filling Packaging Line|EiL4AugUu7M|video|4:03|same title; different listed durations; footage not compared
+G5|Multipurpose Production Line 多样化生产线|JKolefbjkLM|video|1:18|same title and listed duration; openings differ; similar setup scene around 00:12, matching training scene and caption around 00:40, LS outro near 01:10; full sequence and audio not compared
+G5|Multipurpose Production Line 多样化生产线|8uc_nD3ptJs|video|1:18|same title and listed duration; openings differ; similar setup scene around 00:12, matching training scene and caption around 00:40, LS outro near 01:10; full sequence and audio not compared
+G6|Pancake Depositor|4L6Mix-t-a4|video|0:47|same title, 46-second duration and source description; sampled frames at 00:00, 00:10, 00:25 and 00:40 show matching imagery; full edits and audio not compared
+G6|Pancake Depositor|abwPqZSE8-k|video|0:47|same title, 46-second duration and source description; sampled frames at 00:00, 00:10, 00:25 and 00:40 show matching imagery; full edits and audio not compared

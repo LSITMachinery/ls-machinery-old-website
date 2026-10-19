@@ -3,11 +3,11 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const moduleDirectory = path.dirname(fileURLToPath(import.meta.url));
-export const SITE_ROOT = path.resolve(moduleDirectory, '../..');
+export const SITE_ROOT = path.resolve(process.env.CMS_SITE_ROOT || path.resolve(moduleDirectory, '../..'));
 export const SITE_LOCALES = Object.freeze(['en', 'zh', 'ms']);
 
 /**
- * @typedef {'homepage'|'machine-catalogue'|'machine-category'|'machine-detail'|'food-catalogue'|'food-detail'|'segment'|'solutions-index'|'solution-detail'|'services-overview'|'service-detail'|'company'|'insights'|'inquiry'|'privacy'|'search'} SiteTemplate
+ * @typedef {'homepage'|'machine-catalogue'|'machine-category'|'machine-detail'|'food-catalogue'|'food-detail'|'segment'|'solutions-index'|'solution-detail'|'services-overview'|'service-detail'|'company'|'insights'|'inquiry'|'privacy'|'search'|'video-library'} SiteTemplate
  * @typedef {'en'|'zh'|'ms'} SiteLocale
  * @typedef {{ routeKey: string, template: SiteTemplate, paths: Readonly<Record<SiteLocale, string>>, generatedFiles: Readonly<Record<SiteLocale, string>> }} SiteRoute
  */
@@ -30,6 +30,7 @@ export function templateForRoute(routeKey) {
   if (routeKey === 'inquiry') return 'inquiry';
   if (routeKey === 'privacy') return 'privacy';
   if (routeKey === 'search') return 'search';
+  if (routeKey === 'videos') return 'video-library';
   throw new TypeError(`No site template is registered for route key: ${routeKey}`);
 }
 

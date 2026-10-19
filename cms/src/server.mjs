@@ -10,9 +10,9 @@ import os from 'node:os';
 import {
   constantTimeTextEqual, csrfFor, expiredSessionCookie, hashPassword,
   isLoopbackAddress, parseCookies, passwordError, randomToken,
-  requestOriginAllowed, sessionCookie, sessionHash, sha256, verifyPassword
+  requestOriginAllowed, sessionCookie, sessionHash, sha256, verifyPassword, localPreviewAccountAllowed
 } from './security.mjs';
-import { CONTENT_TYPES, CONTENT_SCHEMAS, CONTENT_DATA_FIELDS, LOCALES, PERMISSION_STATUSES, MATCH_STATUSES, validateContent, validateSlugRoute } from './schema.mjs';
+import { CONTENT_TYPES, CONTENT_SCHEMAS, CONTENT_DATA_FIELDS, LOCALES, PERMISSION_STATUSES, MATCH_STATUSES, requiresTechnicalReview, validateContent, validateSlugRoute } from './schema.mjs';
 import { PgRepository } from './repository.mjs';
 import { createSiteRegistry, SITE_ROOT } from './site-registry.mjs';
 import { parseWordPressWxr, listCpanelTarArchive, sha256Buffer } from './wordpress-import.mjs';
@@ -21,7 +21,7 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 const staticRoot = path.resolve(here, '..', 'public');
 const COOKIE_NAME = 'ls_cms_session';
 const SESSION_TTL_MS = 8 * 60 * 60 * 1000;
-const JSON_LIMIT = 1_500_000;
+const JSON_LIMIT = 8_000_000;
 const MEDIA_LIMIT = 100 * 1024 * 1024;
 const MIGRATION_LIMIT = 128 * 1024 * 1024;
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -40,7 +40,8 @@ function cmsTypeForTemplate(template) {
   return ({
     homepage:'home','machine-catalogue':'machine','machine-category':'machine','machine-detail':'machine',
     'food-catalogue':'food','food-detail':'food',segment:'segment','solutions-index':'solution','solution-detail':'solution',
-    'services-overview':'service','service-detail':'service',company:'company',insights:'insight',inquiry:'contact',privacy:'privacy',search:'search'
+    'services-overview':'service','service-detail':'service',company:'company',insights:'insight',inquiry:'contact',privacy:'privacy',search:'search',
+    'video-library':'video_library','video-index':'video_library','videos-index':'video_library'
   })[template] || null;
 }
 
@@ -61,8 +62,8 @@ function cmsFieldSchemas(records = []) {
       required: key === 'title', repeatable: key === 'sections', locales: LOCALES
     }));
     for (const key of CONTENT_DATA_FIELDS[type] || []) fields.push({
-      key: `data.${key}`, label: schemaLabel(key), kind: Array.isArray(example.data?.[key]) || ['strengths','demonstrations','applications','configurations','components','specifications','documents','relatedMachines','steps','questions','chapters','examples','requirements','companies'].includes(key) ? 'repeatable' : 'text',
-      required: type === 'machine' && key === 'modelCode', repeatable: ['strengths','demonstrations','applications','configurations','components','specifications','documents','relatedMachines','steps','questions','chapters','examples','requirements','companies'].includes(key), locales: []
+      key: `data.${key}`, label: schemaLabel(key), kind: Array.isArray(example.data?.[key]) || ['strengths','demonstrations','applications','configurations','components','specifications','documents','relatedMachines','steps','questions','chapters','examples','requirements','companies','videos','videoPlacements'].includes(key) ? 'repeatable' : 'text',
+      required: type === 'machine' && key === 'modelCode', repeatable: ['strengths','demonstrations','applications','configurations','components','specifications','documents','relatedMachines','steps','questions','chapters','examples','requirements','companies','videos','videoPlacements'].includes(key), locales: []
     });
     types[type] = { fields, allowedDataFields: CONTENT_DATA_FIELDS[type] || [], schemaVersion: schema.schemaVersion };
   }
@@ -290,7 +291,7 @@ function csrfOkay(request, rawToken, secret) {
   return constantTimeTextEqual(request.headers['x-csrf-token'], expected);
 }
 
-export function createCmsServer({ repository, csrfSecret, secureCookies = false, mediaRoot = path.resolve(process.env.CMS_DATA_DIR || path.join(here, '..', 'data'), 'media'), loginLimit = 8, loginWindowMinutes = 15 } = {}) {
+export function createCmsServer({ repository, csrfSecret, secureCookies = false, localPreview = false, mediaRoot = path.resolve(process.env.CMS_DATA_DIR || path.join(here, '..', 'data'), 'media'), loginLimit = 8, loginWindowMinutes = 15 } = {}) {
   if (!repository) throw new Error('A CMS repository is required.');
   if (typeof csrfSecret !== 'string' || Buffer.byteLength(csrfSecret) < 32) throw new Error('CMS_SESSION_SECRET must contain at least 32 bytes.');
   const server = http.createServer(async (request, response) => {
@@ -342,6 +343,7 @@ export function createCmsServer({ repository, csrfSecret, secureCookies = false,
         const candidateHash = account?.password_hash || account?.passwordHash || await dummyHashPromise;
         const matched = password.length <= 256 && await verifyPassword(password, candidateHash);
         if (!account || account.disabled || !matched) { plainError(response, 401, 'Email or passphrase is incorrect.'); return; }
+        if (!localPreviewAccountAllowed(account, { enabled: localPreview, secureCookies, host: request.headers.host })) { plainError(response, 403, 'This temporary account is available only in the local preview. Replace its password or disable the account before deployment.'); return; }
         await Promise.all([repository.clearLoginAttempts(limitKey), repository.clearLoginAttempts(ipLimitKey)]);
         const token = randomToken();
         await repository.createSession({ tokenHash: sessionHash(token), userId: account.id, expiresAt: new Date(Date.now() + SESSION_TTL_MS) });
@@ -353,7 +355,7 @@ export function createCmsServer({ repository, csrfSecret, secureCookies = false,
       const rawToken = cookies[COOKIE_NAME];
       const tokenHash = rawToken ? sessionHash(rawToken) : null;
       const session = tokenHash ? await repository.getSession(tokenHash) : null;
-      const user = session?.user || null;
+      const user = session?.user && localPreviewAccountAllowed(session.user, { enabled: localPreview, secureCookies, host: request.headers.host }) ? session.user : null;
       const requireUser = () => {
         if (!user) { request.resume(); plainError(response, 401, 'Sign in to use the CMS.'); return false; }
         return true;
@@ -662,7 +664,7 @@ export function createCmsServer({ repository, csrfSecret, secureCookies = false,
         const current = await repository.getContent(publishMatch[1]);
         if (!current) { plainError(response, 404, 'Content record not found.'); return; }
         if (current.version !== body.expectedVersion || current.revision?.id !== body.revisionId || body.confirmRevisionId !== body.revisionId) { plainError(response, 409, 'Publishing requires explicit confirmation of the current revision. Reload and confirm again.'); return; }
-        const requiredStatus = current.type === 'machine' ? 'ready_to_publish' : 'review_requested';
+        const requiredStatus = requiresTechnicalReview(current.type, current.revision?.fields) ? 'ready_to_publish' : 'review_requested';
         if (current.revision?.status !== requiredStatus) { plainError(response, 409, 'This revision has not completed its required reviews.'); return; }
         const job = await repository.createPublicationJob({ actorId: user.id, contentId: current.id, revisionId: body.revisionId });
         json(response, 202, { job });
@@ -814,7 +816,7 @@ async function main() {
   const repository = new PgRepository(pool);
   await repository.migrate();
   const server = createCmsServer({
-    repository, csrfSecret: secret, secureCookies: process.env.CMS_SECURE_COOKIE === '1',
+    repository, csrfSecret: secret, secureCookies: process.env.CMS_SECURE_COOKIE === '1', localPreview: process.env.CMS_LOCAL_PREVIEW === '1',
     mediaRoot: path.resolve(process.env.CMS_DATA_DIR || path.join(here, '..', 'data'), 'media')
   });
   const host = process.env.CMS_HOST || '127.0.0.1';

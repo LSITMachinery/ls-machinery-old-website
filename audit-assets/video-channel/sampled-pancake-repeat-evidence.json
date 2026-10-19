@@ -1,0 +1,61 @@
+{
+  "reviewedOn": "2026-10-18",
+  "groupId": "G6",
+  "title": "Pancake Depositor",
+  "decision": "strong_shared_footage_candidate_full_comparison_pending",
+  "videos": [
+    {
+      "youtubeId": "4L6Mix-t-a4",
+      "sourceUrl": "https://www.youtube.com/watch?v=4L6Mix-t-a4",
+      "uploadTimestamp": "2025-07-17T04:00:13-07:00",
+      "durationSeconds": 46,
+      "descriptionKey": "Dc549df49"
+    },
+    {
+      "youtubeId": "abwPqZSE8-k",
+      "sourceUrl": "https://www.youtube.com/watch?v=abwPqZSE8-k",
+      "uploadTimestamp": "2024-10-10T20:35:25-07:00",
+      "durationSeconds": 46,
+      "descriptionKey": "Dc549df49"
+    }
+  ],
+  "samples": [
+    {
+      "timeSeconds": 0,
+      "observation": "Both show the same Pancake Depositor title card and product close-up.",
+      "screenshots": [
+        "screenshots/duplicate-pancake-4L6Mix-t-a4-00s.png",
+        "screenshots/duplicate-pancake-abwPqZSE8-k-00s.png"
+      ]
+    },
+    {
+      "timeSeconds": 10,
+      "observation": "Both show the same depositor tray view and LS watermark placement.",
+      "screenshots": [
+        "screenshots/duplicate-pancake-4L6Mix-t-a4-10s.png",
+        "screenshots/duplicate-pancake-abwPqZSE8-k-10s.png"
+      ]
+    },
+    {
+      "timeSeconds": 25,
+      "observation": "Both show the same batter portions on the conveyor.",
+      "screenshots": [
+        "screenshots/duplicate-pancake-4L6Mix-t-a4-25s.png",
+        "screenshots/duplicate-pancake-abwPqZSE8-k-25s.png"
+      ]
+    },
+    {
+      "timeSeconds": 40,
+      "observation": "Both show the same browned product pieces. A small LS logo appears in different screen positions in the sampled frames.",
+      "screenshots": [
+        "screenshots/duplicate-pancake-4L6Mix-t-a4-40s.png",
+        "screenshots/duplicate-pancake-abwPqZSE8-k-40s.png"
+      ]
+    }
+  ],
+  "limits": [
+    "Only four frames from each video were visually compared.",
+    "The complete sequences, audio and informational coverage were not compared.",
+    "Do not remove either video or publish either as an approved duplicate decision based on these samples alone."
+  ]
+}

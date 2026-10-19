@@ -45,6 +45,16 @@ export function passwordError(password) {
   return null;
 }
 
+// Temporary credentials work only in an explicitly enabled local preview.
+// Replacing the stored password hash removes the temporary-password restriction.
+export function localPreviewAccountAllowed(account, { enabled = false, secureCookies = false, host = '' } = {}) {
+  const temporary = account?.localPreviewOnly || Boolean(account?.local_preview_password_hash && account.local_preview_password_hash === account.password_hash);
+  if (!temporary) return true;
+  if (!enabled || secureCookies) return false;
+  try { return ['localhost', '127.0.0.1', '[::1]'].includes(new URL(`http://${host}`).hostname); }
+  catch { return false; }
+}
+
 export function sessionHash(rawToken) {
   return sha256(rawToken);
 }

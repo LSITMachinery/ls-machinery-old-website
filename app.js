@@ -500,6 +500,8 @@
 
   function machineIndexPage() { return window.LSIndustrial.overview(designConfig('machines')); }
 
+  function videoLibraryPage() { return window.LSVideos.page(designConfig('videos')); }
+
   function foodIndexPage() {
     return `<section class="category-hero"><div class="section-wrap"><span class="eyebrow">${esc(t("navFood").toUpperCase())}</span><h1 class="display-title">${esc(tr("Browse by", "按食品类别浏览", "Terokai mengikut"))} <em>${esc(tr("what you make.", "您的产品。", "produk anda."))}</em></h1><div class="food-grid">${FOOD_GROUPS.map((food) => `<a class="food-card fade-in" href="${urlFor(`food/${slug(food.name)}`)}">${assetImage(sectionAsset("foods", slug(food.name)), "food-card-image", { sizes: "(max-width: 720px) 46vw, 25vw" })}<span class="food-name">${esc(localName(food.name))}</span><span class="card-arrow">↗</span></a>`).join("")}</div></div></section>${inquiryBandHtml()}`;
   }
@@ -535,6 +537,7 @@
     solution: { en: "Solutions", zh: "解决方案", ms: "Penyelesaian" },
     segment: { en: "Customer types", zh: "客户类型", ms: "Jenis pelanggan" },
     company: { en: "Company", zh: "公司", ms: "Syarikat" },
+    video: { en: "Videos", zh: "视频", ms: "Video" },
     insight: { en: "Insights", zh: "资讯", ms: "Wawasan" },
     faq: { en: "Questions", zh: "常见问题", ms: "Soalan" }
   };
@@ -566,6 +569,13 @@
       entries.push({ type, title: typeof title === "string" ? { en: title, zh: title, ms: title } : title, description: typeof description === "string" ? { en: description, zh: description, ms: description } : description, href, terms: values, names: flattenTerms([title, names]).map(normalizeSearchText), models, featured });
     };
     const localizedContent = Object.fromEntries(["en", "zh", "ms"].map(language => [language, getContent(language)]));
+    (window.LSVideos?.getVideos?.() || []).forEach(video => {
+      const localized=video.translations||{};
+      const title=Object.fromEntries(["en","zh","ms"].map(language=>[language,localized[language]?.title||video.sourceTitle||video.title||"LS video"]));
+      const description=Object.fromEntries(["en","zh","ms"].map(language=>[language,localized[language]?.summary||""]));
+      const id=video.youtubeId||video.id;
+      add("video",title,`videos?v=${encodeURIComponent(id)}`,description,[video.sourceTitle,video.sourceDescription,video.category,video.machineNames||[],video.foodApplications||[],...Object.values(localized).flatMap(value=>value?.searchTerms||[])],[],false);
+    });
     const allItems = allCatalogueItems();
     allItems.forEach(item => {
       const name = displayName(item.name);
@@ -728,6 +738,19 @@
         list.insertAdjacentHTML("beforeend", `<button class="discovery-more" type="button" data-search-more>${esc(tr("Show more matches", "显示更多结果", "Tunjukkan lebih banyak hasil"))}<span>${currentEntries.length} / ${filtered.length}</span></button>`);
       }
     };
+    window.LSCmsContent?.search?.(state.language).then(rows => {
+      if (!form.isConnected || !Array.isArray(rows)) return;
+      const remoteVideos = rows.filter(row => row?.type === "video" && row?.title && row?.route).map(row => {
+        const title = row.title;
+        const description = row.summary || row.description || "";
+        const localized = { en: title, zh: title, ms: title };
+        const route = String(row.route).replace(/^\/(?:zh|ms)\//, "/").replace(/^\//, "").replace(/\/$/, "");
+        return { type:"video", title:localized, description:{en:description,zh:description,ms:description}, href:route.replace(/^videos\//,"videos?") , terms:[title,description,row.terms||[],row.machineNames||[],row.foodApplications||[]].flat(Infinity).filter(Boolean), names:[normalizeSearchText(title)], models:[], featured:false };
+      });
+      if (!remoteVideos.length) return;
+      index = [...index.filter(entry => entry.type !== "video"), ...remoteVideos];
+      update(input.value, true);
+    }).catch(() => {});
     const score = (entry, query) => {
       const q = normalizeSearchText(query);
       if (!q) return 0;
@@ -876,6 +899,7 @@
     if (kind === "home" || kind === "") html = homePage();
     else if (kind === "privacy") html = window.LSBuyerResources.render(designConfig(route),route);
     else if (kind === "search") html = searchPage();
+    else if (kind === "videos") html = videoLibraryPage();
     else if (kind === "machines") html = value ? categoryPage(value) : machineIndexPage();
     else if (kind === "machine") html = productPage(value);
     else if (kind === "food") html = value ? foodPage(value) : foodIndexPage();
@@ -886,9 +910,15 @@
     else if (kind === "insights") html = genericOverviewPage(kind, value);
     else if (kind === "inquiry") html = inquirySection(routeParams.get("context") || "", routeParams.get("type") === "general");
     else html = notFoundPage();
+    window.LSVideos?.cleanup?.();
     window.LSDesign.cleanup?.();
     main.innerHTML = html.replace(/<section class="section-wrap section-pad solution-video-block">[\s\S]*?<\/section>/, "");
     document.getElementById("footer").innerHTML = pageFooter();
+    const exploreFooter=document.getElementById("footer").querySelector('.footer-links');
+    if(exploreFooter&&!exploreFooter.querySelector('[data-video-library-link]')){
+      const videoLink=document.createElement('a');videoLink.href=urlFor('videos');videoLink.dataset.videoLibraryLink='';videoLink.textContent=tr('Videos','视频','Video');
+      const machineLink=exploreFooter.querySelector('a[href="#machines"]');if(machineLink)machineLink.after(videoLink);else exploreFooter.append(videoLink);
+    }
     document.getElementById("footer").querySelectorAll('a[href="#company/project-process"]').forEach(link=>link.remove());
     document.getElementById("footer").querySelectorAll('a[href="/privacy/"]').forEach(link=>link.href=urlFor('privacy'));
     main.querySelectorAll('form[action="/search/"]').forEach(form=>form.action=urlFor('search'));
@@ -905,6 +935,8 @@
       if (!record || state.route !== route || state.language !== renderedLanguage) return;
       const meta = window.LSCmsContent.apply(main, record, renderedLanguage);
       if (meta) window.LSPageMetadata.update(route, meta);
+      if (route === "videos") window.LSVideos?.applyLibrary(main, record, renderedLanguage);
+      if (route.startsWith("machine/")) window.LSVideos?.applyMachine(main, record, renderedLanguage);
     }).catch(() => {});
     syncMotionControls();
     const inquiryLink = document.querySelector('[data-nav="inquiry"]');
@@ -915,6 +947,7 @@
     if(quickWhatsApp)quickWhatsApp.href=inquiryLinks({machine:quickContext,intent:route.startsWith('service')?'service':'consult',audience:route==='company/careers'?'careers':'sales'}).whatsapp;
     observeMotion();
     setupVideoMotion();
+    window.LSVideos.mount(main, designConfig(route));
     updateNav();
     setupCatalogueSearch();
     setupGlobalSearch();

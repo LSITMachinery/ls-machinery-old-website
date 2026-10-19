@@ -6,11 +6,12 @@ import { createSiteRegistry } from '../src/site-registry.mjs';
 test('local site baseline covers each registered route in all three languages with source evidence', async () => {
   const registry = createSiteRegistry();
   const records = await collectSiteBaseline({ registry });
-  assert.equal(registry.routeCount, 98);
+  assert.equal(registry.routeCount, 99);
   assert.equal(records.length, registry.routeCount);
-  assert.equal(registry.pageCount, 294);
+  assert.equal(registry.pageCount, 297);
   const routes = new Set(records.map(record => record.route));
-  assert.equal(routes.size, 98);
+  assert.equal(routes.size, 99);
+  assert.equal(records.find(record => record.route === '/videos/')?.type, 'video_library');
   assert.ok(records.every(record => ['en','zh','ms'].every(locale => record.fields.translations[locale])));
   assert.ok(records.every(record => record.sourceEvidence[0].assets && record.sourceEvidence.length === 4));
   assert.equal(records.filter(record => record.type === 'machine').some(record => 'data' in record.fields), false);

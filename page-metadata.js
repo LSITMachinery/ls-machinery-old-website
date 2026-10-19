@@ -18,7 +18,8 @@
     const heading=(h1?.textContent||'Page not found').replace(/\s+/g,' ').trim();
     const subtitle=document.querySelector('#main .machine-subtitle')?.textContent.trim();
     const headingTitle=route==='home'?homeTitle[language]:[heading,subtitle].filter(Boolean).join(' · ');
-    const title=`${cmsMeta.title||headingTitle} | ${brand[language]}`;
+    const videoTitle={en:'LS Machinery Videos',zh:'LS 设备视频',ms:'Video Mesin LS'}[language];
+    const title=`${cmsMeta.title||(route==='videos'?videoTitle:headingTitle)} | ${brand[language]}`;
     const lead=(document.querySelector('#main .machine-hero-copy .lede,#main .reference-hero-panel .lede,#main .pp-hero-copy p,#main .pp-solutions-intro p,#main .pp-insights-intro p,#main .lede,#main p')?.textContent||'').replace(/\s+/g,' ').trim();
     const description=String(cmsMeta.description||(language==='en'&&lead?`${heading} — ${lead}`:language!=='en'&&lead?lead:fallbackDescription[language])).replace(/\s+/g,' ').trim().slice(0,280);
     const canonical=origin+window.LSRouter.url(route,language).split('?')[0];

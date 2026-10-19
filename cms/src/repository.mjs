@@ -3,6 +3,7 @@ import { randomUUID } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildPublicRelease } from './publication.mjs';
+import { requiresTechnicalReview } from './schema.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 
@@ -10,7 +11,8 @@ function userView(row) {
   if (!row) return null;
   return {
     id: row.id, email: row.email, displayName: row.display_name,
-    role: row.role, disabled: row.disabled, createdAt: row.created_at
+    role: row.role, disabled: row.disabled, createdAt: row.created_at,
+    localPreviewOnly: Boolean(row.local_preview_password_hash && row.local_preview_password_hash === row.password_hash)
   };
 }
 
@@ -63,7 +65,7 @@ export class PgRepository {
     return rows[0].count;
   }
 
-  async bootstrapAdmin({ email, displayName, passwordHash }) {
+  async bootstrapAdmin({ email, displayName, passwordHash, localPreviewOnly = false }) {
     const client = await this.pool.connect();
     try {
       await client.query('BEGIN');
@@ -75,8 +77,8 @@ export class PgRepository {
         throw error;
       }
       const result = await client.query(
-        `INSERT INTO cms_users(email,display_name,role,password_hash)
-         VALUES($1,$2,'admin',$3) RETURNING *`, [email, displayName, passwordHash]
+        `INSERT INTO cms_users(email,display_name,role,password_hash,local_preview_password_hash)
+         VALUES($1,$2,'admin',$3,$4) RETURNING *`, [email, displayName, passwordHash, localPreviewOnly ? passwordHash : null]
       );
       await client.query(
         `INSERT INTO cms_audit_events(actor_id,action,entity_type,entity_id,details)
@@ -159,7 +161,7 @@ export class PgRepository {
 
   async getSession(tokenHash) {
     const { rows } = await this.pool.query(
-      `SELECT s.user_id,s.expires_at,u.id,u.email,u.display_name,u.role,u.disabled,u.created_at
+      `SELECT s.user_id,s.expires_at,u.id,u.email,u.display_name,u.role,u.disabled,u.created_at,u.password_hash,u.local_preview_password_hash
        FROM cms_sessions s JOIN cms_users u ON u.id=s.user_id
        WHERE s.token_hash=$1 AND s.expires_at>now()`, [tokenHash]
     );
@@ -586,13 +588,13 @@ export class PgRepository {
     try {
       await client.query('BEGIN');
       const { rows } = await client.query(
-        `SELECT i.*,r.workflow_status FROM cms_content_items i JOIN cms_content_revisions r ON r.id=i.head_revision_id
+        `SELECT i.*,r.workflow_status,r.fields FROM cms_content_items i JOIN cms_content_revisions r ON r.id=i.head_revision_id
          WHERE i.id=$1 FOR UPDATE`, [id]
       );
       if (!rows[0]) { const error = new Error('Content record not found.'); error.code = 'NOT_FOUND'; throw error; }
       const item = rows[0];
       if (item.lock_version !== expectedVersion || item.head_revision_id !== revisionId) { const error = new Error('The revision changed. Reload and review the current version.'); error.code = 'VERSION_CONFLICT'; throw error; }
-      if (item.content_type !== 'machine') { const error = new Error('Technical review is only used for machine records.'); error.code = 'INVALID_STATE'; throw error; }
+      if (!requiresTechnicalReview(item.content_type, item.fields)) { const error = new Error('This record does not require technical review.'); error.code = 'INVALID_STATE'; throw error; }
       if (item.workflow_status !== 'review_requested') { const error = new Error('This revision has not been submitted for review.'); error.code = 'INVALID_STATE'; throw error; }
       await client.query('DELETE FROM cms_technical_reviews WHERE revision_id=$1', [revisionId]);
       await client.query(
@@ -628,9 +630,10 @@ export class PgRepository {
       if (item.lock_version !== expectedVersion || item.head_revision_id !== revisionId || confirmedRevisionId !== revisionId) {
         const error = new Error('Publishing requires explicit confirmation of the current revision. Reload and confirm again.'); error.code = 'VERSION_CONFLICT'; throw error;
       }
-      const requiredStatus = item.content_type === 'machine' ? 'ready_to_publish' : 'review_requested';
+      const requiresReview = requiresTechnicalReview(item.content_type, item.fields);
+      const requiredStatus = requiresReview ? 'ready_to_publish' : 'review_requested';
       if (item.workflow_status !== requiredStatus) { const error = new Error('This revision has not completed its required reviews.'); error.code = 'REVIEW_REQUIRED'; throw error; }
-      if (item.content_type === 'machine') {
+      if (requiresReview) {
         const review = await client.query("SELECT 1 FROM cms_technical_reviews WHERE revision_id=$1 AND decision='approved'", [revisionId]);
         if (!review.rowCount) { const error = new Error('The technical reviewer must approve this exact revision before publishing.'); error.code = 'REVIEW_REQUIRED'; throw error; }
       }

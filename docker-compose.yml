@@ -31,6 +31,8 @@ services:
       CMS_HOST: 0.0.0.0
       CMS_PORT: 8412
       CMS_DATA_DIR: /data
+      CMS_SITE_ROOT: /site
+      CMS_LOCAL_PREVIEW: ${CMS_LOCAL_PREVIEW:-0}
       CMS_DB_HOST: database
       CMS_DB_PORT: 5432
       CMS_DB_NAME: ${CMS_DB_NAME:-ls_cms}
@@ -42,6 +44,8 @@ services:
       - "127.0.0.1:${CMS_HOST_PORT:-8412}:8412"
     volumes:
       - ls_cms_media:/data
+      - ./public-pages:/site/public-pages:ro
+      - ./assets:/site/assets:ro
     depends_on:
       database:
         condition: service_healthy

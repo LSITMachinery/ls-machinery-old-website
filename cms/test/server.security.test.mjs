@@ -7,9 +7,21 @@ import { FakeRepository } from './support/fake-repository.mjs';
 const SECRET='local-test-cms-secret-that-is-at-least-thirty-two-bytes';
 const PASSWORDS={admin:'Admin-Strong-Passphrase-2026!',editor:'Editor-Strong-Passphrase-2026!',reviewer:'Reviewer-Strong-Passphrase-2026!',publisher:'Publisher-Strong-Passphrase-2026!'};
 
+test('HTTP sign-in rejects a temporary account unless local preview is enabled', async(t)=>{
+  for (const enabled of [false,true]) {
+    const app=await harness({localPreview:enabled});t.after(app.close);
+    const visitor=client(app.base);
+    await request(visitor,'/api/cms/bootstrap',{method:'POST',csrf:false,body:{email:'temporary@example.test',displayName:'Temporary',password:PASSWORDS.admin}});
+    const account=app.repository.users[0];
+    account.local_preview_password_hash=account.password_hash;
+    const login=await request(visitor,'/api/cms/auth/login',{method:'POST',csrf:false,body:{email:account.email,password:PASSWORDS.admin}});
+    assert.equal(login.response.status,enabled?200:403);
+  }
+});
+
 async function harness(options={}) {
   const repository=new FakeRepository();
-  const server=createCmsServer({repository,csrfSecret:SECRET,loginLimit:options.loginLimit??8,mediaRoot:options.mediaRoot});
+  const server=createCmsServer({repository,csrfSecret:SECRET,loginLimit:options.loginLimit??8,mediaRoot:options.mediaRoot,localPreview:options.localPreview??false});
   await new Promise((resolve)=>server.listen(0,'127.0.0.1',resolve));
   const base=`http://127.0.0.1:${server.address().port}`;
   return {repository,base,close:()=>new Promise((resolve)=>server.close(resolve))};
